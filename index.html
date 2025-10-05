@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto  dark "><head>
+	<meta name="generator" content="Hugo 0.149.0">
+  
+  <title>Edgar E.J. Portfolio Website</title>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  />
+  <meta name="theme-color" content="" />
+  <meta name="description" content="Edgar E.J. Portfolio Website" />
+  <meta name="author" content="Edgar E.J." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/main.min.d0fee427a81b2ecc7a1a489500f9039700f04baf0e6d51f31a8bfc45d5cc5928.css"
+    integrity="sha256-0P7kJ6gbLsx6GkiVAPkDlwDwS68ObVHzGov8RdXMWSg="
+    crossorigin="anonymous"
+  />
+   
+
+  
+  <link href="css/lightbox.css" rel="stylesheet" />
+
+  <style>
+     
+    html {
+      touch-action: manipulation;
+      scroll-behavior: smooth;
+    }
+
+    .panel {
+      max-height: 0;
+      transition: 0.3s ease-out;
+    }
+
+    .profile-photo-container {
+      img {
+        max-width: 100%;
+      }
+    }
+     
+    .pagefind-ui__search-input {
+      color: black;
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      border: 1px solid gray;
+    }
+    .pagefind-ui__search-clear {
+      display: none;
+    }
+    .dark .pagefind-ui__search-input {
+      color: white;
+      background-color: #322d2d;
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      border: 1px solid gray;
+    }
+    .dark .pagefind-ui__search-input::placeholder {
+      color: #8f8f8f;
+    }
+    .chevron {
+      transition: 300ms linear rotate;
+    }
+    .active > .chevron {
+      transform: rotate(90deg);
+    }
+  </style>
+
+  <script>
+    const expandAccordion = (elem) => {
+      const allPanels = Array.from(document.querySelectorAll(".panel"));
+      const allAccordion = Array.from(document.querySelectorAll(".accordion"));
+
+      if (!elem.parentElement.classList.contains("active")) {
+        allAccordion.forEach((acc) => {
+          acc.classList.remove("active");
+        });
+        elem.parentElement.classList.add("active");
+        allPanels.forEach(function (elem) {
+          elem.style.maxHeight = null;
+        });
+        let activePanel = elem.parentElement.nextElementSibling;
+        if (
+          activePanel.id != "skill-panel" &&
+          document.querySelector("#skill-panel")
+        ) {
+          let skillBars = Array.from(
+            document.querySelectorAll("#skill-percent")
+          );
+          skillBars.forEach((elem) => {
+            elem.style.width = "0";
+          });
+        }
+        activePanel.style.maxHeight = activePanel.scrollHeight + "px";
+      }
+    };
+  </script>
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+
+    const setTheme = (theme) => {
+      html.classList.remove("light");
+      if (theme === "dark") {
+        html.classList.add("dark");
+        window.localStorage.setItem("theme", "dark");
+      } else {
+        html.classList.remove("dark");
+        window.localStorage.setItem("theme", "light");
+      }
+      fixThemeToggleIcon(theme);
+    };
+
+    const fixThemeToggleIcon = (theme) => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (themeToggle) {
+        if (theme === "dark") {
+          themeToggle.classList.remove("fa-moon");
+          themeToggle.classList.add("fa-sun");
+        } else {
+          themeToggle.classList.remove("fa-sun");
+          themeToggle.classList.add("fa-moon");
+        }
+      }
+    };
+
+    if (theme == null) {
+      if (html.classList.contains("dark")) {
+        theme = "dark";
+      } else if (html.classList.contains("light")) {
+        theme = "light";
+      } else {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (prefersDark) {
+          theme = "dark";
+        } else {
+          theme = "light";
+        }
+      }
+    }
+
+    setTheme(theme);
+
+    const toggleTheme = () => {
+      html.classList.contains("dark") ? setTheme("light") : setTheme("dark");
+    };
+
+    window.onload = () => {
+      fixThemeToggleIcon(theme);
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+
+  <body class="h-screen p-2 m-auto max-w-4xl flex flex-col bg-[url(/images/background-white.png)] dark:bg-[url(/images/background-gray.png)] bg-repeat bg-fixed bg-center">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-700 dark:border-gray-300 justify-between"
+>
+  <div>
+    
+    <a class="nav-menu-item" href="https://edgarej.github.io/">Home</a>
+    <a class="nav-menu-item" href="/blog">Journal</a>
+  </div>
+  <div>
+    <a class="mr-4" href="/search">
+      <i class="fas fa-search"></i>
+    </a>
+    
+    <i
+      class="fas fa-sun theme-toggle text-orange-500 hover:text-orange-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+      onclick="toggleTheme()"
+    ></i>
+  </div>
+</header>
+
+
+
+
+
+    
+    <main class="grow">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-2 sm py-2">
+  <div class="col-span-2">
+    <div class="bg-gray-300 dark:bg-darker drop-shadow-md p-2 rounded-lg">
+      <div class="flex flex-col justify-center">
+        <div
+  class="w-full p-2 flex justify-center align-middle profile-photo-container"
+>
+
+  <img
+    class="rounded-lg"
+    src="/images/profile.jpg"
+    alt="Edgar E.J."
+  />
+</div>
+
+        <div class="px-2 text-center">
+          <h1 class="mb-0">Edgar E.J.</h1>
+<h2 class="mb-0">Artist</h2>
+
+<div class="mb-4 flex flex-wrap justify-center">
+  
+  <div class="mx-2">
+    <a class="text-2xl" href="https://www.facebook.com/edgarej.mercado">
+      <i class="mt-1 fab fa-facebook"></i>
+    </a>
+  </div>
+  
+  <div class="mx-2">
+    <a class="text-2xl" href="https://cara.app/edgarej">
+      <i class="mt-1 fas fa-paint-brush"></i>
+    </a>
+  </div>
+  
+  <div class="mx-2">
+    <a class="text-2xl" href="https://www.artstation.com/edgarej">
+      <i class="mt-1 fab fa-artstation"></i>
+    </a>
+  </div>
+  
+  <div class="mx-2">
+    <a class="text-2xl" href="https://www.linkedin.com/in/edgarej/">
+      <i class="mt-1 fab fa-linkedin-in"></i>
+    </a>
+  </div>
+  
+  <div class="mx-2">
+    <a class="text-2xl" href="https://www.youtube.com/@edgarej">
+      <i class="mt-1 fab fa-youtube"></i>
+    </a>
+  </div>
+  
+  <div class="mx-2">
+    <a class="text-2xl" href="https://www.instagram.com/edgarejmercado/">
+      <i class="mt-1 fab fa-instagram"></i>
+    </a>
+  </div>
+  
+  <div class="mx-2">
+    <a class="text-2xl" href="https://www.fab.com/sellers/Edgar%20E.J.">
+      <i class="mt-1 fas fa-paint-roller"></i>
+    </a>
+  </div>
+  
+</div>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-span-3 relative">
+    
+    <div class="px-2">
+      <h2 class="accordion active">
+        
+        <p
+         
+          onclick="expandAccordion(this)"
+          style="cursor: pointer"
+        >
+          <i class="fas fa-user"></i>
+          About Me</p>
+      </h2>
+
+      <div
+        class="panel overflow-hidden px-2 ml-2"
+        
+      >
+        <div class=""><p class="markdownify">
+  Hi, thank you for visiting my portfolio website. I am an artist who specializes in narrative illustration and character creation. I have a background in illustrating environments for interior design projects. I started out my career in the education industry working in various teaching positions. Currently I work as a freelance artist as well as a generalist for Cookies by Design. To see my full CV, check out my LinkedIn link in my socials menu. Also check out a portion of my art portfolio down below and on my art profile links. Read my thoughts and fiction in the journal link above, and watch my art tutorial videos on my YouTube.
+</p>
+</div>
+      </div>
+    </div>
+    
+    <div class="px-2">
+      <h2 class="accordion">
+        
+        <p
+         
+          onclick="expandAccordion(this)"
+          style="cursor: pointer"
+        >
+          <i class="fas fa-briefcase"></i>
+          Experiences</p>
+      </h2>
+
+      <div
+        class="panel overflow-hidden px-2 ml-2"
+        
+      >
+        <div class="">
+<h4 style="text-decoration: underline;">Freelance Artist</h4>
+<p class="mb-0">
+  2010 - <em>Present</em> &middot;  Self-Employed 
+</p>
+
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<ul>
+<li>Paint narrative illustrations in a realist style, crafting scenes with humor and strong storytelling using strong light and composition.</li>
+<li>Sculpt, model, unwrap, and paint 3D characters, focusing on painterly realism.</li>
+<li>Visualize interior design layouts using 3D paintovers, transforming floor plans into immersive, client-friendly presentations.</li>
+<li>Deliver highly detailed renderings of interior environments, effectively communicating material composition and structural elements of interior design concepts.</li>
+<li>Design SEO-optimized, responsive websites tailored to client goals. Utilize clean and intuitive code to enhance usability and engagement.</li>
+</ul>
+
+</div>
+
+
+
+<h4 style="text-decoration: underline;">Generalist</h4>
+<p class="mb-0">
+  2020 - Present &middot; 
+  <a href="https://www.cookiesbydesign.com/">Cookies by Design</a>
+  
+</p>
+
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<ul>
+<li>Coordinated with clients to develop a comprehensive design theme specific to customers&rsquo; confectionery needs. Revised design as necessary based on feedback.</li>
+<li>Worked collaboratively with team members to finalize cohesive concept designs for patrons.</li>
+<li>Secured and nurtured high-value contracts with nationwide corporations. Achieved a high client retention rate by tailoring product offerings and providing exceptional service.</li>
+</ul>
+
+</div>
+
+
+
+<h4 style="text-decoration: underline;">Teacher</h4>
+<p class="mb-0">
+  2007 - 2015 &middot;  Faith Family Academy, Golden Rule Charter Schools, Plano ISD 
+</p>
+
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<ul>
+<li>Instructed over 70 middle school students across 3+ classes in foundational art concepts, including the Elements of Art and Principles of Design; dynamically adjusted lesson plans based on real-time assessment of student engagement and comprehension.</li>
+<li>Led a specialized advanced art class of 23 students in producing and publishing the school’s monthly newspaper. Leveraged the class platform to teach design analysis, visual storytelling, and layout best practices, enhancing students’ critical thinking and creative expression skills.</li>
+<li>Led all technology operations as the school’s IT administrator, optimizing performance and reliability across 350+ student and faculty workstations. Improved system uptime, streamlined support response times, and drove tech-driven learning initiatives.</li>
+</ul>
+
+</div>
+
+
+
+</div>
+      </div>
+    </div>
+    
+    <div class="px-2">
+      <h2 class="accordion">
+        
+        <p
+         
+          onclick="expandAccordion(this)"
+          style="cursor: pointer"
+        >
+          <i class="fas fa-graduation-cap"></i>
+          Education</p>
+      </h2>
+
+      <div
+        class="panel overflow-hidden px-2 ml-2"
+        
+      >
+        <div class="">
+
+<h4 style="text-decoration: underline;">Bachelor of Arts (B.A.) - General Studies - Cum Laude Honors</h4>
+<p >2001 - 2005 &middot; University of North Texas</p>
+
+
+
+<h4 style="text-decoration: underline;">Associate of Arts - Communications Design</h4>
+<p >1998 - 2001 &middot; Collin College</p>
+
+
+</div>
+      </div>
+    </div>
+    
+    <div class="px-2">
+      <h2 class="accordion">
+        
+        <p
+         
+          onclick="expandAccordion(this)"
+          style="cursor: pointer"
+        >
+          <i class="fas fa-trophy"></i>
+          Honors and Awards</p>
+      </h2>
+
+      <div
+        class="panel overflow-hidden px-2 ml-2"
+        
+      >
+        <div class="">
+<h4>
+  <a href="https://www.unt.edu/">Cum Laude Graduate</a>
+</h4>
+<p class="markdownify indent-8">Graduated University of Norh Texas with Honors</p>
+
+<h4>
+  <a href="https://krita-artists.org/">July 2025 Monthly Challenge Winner</a>
+</h4>
+<p class="markdownify indent-8">July 205 - Krita Artists</p>
+
+<h4>
+  <a href="https://discord.gg/artprof">Art Dare Honorable Mention</a>
+</h4>
+<p class="markdownify indent-8">July 2024 - Discord, Art Prof</p>
+
+<h4>
+  <a href="https://www.blendernation.com/">Featured Artist</a>
+</h4>
+<p class="markdownify indent-8">July 2023, July 2024 - Blendernation</p>
+
+<h4>
+  <a href="https://krita-artists.org/">Featured Artist</a>
+</h4>
+<p class="markdownify indent-8">December 2022, April 2020 - Krita Artists</p>
+
+<h4>
+  <a href="https://www.unt.edu/">Invited Art Show Participant - Spring Showcase</a>
+</h4>
+<p class="markdownify indent-8">May 2004 - SOVA Light Well</p>
+
+<h4>
+  <a href="https://www.unt.edu/">Invited Art Show Participant - International Student Culture Week</a>
+</h4>
+<p class="markdownify indent-8">February 2003 - Union Gallery</p>
+
+</div>
+      </div>
+    </div>
+    
+    <div class="px-2">
+      <h2 class="accordion">
+        
+        <p
+         
+          onclick="expandAccordion(this)"
+          style="cursor: pointer"
+        >
+          <i class="fas fa-cogs"></i>
+          Skills</p>
+      </h2>
+
+      <div
+        class="panel overflow-hidden px-2 ml-2"
+        
+        id="skill-panel"
+        
+      >
+        <div class=""><script>
+  let skillPanel = document.querySelector("#skill-panel")
+    .previousElementSibling;
+  skillPanel.addEventListener("click", function() {
+    let skillBars = document.querySelectorAll("#skill-percent");
+    skillBars.forEach(elem => {
+      elem.style.width = elem.classList[0];
+    });
+  });
+</script>
+
+<code>Color Theory, Lighting and Rendering, Anatomy and Proportion, Composition and Framing, Value Control, Narrative Illustration, Speed Painting and Thumbnail Creation, Krita, Photoshop</code>
+
+
+
+<div class="w-100 mt-1 mb-3 border border-black dark:border-gray-300 rounded-sm" style="height: 1.25rem;">
+  <div id="skill-percent" class="98% bg-orange-500 dark:bg-yellow-700 h-full rounded-sm" style="width: 0; transition: all 0.5s;"></div>
+</div>
+
+<code>Form and Silhouette, Anatomy, Digital Sculpting, Poly Modeling, Retopology, UV Mapping and Unwrapping, Polypainting/Vertex Painting, Hand-painted Textures, Rendering</code>
+
+
+
+<div class="w-100 mt-1 mb-3 border border-black dark:border-gray-300 rounded-sm" style="height: 1.25rem;">
+  <div id="skill-percent" class="95% bg-orange-500 dark:bg-yellow-700 h-full rounded-sm" style="width: 0; transition: all 0.5s;"></div>
+</div>
+
+<code>Acrylics, Color Pencils, Watercolor Pencils</code>
+
+
+
+<div class="w-100 mt-1 mb-3 border border-black dark:border-gray-300 rounded-sm" style="height: 1.25rem;">
+  <div id="skill-percent" class="92% bg-orange-500 dark:bg-yellow-700 h-full rounded-sm" style="width: 0; transition: all 0.5s;"></div>
+</div>
+
+<code>Curriculum Development, Lesson Planning, Classroom Management, Behavioral Support, Lesson Modifications, Conflict Resolution, Mentorship, Professional Development</code>
+
+
+
+<div class="w-100 mt-1 mb-3 border border-black dark:border-gray-300 rounded-sm" style="height: 1.25rem;">
+  <div id="skill-percent" class="83% bg-orange-500 dark:bg-yellow-700 h-full rounded-sm" style="width: 0; transition: all 0.5s;"></div>
+</div>
+
+<code>HTML5, CSS3, Javascript, Responsive Design, Mobile First Development, Cross-Browser Compatability, Tailwind CSS, Bootstrap</code>
+
+
+
+<div class="w-100 mt-1 mb-3 border border-black dark:border-gray-300 rounded-sm" style="height: 1.25rem;">
+  <div id="skill-percent" class="78% bg-orange-500 dark:bg-yellow-700 h-full rounded-sm" style="width: 0; transition: all 0.5s;"></div>
+</div>
+
+
+
+
+
+</div>
+      </div>
+    </div>
+        
+  </div>
+</div>
+<div class="grid grid-cols-1">
+  
+  <h2 class="text-orange-500 dark:text-yellow-500">My Portfolio</h2>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+    <div>
+      <a href="images/portfolio/CLASSIC-Ok-to-Go.jpg" data-lightbox="portfolio"><img src="images/portfolio/CLASSIC-Ok-to-Go.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
+    </div>
+    <div>
+      <a href="images/portfolio/2025-EPCH01-Jewelry.jpg" data-lightbox="portfolio"><img src="images/portfolio/2025-EPCH01-Jewelry.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
+    </div>
+    <div>
+      <a href="images/portfolio/2025-EP03-Reflection.jpg" data-lightbox="portfolio"><img src="images/portfolio/2025-EP03-Reflection.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
+    </div>
+
+    <div>
+      <a href="images/portfolio/2021-11-25-Maya-Lynx.jpg" data-lightbox="portfolio"><img src="images/portfolio/2021-11-25-Maya-Lynx.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
+    </div>
+    <div>
+      <a href="images/portfolio/2021-01-29-Penguin-Troop.jpg" data-lightbox="portfolio"><img src="images/portfolio/2021-01-29-Penguin-Troop.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
+    </div>
+    <div>
+      <a href="images/portfolio/CLASSIC-3DHoodie.jpg" data-lightbox="portfolio"><img src="images/portfolio/CLASSIC-3DHoodie.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
+    </div>
+
+    <div>
+      <a href="images/portfolio/CLASSIC-Icy-Isolation.jpg" data-lightbox="portfolio"><img src="images/portfolio/CLASSIC-Icy-Isolation.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
+    </div>
+    <div>
+      <a href="images/portfolio/2018-02-12-Apocalypse-Centaur.jpg" data-lightbox="portfolio"><img src="images/portfolio/2018-02-12-Apocalypse-Centaur.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
+    </div>
+    <div>
+      <a href="images/portfolio/2025-EP17-Harujuku-Fashion.jpg" data-lightbox="portfolio"><img src="images/portfolio/2025-EP17-Harujuku-Fashion.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
+    </div>
+
+    <div>
+      <a href="images/portfolio/2025-EP02-Alien-Still-Life.jpg" data-lightbox="portfolio"><img src="images/portfolio/2025-EP02-Alien-Still-Life.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
+    </div>
+    <div>
+      <a href="images/portfolio/2021-02-18-Sworn-Enemies.jpg" data-lightbox="portfolio"><img src="images/portfolio/2021-02-18-Sworn-Enemies.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
+    </div>
+    <div>
+      <a href="images/portfolio/CLASSIC-Tricycle-Reader.jpg" data-lightbox="portfolio"><img src="images/portfolio/CLASSIC-Tricycle-Reader.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
+    </div>
+
+  </div>
+
+</div>
+<br>
+<div class="grid grid-cols-1">
+  
+  <footer class="text-sm text-center border-t border-gray-500  py-2 ">
+  <p class="markdownify">Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        Aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      Darshan.
+    </a>
+  </p>
+  
+  <p>
+    Theme modified by edgarej. 
+  </p>
+
+  
+</footer>
+
+</div>
+
+    </main>
+    
+
+    
+    <script src="js/lightbox-plus-jquery.js"></script>
+  </body>
+</html>
