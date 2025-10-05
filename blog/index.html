@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto  dark "><head>
+  
+  <title>Journal - Edgar E.J. Portfolio Website</title>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  />
+  <meta name="theme-color" content="" />
+  <meta name="description" content="Edgar E.J. Portfolio Website" />
+  <meta name="author" content="Edgar E.J." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/main.min.d0fee427a81b2ecc7a1a489500f9039700f04baf0e6d51f31a8bfc45d5cc5928.css"
+    integrity="sha256-0P7kJ6gbLsx6GkiVAPkDlwDwS68ObVHzGov8RdXMWSg="
+    crossorigin="anonymous"
+  />
+   
+
+  
+  <link href="css/lightbox.css" rel="stylesheet" />
+
+  <style>
+     
+    html {
+      touch-action: manipulation;
+      scroll-behavior: smooth;
+    }
+
+    .panel {
+      max-height: 0;
+      transition: 0.3s ease-out;
+    }
+
+    .profile-photo-container {
+      img {
+        max-width: 100%;
+      }
+    }
+     
+    .pagefind-ui__search-input {
+      color: black;
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      border: 1px solid gray;
+    }
+    .pagefind-ui__search-clear {
+      display: none;
+    }
+    .dark .pagefind-ui__search-input {
+      color: white;
+      background-color: #322d2d;
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      border: 1px solid gray;
+    }
+    .dark .pagefind-ui__search-input::placeholder {
+      color: #8f8f8f;
+    }
+    .chevron {
+      transition: 300ms linear rotate;
+    }
+    .active > .chevron {
+      transform: rotate(90deg);
+    }
+  </style>
+
+  <script>
+    const expandAccordion = (elem) => {
+      const allPanels = Array.from(document.querySelectorAll(".panel"));
+      const allAccordion = Array.from(document.querySelectorAll(".accordion"));
+
+      if (!elem.parentElement.classList.contains("active")) {
+        allAccordion.forEach((acc) => {
+          acc.classList.remove("active");
+        });
+        elem.parentElement.classList.add("active");
+        allPanels.forEach(function (elem) {
+          elem.style.maxHeight = null;
+        });
+        let activePanel = elem.parentElement.nextElementSibling;
+        if (
+          activePanel.id != "skill-panel" &&
+          document.querySelector("#skill-panel")
+        ) {
+          let skillBars = Array.from(
+            document.querySelectorAll("#skill-percent")
+          );
+          skillBars.forEach((elem) => {
+            elem.style.width = "0";
+          });
+        }
+        activePanel.style.maxHeight = activePanel.scrollHeight + "px";
+      }
+    };
+  </script>
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+
+    const setTheme = (theme) => {
+      html.classList.remove("light");
+      if (theme === "dark") {
+        html.classList.add("dark");
+        window.localStorage.setItem("theme", "dark");
+      } else {
+        html.classList.remove("dark");
+        window.localStorage.setItem("theme", "light");
+      }
+      fixThemeToggleIcon(theme);
+    };
+
+    const fixThemeToggleIcon = (theme) => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (themeToggle) {
+        if (theme === "dark") {
+          themeToggle.classList.remove("fa-moon");
+          themeToggle.classList.add("fa-sun");
+        } else {
+          themeToggle.classList.remove("fa-sun");
+          themeToggle.classList.add("fa-moon");
+        }
+      }
+    };
+
+    if (theme == null) {
+      if (html.classList.contains("dark")) {
+        theme = "dark";
+      } else if (html.classList.contains("light")) {
+        theme = "light";
+      } else {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (prefersDark) {
+          theme = "dark";
+        } else {
+          theme = "light";
+        }
+      }
+    }
+
+    setTheme(theme);
+
+    const toggleTheme = () => {
+      html.classList.contains("dark") ? setTheme("light") : setTheme("dark");
+    };
+
+    window.onload = () => {
+      fixThemeToggleIcon(theme);
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+
+  <body class="h-screen p-2 m-auto max-w-4xl flex flex-col bg-[url(/images/background-white.png)] dark:bg-[url(/images/background-gray.png)] bg-repeat bg-fixed bg-center">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-700 dark:border-gray-300 justify-between"
+>
+  <div>
+    
+    <a class="nav-menu-item" href="https://edgarej.github.io/">Home</a>
+    <a class="nav-menu-item" href="/blog">Journal</a>
+  </div>
+  <div>
+    <a class="mr-4" href="/search">
+      <i class="fas fa-search"></i>
+    </a>
+    
+    <i
+      class="fas fa-sun theme-toggle text-orange-500 hover:text-orange-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+      onclick="toggleTheme()"
+    ></i>
+  </div>
+</header>
+
+
+
+
+
+    
+    <main class="grow">
+<div class="prose dark:prose-invert max-w-none">
+  <h1 class="standard ">
+    Journal
+  </h1>
+  
+  <div class="">
+    <div
+      class="rounded-sm hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 active"
+    >
+      
+      <i
+        onclick="expandAccordion(this)"
+        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded-sm text-orange-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+      ></i>
+      <a href="/blog/2025/2025-10-04-first-post/"
+        ><h2 class="accordion m-0">Personal Blog is Back</h2></a
+      >
+    </div>
+    <div
+      id="panel-item-0"
+      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
+    >
+      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">October 4, 2025</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 2 minutes</p>
+ 
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
+  Categories: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/journal"
+    title="categories"
+  >
+    #journal</a>
+  
+</p>
+
+
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
+  Tags: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/journal"
+    title="tags"
+  >
+    #journal</a>
+  
+</p>
+
+
+</div>
+    </div>
+  </div>
+  
+  <div class="">
+    <div
+      class="rounded-sm hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 "
+    >
+      
+      <i
+        onclick="expandAccordion(this)"
+        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded-sm text-orange-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+      ></i>
+      <a href="/blog/2020/2020-06-21-the-trouble-with-likeness/"
+        ><h2 class="accordion m-0">The Trouble With Likeness</h2></a
+      >
+    </div>
+    <div
+      id="panel-item-1"
+      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
+    >
+      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">June 21, 2020</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 5 minutes</p>
+ 
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
+  Categories: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/journal"
+    title="categories"
+  >
+    #journal</a>
+  
+</p>
+
+
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
+  Tags: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/article"
+    title="tags"
+  >
+    #article</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/artnotes"
+    title="tags"
+  >
+    #artnotes</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/journal"
+    title="tags"
+  >
+    #journal</a>
+  
+</p>
+
+
+</div>
+    </div>
+  </div>
+  
+  <div class="">
+    <div
+      class="rounded-sm hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 "
+    >
+      
+      <i
+        onclick="expandAccordion(this)"
+        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded-sm text-orange-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+      ></i>
+      <a href="/blog/2020/2020-03-04-throwback-thursday-03042020/"
+        ><h2 class="accordion m-0">Throwback Thursday 03.04.2020</h2></a
+      >
+    </div>
+    <div
+      id="panel-item-2"
+      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
+    >
+      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">March 4, 2020</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 3 minutes</p>
+ 
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
+  Categories: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/journal"
+    title="categories"
+  >
+    #journal</a>
+  
+</p>
+
+
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
+  Tags: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/article"
+    title="tags"
+  >
+    #article</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/artnotes"
+    title="tags"
+  >
+    #artnotes</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/journal"
+    title="tags"
+  >
+    #journal</a>
+  
+</p>
+
+
+</div>
+    </div>
+  </div>
+  
+  <div class="">
+    <div
+      class="rounded-sm hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 "
+    >
+      
+      <i
+        onclick="expandAccordion(this)"
+        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded-sm text-orange-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+      ></i>
+      <a href="/blog/2020/2020-01-18-the-long-grind-vs-speed-painting/"
+        ><h2 class="accordion m-0">The Long Grind vs Speed Painting</h2></a
+      >
+    </div>
+    <div
+      id="panel-item-3"
+      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
+    >
+      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">January 18, 2020</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 5 minutes</p>
+ 
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
+  Categories: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/journal"
+    title="categories"
+  >
+    #journal</a>
+  
+</p>
+
+
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
+  Tags: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/article"
+    title="tags"
+  >
+    #article</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/artnotes"
+    title="tags"
+  >
+    #artnotes</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/journal"
+    title="tags"
+  >
+    #journal</a>
+  
+</p>
+
+
+</div>
+    </div>
+  </div>
+  
+  <div class="">
+    <div
+      class="rounded-sm hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 "
+    >
+      
+      <i
+        onclick="expandAccordion(this)"
+        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded-sm text-orange-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+      ></i>
+      <a href="/blog/2019/2019-12-04-conceptartorg-where-art-thou/"
+        ><h2 class="accordion m-0">Conceptart.org Where Art Thou</h2></a
+      >
+    </div>
+    <div
+      id="panel-item-4"
+      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
+    >
+      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">December 4, 2019</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 5 minutes</p>
+ 
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
+  Categories: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/journal"
+    title="categories"
+  >
+    #journal</a>
+  
+</p>
+
+
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
+  Tags: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/article"
+    title="tags"
+  >
+    #article</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/artnotes"
+    title="tags"
+  >
+    #artnotes</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/journal"
+    title="tags"
+  >
+    #journal</a>
+  
+</p>
+
+
+</div>
+    </div>
+  </div>
+  
+  <div class="">
+    <div
+      class="rounded-sm hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 "
+    >
+      
+      <i
+        onclick="expandAccordion(this)"
+        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded-sm text-orange-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+      ></i>
+      <a href="/blog/2019/2019-11-25-simplicity-rules/"
+        ><h2 class="accordion m-0">Simplicity Rules</h2></a
+      >
+    </div>
+    <div
+      id="panel-item-5"
+      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
+    >
+      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">November 25, 2019</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 4 minutes</p>
+ 
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
+  Categories: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/journal"
+    title="categories"
+  >
+    #journal</a>
+  
+</p>
+
+
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
+  Tags: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/article"
+    title="tags"
+  >
+    #article</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/artnotes"
+    title="tags"
+  >
+    #artnotes</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/journal"
+    title="tags"
+  >
+    #journal</a>
+  
+</p>
+
+
+</div>
+    </div>
+  </div>
+  
+  <div class="">
+    <div
+      class="rounded-sm hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 "
+    >
+      
+      <i
+        onclick="expandAccordion(this)"
+        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded-sm text-orange-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+      ></i>
+      <a href="/blog/2019/2019-10-13-norman-rockwell-vs-chuck-close/"
+        ><h2 class="accordion m-0">Norman Rockwell vs Chuck Close</h2></a
+      >
+    </div>
+    <div
+      id="panel-item-6"
+      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
+    >
+      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">October 13, 2019</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 3 minutes</p>
+ 
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
+  Categories: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/journal"
+    title="categories"
+  >
+    #journal</a>
+  
+</p>
+
+
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
+  Tags: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/article"
+    title="tags"
+  >
+    #article</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/artnotes"
+    title="tags"
+  >
+    #artnotes</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/journal"
+    title="tags"
+  >
+    #journal</a>
+  
+</p>
+
+
+</div>
+    </div>
+  </div>
+  
+  <div class="">
+    <div
+      class="rounded-sm hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 "
+    >
+      
+      <i
+        onclick="expandAccordion(this)"
+        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded-sm text-orange-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+      ></i>
+      <a href="/blog/2019/2019-10-07-traditional-vs-digital/"
+        ><h2 class="accordion m-0">Traditional Medium vs Digital Painting</h2></a
+      >
+    </div>
+    <div
+      id="panel-item-7"
+      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
+    >
+      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">October 7, 2019</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 2 minutes</p>
+ 
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
+  Categories: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/journal"
+    title="categories"
+  >
+    #journal</a>
+  
+</p>
+
+
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
+  Tags: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/article"
+    title="tags"
+  >
+    #article</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/artnotes"
+    title="tags"
+  >
+    #artnotes</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/journal"
+    title="tags"
+  >
+    #journal</a>
+  
+</p>
+
+
+</div>
+    </div>
+  </div>
+  
+  <div class="">
+    <div
+      class="rounded-sm hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 "
+    >
+      
+      <i
+        onclick="expandAccordion(this)"
+        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded-sm text-orange-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+      ></i>
+      <a href="/blog/2007/2007-12-28-christmas-eve-luncheon/"
+        ><h2 class="accordion m-0">Christmas Eve Luncheon</h2></a
+      >
+    </div>
+    <div
+      id="panel-item-8"
+      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
+    >
+      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">December 28, 2007</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 10 minutes</p>
+ 
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
+  Categories: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/fiction"
+    title="categories"
+  >
+    #fiction</a>
+  
+</p>
+
+
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
+  Tags: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/shortstory"
+    title="tags"
+  >
+    #shortstory</a>
+  
+</p>
+
+
+</div>
+    </div>
+  </div>
+  
+  <div class="">
+    <div
+      class="rounded-sm hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 "
+    >
+      
+      <i
+        onclick="expandAccordion(this)"
+        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded-sm text-orange-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+      ></i>
+      <a href="/blog/2007/2007-06-21-dancing-under-the-midnight-rain/"
+        ><h2 class="accordion m-0">Dancing Under the Midnight Rain</h2></a
+      >
+    </div>
+    <div
+      id="panel-item-9"
+      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
+    >
+      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">June 21, 2007</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 5 minutes</p>
+ 
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
+  Categories: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/fiction"
+    title="categories"
+  >
+    #fiction</a>
+  
+</p>
+
+
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
+  Tags: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/shortstory"
+    title="tags"
+  >
+    #shortstory</a>
+  
+</p>
+
+
+</div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="my-6 flex justify-center pagination-links">
+  
+</div>
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-500  py-6 ">
+  <p class="markdownify">Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        Aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      Darshan.
+    </a>
+  </p>
+  
+  <p>
+    Theme modified by edgarej. 
+  </p>
+
+  
+</footer>
+
+    
+
+    
+    <script src="js/lightbox-plus-jquery.js"></script>
+  </body>
+</html>

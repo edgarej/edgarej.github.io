@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto  dark "><head>
+  
+  <title>Throwback Thursday 03.04.2020 - Edgar E.J. Portfolio Website</title>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  />
+  <meta name="theme-color" content="" />
+  <meta name="description" content="Edgar E.J. Portfolio Website" />
+  <meta name="author" content="Edgar E.J." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/main.min.d0fee427a81b2ecc7a1a489500f9039700f04baf0e6d51f31a8bfc45d5cc5928.css"
+    integrity="sha256-0P7kJ6gbLsx6GkiVAPkDlwDwS68ObVHzGov8RdXMWSg="
+    crossorigin="anonymous"
+  />
+   
+
+  
+  <link href="css/lightbox.css" rel="stylesheet" />
+
+  <style>
+     
+    html {
+      touch-action: manipulation;
+      scroll-behavior: smooth;
+    }
+
+    .panel {
+      max-height: 0;
+      transition: 0.3s ease-out;
+    }
+
+    .profile-photo-container {
+      img {
+        max-width: 100%;
+      }
+    }
+     
+    .pagefind-ui__search-input {
+      color: black;
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      border: 1px solid gray;
+    }
+    .pagefind-ui__search-clear {
+      display: none;
+    }
+    .dark .pagefind-ui__search-input {
+      color: white;
+      background-color: #322d2d;
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      border: 1px solid gray;
+    }
+    .dark .pagefind-ui__search-input::placeholder {
+      color: #8f8f8f;
+    }
+    .chevron {
+      transition: 300ms linear rotate;
+    }
+    .active > .chevron {
+      transform: rotate(90deg);
+    }
+  </style>
+
+  <script>
+    const expandAccordion = (elem) => {
+      const allPanels = Array.from(document.querySelectorAll(".panel"));
+      const allAccordion = Array.from(document.querySelectorAll(".accordion"));
+
+      if (!elem.parentElement.classList.contains("active")) {
+        allAccordion.forEach((acc) => {
+          acc.classList.remove("active");
+        });
+        elem.parentElement.classList.add("active");
+        allPanels.forEach(function (elem) {
+          elem.style.maxHeight = null;
+        });
+        let activePanel = elem.parentElement.nextElementSibling;
+        if (
+          activePanel.id != "skill-panel" &&
+          document.querySelector("#skill-panel")
+        ) {
+          let skillBars = Array.from(
+            document.querySelectorAll("#skill-percent")
+          );
+          skillBars.forEach((elem) => {
+            elem.style.width = "0";
+          });
+        }
+        activePanel.style.maxHeight = activePanel.scrollHeight + "px";
+      }
+    };
+  </script>
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+
+    const setTheme = (theme) => {
+      html.classList.remove("light");
+      if (theme === "dark") {
+        html.classList.add("dark");
+        window.localStorage.setItem("theme", "dark");
+      } else {
+        html.classList.remove("dark");
+        window.localStorage.setItem("theme", "light");
+      }
+      fixThemeToggleIcon(theme);
+    };
+
+    const fixThemeToggleIcon = (theme) => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (themeToggle) {
+        if (theme === "dark") {
+          themeToggle.classList.remove("fa-moon");
+          themeToggle.classList.add("fa-sun");
+        } else {
+          themeToggle.classList.remove("fa-sun");
+          themeToggle.classList.add("fa-moon");
+        }
+      }
+    };
+
+    if (theme == null) {
+      if (html.classList.contains("dark")) {
+        theme = "dark";
+      } else if (html.classList.contains("light")) {
+        theme = "light";
+      } else {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (prefersDark) {
+          theme = "dark";
+        } else {
+          theme = "light";
+        }
+      }
+    }
+
+    setTheme(theme);
+
+    const toggleTheme = () => {
+      html.classList.contains("dark") ? setTheme("light") : setTheme("dark");
+    };
+
+    window.onload = () => {
+      fixThemeToggleIcon(theme);
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+
+  <body class="h-screen p-2 m-auto max-w-4xl flex flex-col bg-[url(/images/background-white.png)] dark:bg-[url(/images/background-gray.png)] bg-repeat bg-fixed bg-center">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-700 dark:border-gray-300 justify-between"
+>
+  <div>
+    
+    <a class="nav-menu-item" href="https://edgarej.github.io/">Home</a>
+    <a class="nav-menu-item" href="/blog">Journal</a>
+  </div>
+  <div>
+    <a class="mr-4" href="/search">
+      <i class="fas fa-search"></i>
+    </a>
+    
+    <i
+      class="fas fa-sun theme-toggle text-orange-500 hover:text-orange-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+      onclick="toggleTheme()"
+    ></i>
+  </div>
+</header>
+
+
+
+
+
+    
+    <main class="grow">
+
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1">Throwback Thursday 03.04.2020</h1>
+  <p class="mb-1">March 4, 2020</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <p>I just ran in the rain yesterday. Depending on the kind of rain it is, it’s really fun to do so. Yesterday wasn’t too bad. It was a nice breezy 58 degrees Fahrenheit, so it wasn’t freezing weather to be running in. I had fun jogging along getting wet until halfway through a flash of lightning cut across the clouds. That was when I realized that it was that kind of rain… the kind of rain I reaaaallly shouldn’t be running in. At that point, I was already halfway through. To turn back around would be pointless, so I just kept running my route.</p>
+<p>Needless to say, I made it back alive without getting harmed by a single bolt of lightning. But this article really isn’t about my running activities… this article is really about this painting I made back in 2013;</p>
+
+
+
+<figure
+  id="figure-1"
+  class="mt-4 pt-2 text-center flex flex-col justify-center items-center"
+>
+  <img
+    class="rounded-sm"
+    src="storm.jpeg"
+    alt="painting of a kite flyer before a storm"
+    style="max-width: 90%; max-height: 95vh; min-width: 250px; min-height: 250px !important;"
+  />
+  
+  <figcaption class="mt-2">
+    Figure 1: <em>Real smart… flying a kite in a storm.</em>
+  </figcaption>
+  
+</figure>
+
+<p>This was a painting I made for Painting with a Twist… technically sort of. Around the time I made this, Painting with a Twist was holding an internal contest of sorts to see if their teachers (which was me) can come up with a painting to add to the companies’ roster of paintings. This was one of about three or four paintings I came up with for that event. I don’t remember if I ever submitted the entries I made. In all honesty, I wasn’t truly inspired to make the paintings. Why I even entered/attempted to enter the contest I’m not sure. I don’t really remember my line of reasoning back then. Maybe I was just being a “team player” I guess.</p>
+<p>Anyways… my whole point is that the kite flyer in my painting isn’t really a smart cookie… like how I wasn’t a smart cookie yesterday. I’ve been pondering my line of thought when I was making this painting. For the life of me, I can’t think of why I painted a kite flyer when the scene is stormy (or at least full of heavy clouds). Was I trying to make a statement with the painting? Cause I sure as heck could not remember… lol. The only thing I can assume is that I probably just wanted to paint a stormy scene, and I guess at the very last minute I decided to add the kite flyer just to add something else to the painting. Whether this was the case or I actually had an “active reasoning” for the kite flyer I do not know. All I know is that if I paint something with an “active reason” I am more than likely to remember the reason versus remembering a painting decision as a last-minute decision.</p>
+<p>But more than anything else, what I really want to point out in this whole article is this really good point: sometimes I paint just because I want to paint something spontaneous… there is no real logic to it. I painted an object/scene/person simply because I thought it looked cool. More than likely this was the case in the “kite flyer” dude in the painting. I painted him simply because I thought it looked cool in the middle of the stormy scene. So yeah… don’t ever believe the hype that art critics/historians/psychoanalysts say… because I guarantee you more than half the time an artist would paint something because he likes it, not because he is going through PTSD or whatever mumbo jumbo art critics/historians/psychoanalysts come up with. Art is not truly as deep as most people would like to think it is. Sometimes art is just simply “what’s cool.”</p>
+
+</div>
+</div>
+
+ <br>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    
+    <a
+      href="/blog/2020/2020-06-21-the-trouble-with-likeness/"
+      title="The Trouble With Likeness"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+    Newer Posts
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    Older Posts
+    
+    
+    <a
+      href="/blog/2020/2020-01-18-the-long-grind-vs-speed-painting/"
+      title="The Long Grind vs Speed Painting"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-500  py-6 ">
+  <p class="markdownify">Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        Aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      Darshan.
+    </a>
+  </p>
+  
+  <p>
+    Theme modified by edgarej. 
+  </p>
+
+  
+</footer>
+
+    
+
+    
+    <script src="js/lightbox-plus-jquery.js"></script>
+  </body>
+</html>
