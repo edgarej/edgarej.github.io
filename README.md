@@ -1,6 +1,11 @@
 ## Hi there 👋
 
-This will be the repository of my new portfolio website.
+This will be the repository of my new portfolio website. You can see my website live at https://edgarej.github.io. If you are seeing this message live, that means my website is under maintenance. In the meantime, check out my portfolio links:
+
+- [Artstation Portfolio](https://www.artstation.com/edgarej)
+- [Cara Portfolio](https://cara.app/edgarej)
+- [YouTube](https://www.youtube.com/@edgarej)
+- [linkedIn Profile](https://www.linkedin.com/in/edgarej/)
 
 <!--
 **edgarej/edgarej** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
