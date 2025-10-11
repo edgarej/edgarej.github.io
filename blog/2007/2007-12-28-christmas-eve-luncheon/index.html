@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto  dark "><head>
+  
+  <title>Christmas Eve Luncheon - Edgar E.J. Portfolio Website</title>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  />
+  <meta name="theme-color" content="" />
+  <meta name="description" content="Edgar E.J. Portfolio Website" />
+  <meta name="author" content="Edgar E.J." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/main.min.ecbdc4a20a3e9256b0a4cac578cab63fdcba052bf040778eeb4a08a9826f6f28.css"
+    integrity="sha256-7L3Eogo&#43;klawpMrFeMq2P9y6BSvwQHeO60oIqYJvbyg="
+    crossorigin="anonymous"
+  />
+   
+
+  
+  <link href="css/lightbox.css" rel="stylesheet" />
+
+  <style>
+     
+    html {
+      touch-action: manipulation;
+      scroll-behavior: smooth;
+    }
+
+    .panel {
+      max-height: 0;
+      transition: 0.3s ease-out;
+    }
+
+    .profile-photo-container {
+      img {
+        max-width: 100%;
+      }
+    }
+     
+    .pagefind-ui__search-input {
+      color: black;
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      border: 1px solid gray;
+    }
+    .pagefind-ui__search-clear {
+      display: none;
+    }
+    .dark .pagefind-ui__search-input {
+      color: white;
+      background-color: #322d2d;
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      border: 1px solid gray;
+    }
+    .dark .pagefind-ui__search-input::placeholder {
+      color: #8f8f8f;
+    }
+    .chevron {
+      transition: 300ms linear rotate;
+    }
+    .active > .chevron {
+      transform: rotate(90deg);
+    }
+  </style>
+
+  <script>
+    const expandAccordion = (elem) => {
+      const allPanels = Array.from(document.querySelectorAll(".panel"));
+      const allAccordion = Array.from(document.querySelectorAll(".accordion"));
+
+      if (!elem.parentElement.classList.contains("active")) {
+        allAccordion.forEach((acc) => {
+          acc.classList.remove("active");
+        });
+        elem.parentElement.classList.add("active");
+        allPanels.forEach(function (elem) {
+          elem.style.maxHeight = null;
+        });
+        let activePanel = elem.parentElement.nextElementSibling;
+        if (
+          activePanel.id != "skill-panel" &&
+          document.querySelector("#skill-panel")
+        ) {
+          let skillBars = Array.from(
+            document.querySelectorAll("#skill-percent")
+          );
+          skillBars.forEach((elem) => {
+            elem.style.width = "0";
+          });
+        }
+        activePanel.style.maxHeight = activePanel.scrollHeight + "px";
+      }
+    };
+  </script>
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+
+    const setTheme = (theme) => {
+      html.classList.remove("light");
+      if (theme === "dark") {
+        html.classList.add("dark");
+        window.localStorage.setItem("theme", "dark");
+      } else {
+        html.classList.remove("dark");
+        window.localStorage.setItem("theme", "light");
+      }
+      fixThemeToggleIcon(theme);
+    };
+
+    const fixThemeToggleIcon = (theme) => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (themeToggle) {
+        if (theme === "dark") {
+          themeToggle.classList.remove("fa-moon");
+          themeToggle.classList.add("fa-sun");
+        } else {
+          themeToggle.classList.remove("fa-sun");
+          themeToggle.classList.add("fa-moon");
+        }
+      }
+    };
+
+    if (theme == null) {
+      if (html.classList.contains("dark")) {
+        theme = "dark";
+      } else if (html.classList.contains("light")) {
+        theme = "light";
+      } else {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (prefersDark) {
+          theme = "dark";
+        } else {
+          theme = "light";
+        }
+      }
+    }
+
+    setTheme(theme);
+
+    const toggleTheme = () => {
+      html.classList.contains("dark") ? setTheme("light") : setTheme("dark");
+    };
+
+    window.onload = () => {
+      fixThemeToggleIcon(theme);
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+
+  <body class="h-screen p-2 m-auto max-w-4xl flex flex-col bg-[url(/images/background-white.png)] dark:bg-[url(/images/background-gray.png)] bg-repeat bg-fixed bg-center">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-700 dark:border-gray-300 justify-between"
+>
+  <div>
+    
+    <a class="nav-menu-item" href="https://edgarej.github.io/">Home</a>
+    <a class="nav-menu-item" href="/blog">Journal</a>
+  </div>
+  <div>
+    <a class="mr-4" href="/search">
+      <i class="fas fa-search"></i>
+    </a>
+    
+    <i
+      class="fas fa-sun theme-toggle text-orange-500 hover:text-orange-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+      onclick="toggleTheme()"
+    ></i>
+  </div>
+</header>
+
+
+
+
+
+    
+    <main class="grow">
+
+<div class="prose prose-stone dark:prose-invert max-w-none">
+  <div class="mb-3">
+    <h1 class="top-h1">Christmas Eve Luncheon</h1>
+    
+    <p class="mb-1">December 28, 2007<br>
+      
+        Work of Fiction</p>
+      
+    <br>
+  </div>
+  <div class="content">
+    <p><em><strong>Note:</strong></em> This short story was originally published in livejournal. It is presented here in it&rsquo;s original form. A new version of this short story will be posted soon.</p>
+<h2 id="christmas-eve-luncheon">Christmas Eve Luncheon</h2>
+<p>Philip couldn&rsquo;t decipher where his melancholy is rooted in. Though it is the season for Philip&rsquo;s annual digression from his overall sunny disposition, the company that he is currently keeping doesn&rsquo;t stink of the proverbial sadness that has a tendency to blanket Philip. Philip knew his cycle all too well, knew that he have to do something about it. So with an ingenious late-night yuletide inspiration, he decided to round up his gang today to shield him from the onslaught of holiday blues. It&rsquo;s not that he is a depressive person; he just did not want to feel like he is <em>missing something</em> during this manic season.</p>
+<p>&ldquo;It was Philip&rsquo;s idea!&rdquo;</p>
+<p>Jane laughed out loud. Philip turned to his late night friend, the one who was keeping the sadness at bay last night, the one with the warm torch for the not so new Portland stranger. Jane proceeded to explain to their friends how at the stroke of midnight last night, Philip just had the overwhelming urge to call all his friends to invite them to a Christmas Eve luncheon. She vehemently stated that she was the sane one, trying to placate the mania that had possessed Philip in the middle of the night, urging him to reconsider the late- notice event that Philip was urgently planning. Philip laughs at Jane&rsquo;s remarks, noting ironically that it was her who did most of the calling.</p>
+<p>&ldquo;I had to wrestle the phone from you because you wouldn&rsquo;t stop screaming!&rdquo; Philip stated in his defense.</p>
+<p>&ldquo;No, crap. Midnight yelling to ruin my beauty sleep is a no-no, Janey-Oh. Where you drunk?&rdquo; Jessica asked.</p>
+<p>&ldquo;I swear I wasn&rsquo;t!&rdquo; Jane lied… her answer escaping through a mischievous grin. Jessica shakes her head in response to Jane&rsquo;s answer… her recently dyed jet-black hair shining its agreement to her dissent.</p>
+<p>The conversation then drifts, as conversation often does, to a non-sequitur string of thoughts meant to color the gray winter skies of Oregon. Philip was indeed in good company, enjoying a luncheon with good friends in a humble restaurant… so why does he still feel like he is missing something? He thought of his old home, but he can&rsquo;t say that he misses Texas. He is here now, in Portland… savoring the newness of something… new. He misses his old friends and family… yes… but it was his choice to change the shades of his reality… the old longing wasn&rsquo;t enough to resurrect a need to move back&hellip; to re-color his world into something more familiar.</p>
+
+<hr class="border-t border-black dark:border-white my-4" />
+
+
+<p>&ldquo;Snap!&rdquo; Kirby said to her phone speaker as she looks back into her side mirror. She just missed her turn.</p>
+<p>&ldquo;What happened?&rdquo; Her uncle asks.</p>
+<p>&ldquo;I missed the turn.&rdquo; Kirby states to her phone, as she deftly maneuvers her Honda Civic through the wet streets of the Hawthorne District.</p>
+<p>&ldquo;Kirby I told you that you didn&rsquo;t have to go all the way there for pizza. Joe&rsquo;s is just around the corner from grandmas.&rdquo;</p>
+<p>&ldquo;Campisis is better though.&rdquo;</p>
+<p>&ldquo;You had Campisis last Friday!&rdquo;</p>
+<p>&ldquo;Well, I&rsquo;m craving it again.&rdquo; Kirby doesn&rsquo;t know why she was craving it again. It seems odd to her to crave a certain kind of menu twice in less than a week, but she didn&rsquo;t think much of it. Something was calling her from the Hawthorne District today, and the only thing she could decipher in her hungry state of mind was that maybe she just wanted Campisis&rsquo; delicious Italian menu again. She didn&rsquo;t even pause to consider that something else might have been calling her from that area. All that was on her mind was the mission to secure a healthy serving of warm Italian food from the family-run restaurant. But now that she is driving the clogged, holiday-crazed streets of downtown Portland, she is beginning to re-consider her cravings. <em>Why the hell did I think of driving down this way? I knew that this street goes down to one lane… crap!</em></p>
+<p>&ldquo;Look uncle, I have to let you go.&rdquo; She said.</p>
+<p>&ldquo;Why? Road rage kicking in again?&rdquo;</p>
+<p>&ldquo;Shut up.&rdquo; Her uncle could only remark with a silent grin. His niece never listens. &ldquo;Hurry back up!&rdquo;</p>
+<p>&ldquo;I will. Bye.&rdquo; She said as she hangs up the phone.</p>
+<p>Kirby concentrates on driving, cursing her horrible luck at street maneuvers lately. <em>Why does it seem like I&rsquo;m doing way too many u-turns? Too many drivers out here! Why aren&rsquo;t any of you home? Why are you out driving?!? Go back home!!!</em> Kirby&rsquo;s silent tirade went on as she moves her car through a street where she could connect with east-bound Hawthorne Street. Her Civic was dutifully obeying her mistress despite the abrupt way her mistress handles her. After a few cursing-filled-moments on a side street, Kirby realizes that conquest might be near at hand. Her stress levels frantically waning when she senses that the mission objective is close to being achieved. <em>Finally! There&rsquo;s that street! Now where is that parking lot?</em></p>
+
+<hr class="border-t border-black dark:border-white my-4" />
+
+
+<p>&ldquo;I would have never thought Philip could come up with something like this.&rdquo; Zach muses, prompting Philip to give him a quizzical look.</p>
+<p>&ldquo;You make me sound like I&rsquo;m clueless, Zach.&rdquo;</p>
+<p>&ldquo;Well, Jess is always the one doing the planning.&rdquo; Miriam gleefully states in between pizza bites.</p>
+<p>&ldquo;I know right.&rdquo; Jess agrees… &ldquo;You guys should have heard Philip on the phone this morning… &lsquo;Oh crap! Now I have to plan something!&rsquo;&rdquo;</p>
+<p>Everyone laughs at Jessica&rsquo;s statement. They could all imagine Philip waking up in the morning, absent-mindedly wondering what his manic midnight self got himself into. Philip begins to explain how his Texas friends always have this tradition, a Christmas Eve luncheon. He said he wanted to resurrect the Texas tradition with his new group of friends.</p>
+<p>&ldquo;It&rsquo;s not like we don&rsquo;t have Nessa&rsquo;s thanksgiving tradition.&rdquo; Zach said, in reference to their <em>other</em> annual gathering.</p>
+<p>&ldquo;I know… but we also have a Texas thing, you know.&rdquo; Philip quietly said. &ldquo;I just wanted you guys to experience it.&rdquo;</p>
+<p>&ldquo;Well thank god at least you didn&rsquo;t make us wear cowboy hats!&rdquo; Vanessa triumphantly said, prompting everyone to laugh at the expense of the only Texan at the table. Philip laughs as he slowly gets up from the table. He wisely says…</p>
+<p>&ldquo;That sounds a lot like my exit cue right there.&rdquo;</p>
+<p>Philip starts to walk towards the back of the restaurant.</p>
+<p>&ldquo;Where you going?&rdquo; Miriam asks.</p>
+<p>&ldquo;To the bathroom.&rdquo; Philip turns around and looks at his crew. His smile was still pasted wide on his face. &ldquo;This little Texan needs a break from you guys!&rdquo;</p>
+<p>Philip was indeed in good company… <em>so why does he still feel like he is missing something?</em></p>
+
+<hr class="border-t border-black dark:border-white my-4" />
+
+
+<p>Kirby was at the counter, paying for her pre-ordered pizza. The worker helping Kirby dutifully takes her money, and then quietly retreats to the back of the restaurant, fetching the item that the blonde girl had been craving for. As Kirby waits to see if her mission was a triumph or not, she notices a dark haired girl in the middle of the restaurant. She looks familiar; Kirby ponders… she searches her memory banks for an image to answer the question of who this person could be. For some odd reason though, while Kirby wonders how she knows this girl, the person that keeps on popping in her head was an old friend of hers that she hasn&rsquo;t thought of in awhile… a Texas friend she shared a history with. <em>Why am I thinking of Philip today? I haven&rsquo;t seen him in four years… I wonder how he is.</em> The quiet worker at the counter intrudes Kirby&rsquo;s reflections. He is handing her the proof of Kirby&rsquo;s success at her mission.</p>
+<p>&ldquo;Thanks.&rdquo; Kirby says as she takes her food, looking at the dark haired girl in the middle of the restaurant… wondering why she thought of Philip when she saw the animated beauty.</p>
+
+<hr class="border-t border-black dark:border-white my-4" />
+
+
+<p>Philip was walking back from the restroom, looking at Jessica&rsquo;s fiery-black highlights bobbing spiritedly in conversation, when a sudden thought occurs to him. <em>I miss Kirby. That is who I miss. I don&rsquo;t know why… but I miss Kirby… California Kirby…</em> Philip couldn&rsquo;t even finish his train of thoughts before the smell assailed him… <em>that&rsquo;s why I&rsquo;m thinking of her. That smell… Kirby&rsquo;s perfume. It smells like Kirby in here.</em></p>
+<p>Philip&rsquo;s natural instinct was to look around, seeing if he could see another shred of proof to validate his initial reactions. He didn&rsquo;t see any familiar old faces though, not anywhere in the small family-run restaurant. All he sees are the faces of his friends drawn deeply into the myths of their festivities. <em>I wonder who is wearing Kirby&rsquo;s perfume…</em></p>
+<p>Philip reaches for his seat, mildly entertaining himself with notions of Kirby this… Kirby that… <em>Where is Kirby now?</em></p>
+
+<hr class="border-t border-black dark:border-white my-4" />
+
+
+<p>Kirby was sitting in her car, poignantly considering the sudden burst of sunshine that broke free of the gray grips of the skies. The sun was quietly shining on the windows of the restaurant, casting a hard reflection on its surface. Any passerby would not be able to see the inside of the restaurant… the hard glare of the sun is keeping a permanent reflection on the window&rsquo;s surface. Kirby notes the reflection, a picture of the building across from the restaurant, decorated in the green and red hues of the holidays… the sudden ray of light casting a yellowish tone to the white pastel nature of the building. <em>That looks like a warm Texas afternoon… I wonder where Philip is right now.</em></p>
+<p>Kirby couldn&rsquo;t see the muse of her thoughts… couldn&rsquo;t see the material of her wishful thinking… couldn&rsquo;t see the person that is Philip behind the window. All she sees on the window of the restaurant is a reflection of Philip, in the colors of a past-Texas afternoon. <em>That reflected image looks like a warm Texas afternoon…</em></p>
+
+<hr class="border-t border-black dark:border-white my-4" />
+
+
+<p>Philip was still trying to figure out who in the restaurant could have Kirby&rsquo;s perfume when he had an uncanny feeling that he was being stared at. He looks outside into the parking lot and sees a blonde girl in a Honda Civic staring softly at him. He couldn&rsquo;t really decode the image properly. The reflection on the girl&rsquo;s front shield window is obscuring her, giving her a grayish anonymity that dulls the details Philip needs to realize who this girl is. The girl smiles quietly, that much Philip could see. But because of the obscured vision, Philip couldn&rsquo;t figure out if she is smiling at him, or smiling in general. Before he could come to a conclusion though, the blonde had deftly maneuvered out of her parking spot and was gone before Philip could get a better look.</p>
+<p>Philip did not get to dwell much on this line of thought. Before long he was amusingly chatting with his friends again, not thinking twice of the strange girl in the car. Philip didn&rsquo;t realize that the blonde stranger in the car made him stop thinking about Kirby… an old friend of his that he misses.</p>
+
+<hr class="border-t border-black dark:border-white my-4" />
+
+
+<p>Kirby was painting the scene from her head… the side window of Campisis illuminated by a sunny Texas image. She caresses her canvas roughly with the torn brushes of her passion. She hasn&rsquo;t had an urge to paint in forever… but with the thought of a Texas afternoon fresh on her mind, she feels like she has to feed this hunger of <em>missing</em> now, before the inspiration completely flees out of her grasp and back into oblivion.</p>
+<p>&ldquo;Kirby! Your pizza is getting cold!&rdquo; Her uncle screams from somewhere down below in the living room.</p>
+<p>&ldquo;I&rsquo;m not hungry anymore!&rdquo;</p>
+<p>Kirby hears her uncle grumble something…</p>
+<p>&ldquo;Suit yourself.&rdquo; Her uncle finally said out loud.</p>
+<p><em>I can&rsquo;t stop now uncle… I can&rsquo;t. I haven&rsquo;t painted in so long. I need to do this now… before my muse leaves.</em></p>
+<p>Kirby silently thanks the universe for her odd craving for Campisis. If it weren&rsquo;t for that odd craving, she wouldn&rsquo;t have witnessed that scene that unfolded in downtown Portland… she wouldn&rsquo;t have been inspired to kiss the canvas again with her torn brushes. She realizes now that her hunger wasn&rsquo;t really for food… her hunger was for a muse that she had been missing for quite some time… a muse that pasted itself on the romantic-less surface of a window in a downtown restaurant.</p>
+<p><em>A warm Texas afternoon… yes, that is what that image looked like.</em></p>
+<p>An amusing thought crosses Kirby&rsquo;s reality…</p>
+<p><em>Philip, wherever you are… this painting is for you. This warm Texas afternoon is for you…</em></p>
+<p>
+<hr class="border-t border-black dark:border-white my-4" />
+
+
+<strong>Disclaimer:</strong> This is a work of fiction. Names, characters, businesses, places, events, and incidents are a product of my imagination and are used fictitiously. Any resemblance to actual persons, living or dead, or actual events is purely coincidental.</p>
+
+  </div>
+</div>
+
+<br>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    
+    <a
+      href="/blog/2019/2019-10-07-traditional-vs-digital/"
+      title="Traditional Medium vs Digital Painting"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+    Newer Posts
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    Older Posts
+    
+    
+    <a
+      href="/blog/2007/2007-06-21-dancing-under-the-midnight-rain/"
+      title="Dancing Under the Midnight Rain"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-500  py-6 ">
+  <p class="markdownify">Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        Aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      Darshan.
+    </a>
+  </p>
+  
+  <p>
+    Theme modified by edgarej. 
+  </p>
+
+  
+</footer>
+
+    
+
+    
+    <script src="js/lightbox-plus-jquery.js"></script>
+  </body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto  dark "><head>
+  
+  <title>Traditional Medium vs Digital Painting - Edgar E.J. Portfolio Website</title>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  />
+  <meta name="theme-color" content="" />
+  <meta name="description" content="Edgar E.J. Portfolio Website" />
+  <meta name="author" content="Edgar E.J." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/main.min.ecbdc4a20a3e9256b0a4cac578cab63fdcba052bf040778eeb4a08a9826f6f28.css"
+    integrity="sha256-7L3Eogo&#43;klawpMrFeMq2P9y6BSvwQHeO60oIqYJvbyg="
+    crossorigin="anonymous"
+  />
+   
+
+  
+  <link href="css/lightbox.css" rel="stylesheet" />
+
+  <style>
+     
+    html {
+      touch-action: manipulation;
+      scroll-behavior: smooth;
+    }
+
+    .panel {
+      max-height: 0;
+      transition: 0.3s ease-out;
+    }
+
+    .profile-photo-container {
+      img {
+        max-width: 100%;
+      }
+    }
+     
+    .pagefind-ui__search-input {
+      color: black;
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      border: 1px solid gray;
+    }
+    .pagefind-ui__search-clear {
+      display: none;
+    }
+    .dark .pagefind-ui__search-input {
+      color: white;
+      background-color: #322d2d;
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      border: 1px solid gray;
+    }
+    .dark .pagefind-ui__search-input::placeholder {
+      color: #8f8f8f;
+    }
+    .chevron {
+      transition: 300ms linear rotate;
+    }
+    .active > .chevron {
+      transform: rotate(90deg);
+    }
+  </style>
+
+  <script>
+    const expandAccordion = (elem) => {
+      const allPanels = Array.from(document.querySelectorAll(".panel"));
+      const allAccordion = Array.from(document.querySelectorAll(".accordion"));
+
+      if (!elem.parentElement.classList.contains("active")) {
+        allAccordion.forEach((acc) => {
+          acc.classList.remove("active");
+        });
+        elem.parentElement.classList.add("active");
+        allPanels.forEach(function (elem) {
+          elem.style.maxHeight = null;
+        });
+        let activePanel = elem.parentElement.nextElementSibling;
+        if (
+          activePanel.id != "skill-panel" &&
+          document.querySelector("#skill-panel")
+        ) {
+          let skillBars = Array.from(
+            document.querySelectorAll("#skill-percent")
+          );
+          skillBars.forEach((elem) => {
+            elem.style.width = "0";
+          });
+        }
+        activePanel.style.maxHeight = activePanel.scrollHeight + "px";
+      }
+    };
+  </script>
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+
+    const setTheme = (theme) => {
+      html.classList.remove("light");
+      if (theme === "dark") {
+        html.classList.add("dark");
+        window.localStorage.setItem("theme", "dark");
+      } else {
+        html.classList.remove("dark");
+        window.localStorage.setItem("theme", "light");
+      }
+      fixThemeToggleIcon(theme);
+    };
+
+    const fixThemeToggleIcon = (theme) => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (themeToggle) {
+        if (theme === "dark") {
+          themeToggle.classList.remove("fa-moon");
+          themeToggle.classList.add("fa-sun");
+        } else {
+          themeToggle.classList.remove("fa-sun");
+          themeToggle.classList.add("fa-moon");
+        }
+      }
+    };
+
+    if (theme == null) {
+      if (html.classList.contains("dark")) {
+        theme = "dark";
+      } else if (html.classList.contains("light")) {
+        theme = "light";
+      } else {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (prefersDark) {
+          theme = "dark";
+        } else {
+          theme = "light";
+        }
+      }
+    }
+
+    setTheme(theme);
+
+    const toggleTheme = () => {
+      html.classList.contains("dark") ? setTheme("light") : setTheme("dark");
+    };
+
+    window.onload = () => {
+      fixThemeToggleIcon(theme);
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+
+  <body class="h-screen p-2 m-auto max-w-4xl flex flex-col bg-[url(/images/background-white.png)] dark:bg-[url(/images/background-gray.png)] bg-repeat bg-fixed bg-center">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-700 dark:border-gray-300 justify-between"
+>
+  <div>
+    
+    <a class="nav-menu-item" href="https://edgarej.github.io/">Home</a>
+    <a class="nav-menu-item" href="/blog">Journal</a>
+  </div>
+  <div>
+    <a class="mr-4" href="/search">
+      <i class="fas fa-search"></i>
+    </a>
+    
+    <i
+      class="fas fa-sun theme-toggle text-orange-500 hover:text-orange-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+      onclick="toggleTheme()"
+    ></i>
+  </div>
+</header>
+
+
+
+
+
+    
+    <main class="grow">
+
+<div class="prose prose-stone dark:prose-invert max-w-none">
+  <div class="mb-3">
+    <h1 class="top-h1">Traditional Medium vs Digital Painting</h1>
+    
+    <p class="mb-1">October 7, 2019<br>
+      
+        Journal Entry</p>
+      
+    <br>
+  </div>
+  <div class="content">
+    <blockquote>
+<p>Why did I choose digital when inherently it has less value than oil and acrylic on canvas?</p></blockquote>
+<p>I originally wanted to do more research about this topic, but once I saw how deep the rabbit hole goes, I decided against it. The topic is immensely controversial. Digital art in of itself has no value compared to a tangible object such as an acrylic painting on canvas. But the commercial industry champions digital work. It is a much easier medium for the commercial industry to handle compare to traditional works.</p>
+
+
+
+<figure
+  id="figure-1"
+  class="mt-4 pt-2 text-center flex flex-col justify-center items-center"
+>
+  <img
+    class="rounded-sm"
+    src="nephews.png"
+    alt="Acrylic Paintings of the artists&#39; nephews"
+    style="max-width: 90%; max-height: 95vh; min-width: 250px; min-height: 250px !important;"
+  />
+  
+  <figcaption class="mt-2">
+    
+    <em>Acrylic Paintings of My Nephews</em>
+  </figcaption>
+  
+</figure>
+
+<p>In all honesty, I have no preference for working one or another. The majority of my artworks are in digital format, but I do have a growing collection of acrylic portrait paintings.</p>
+<p>I have art goals in mind. I do not want to publicly state what those goals are because my means to achieve those goals could change. Unless I can clearly see the path I’m going to walk down on, I will keep these art goals private for now. The reason I even mentioned the existence of these art goals is that these goals will dictate what medium of art I will be using.</p>
+<p>For now, I have a huge collection of digital paintings, and that might still be true in the future. What can potentially change is how big AND diverse my traditional art will get. All I have been painting with acrylic are portraits, but I definitely want to attempt more genres than this. I also want to attempt different media. I can’t wait to try oils (again), nor can I wait to get control of color pencils (I am still struggling with it). So in short, I can’t wait to see what the future holds.</p>
+
+  </div>
+</div>
+
+<br>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    
+    <a
+      href="/blog/2019/2019-10-13-norman-rockwell-vs-chuck-close/"
+      title="Norman Rockwell vs Chuck Close"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+    Newer Posts
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    Older Posts
+    
+    
+    <a
+      href="/blog/2007/2007-12-28-christmas-eve-luncheon/"
+      title="Christmas Eve Luncheon"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-500  py-6 ">
+  <p class="markdownify">Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        Aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      Darshan.
+    </a>
+  </p>
+  
+  <p>
+    Theme modified by edgarej. 
+  </p>
+
+  
+</footer>
+
+    
+
+    
+    <script src="js/lightbox-plus-jquery.js"></script>
+  </body>
+</html>

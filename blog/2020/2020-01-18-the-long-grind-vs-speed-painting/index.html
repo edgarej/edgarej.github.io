@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto  dark "><head>
+  
+  <title>The Long Grind vs Speed Painting - Edgar E.J. Portfolio Website</title>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  />
+  <meta name="theme-color" content="" />
+  <meta name="description" content="Edgar E.J. Portfolio Website" />
+  <meta name="author" content="Edgar E.J." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/main.min.ecbdc4a20a3e9256b0a4cac578cab63fdcba052bf040778eeb4a08a9826f6f28.css"
+    integrity="sha256-7L3Eogo&#43;klawpMrFeMq2P9y6BSvwQHeO60oIqYJvbyg="
+    crossorigin="anonymous"
+  />
+   
+
+  
+  <link href="css/lightbox.css" rel="stylesheet" />
+
+  <style>
+     
+    html {
+      touch-action: manipulation;
+      scroll-behavior: smooth;
+    }
+
+    .panel {
+      max-height: 0;
+      transition: 0.3s ease-out;
+    }
+
+    .profile-photo-container {
+      img {
+        max-width: 100%;
+      }
+    }
+     
+    .pagefind-ui__search-input {
+      color: black;
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      border: 1px solid gray;
+    }
+    .pagefind-ui__search-clear {
+      display: none;
+    }
+    .dark .pagefind-ui__search-input {
+      color: white;
+      background-color: #322d2d;
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      border: 1px solid gray;
+    }
+    .dark .pagefind-ui__search-input::placeholder {
+      color: #8f8f8f;
+    }
+    .chevron {
+      transition: 300ms linear rotate;
+    }
+    .active > .chevron {
+      transform: rotate(90deg);
+    }
+  </style>
+
+  <script>
+    const expandAccordion = (elem) => {
+      const allPanels = Array.from(document.querySelectorAll(".panel"));
+      const allAccordion = Array.from(document.querySelectorAll(".accordion"));
+
+      if (!elem.parentElement.classList.contains("active")) {
+        allAccordion.forEach((acc) => {
+          acc.classList.remove("active");
+        });
+        elem.parentElement.classList.add("active");
+        allPanels.forEach(function (elem) {
+          elem.style.maxHeight = null;
+        });
+        let activePanel = elem.parentElement.nextElementSibling;
+        if (
+          activePanel.id != "skill-panel" &&
+          document.querySelector("#skill-panel")
+        ) {
+          let skillBars = Array.from(
+            document.querySelectorAll("#skill-percent")
+          );
+          skillBars.forEach((elem) => {
+            elem.style.width = "0";
+          });
+        }
+        activePanel.style.maxHeight = activePanel.scrollHeight + "px";
+      }
+    };
+  </script>
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+
+    const setTheme = (theme) => {
+      html.classList.remove("light");
+      if (theme === "dark") {
+        html.classList.add("dark");
+        window.localStorage.setItem("theme", "dark");
+      } else {
+        html.classList.remove("dark");
+        window.localStorage.setItem("theme", "light");
+      }
+      fixThemeToggleIcon(theme);
+    };
+
+    const fixThemeToggleIcon = (theme) => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (themeToggle) {
+        if (theme === "dark") {
+          themeToggle.classList.remove("fa-moon");
+          themeToggle.classList.add("fa-sun");
+        } else {
+          themeToggle.classList.remove("fa-sun");
+          themeToggle.classList.add("fa-moon");
+        }
+      }
+    };
+
+    if (theme == null) {
+      if (html.classList.contains("dark")) {
+        theme = "dark";
+      } else if (html.classList.contains("light")) {
+        theme = "light";
+      } else {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (prefersDark) {
+          theme = "dark";
+        } else {
+          theme = "light";
+        }
+      }
+    }
+
+    setTheme(theme);
+
+    const toggleTheme = () => {
+      html.classList.contains("dark") ? setTheme("light") : setTheme("dark");
+    };
+
+    window.onload = () => {
+      fixThemeToggleIcon(theme);
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+
+  <body class="h-screen p-2 m-auto max-w-4xl flex flex-col bg-[url(/images/background-white.png)] dark:bg-[url(/images/background-gray.png)] bg-repeat bg-fixed bg-center">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-700 dark:border-gray-300 justify-between"
+>
+  <div>
+    
+    <a class="nav-menu-item" href="https://edgarej.github.io/">Home</a>
+    <a class="nav-menu-item" href="/blog">Journal</a>
+  </div>
+  <div>
+    <a class="mr-4" href="/search">
+      <i class="fas fa-search"></i>
+    </a>
+    
+    <i
+      class="fas fa-sun theme-toggle text-orange-500 hover:text-orange-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+      onclick="toggleTheme()"
+    ></i>
+  </div>
+</header>
+
+
+
+
+
+    
+    <main class="grow">
+
+<div class="prose prose-stone dark:prose-invert max-w-none">
+  <div class="mb-3">
+    <h1 class="top-h1">The Long Grind vs Speed Painting</h1>
+    
+    <p class="mb-1">January 18, 2020<br>
+      
+        Journal Entry</p>
+      
+    <br>
+  </div>
+  <div class="content">
+    <p>So to basically start this article on the right foot, I have to lay down some terms so we are all on the same page. The words “speed painting” gets misconstrued a lot. According to Wikipedia, “speed painting is an artistic technique where the artist has a limited time to finish the work.” The key words out of that sentence are “a limited time to finish the work.” Speed painting does not refer to a “speed up” video of someone doing artwork. The term for that is a “time-lapse” video. One can have a “time-lapse” video of one’s speed painting like I do on my YouTube channel. One can also have a “time-lapse” video of an artwork that is done in the span of months. I also have those kinds of videos on my YouTube channel.</p>
+<p>I have to make this distinction because a lot of people think that “time-lapse” is the same as “speed painting.” Too often I see artists who post 2-minute videos showing them do artwork and calling it a “speed painting” when it’s clearly not a speed painting. I can tell based on the amount of work they put in and the fact that they change shirts/outfits throughout the video. That signifies to me that they have worked on the piece for more than a day.</p>
+<p>The other term I want to define but somehow couldn’t because there’s no actual word for it is the “Long Grind.” For the purposes of this article, I refer to the “Long Grind” as in any artwork that took a lot of time to finish. It is artwork that is carefully layered over and over again to get to the final look. With that being said, let’s get to…</p>
+<h2 id="the-meat-of-it">The Meat of It</h2>
+<p>Hands down I love doing the Long Grind better. I talked a great deal about this subject matter in my “Mama’s Ice Cream” video. To simply put; developing images over long periods of time yield better results than speed paints. That practice is what I would call a sure bet. When one works on a piece for long periods of time, they can guarantee a better-looking result than a speed paint. My case in point;</p>
+
+
+
+<figure
+  id="figure-1"
+  class="mt-4 pt-2 text-center flex flex-col justify-center items-center"
+>
+  <img
+    class="rounded-sm"
+    src="hours.jpg"
+    alt="Comparison of a ten hour painting versus a forty four hour painting"
+    style="max-width: 90%; max-height: 95vh; min-width: 250px; min-height: 250px !important;"
+  />
+  
+  <figcaption class="mt-2">
+    
+    <em>Hours Worked Difference Guide</em>
+  </figcaption>
+  
+</figure>
+
+<p>As one can see above, there are significant improvements to be seen in the images that I worked on for longer periods of time. The Long Grind is pure skills at its finest.</p>
+<h2 id="in-defense-of-speed-painting">In defense of Speed Painting</h2>
+<p>Speed paints on the other hand though, provide a unique look that typically couldn’t be achieved with the Long Grind. In my “Mama’s Ice Cream” video, I talked heavily about Vincent Van Gogh’s “Starry Night.” I mentioned in the video that this particular painting of Van Gogh is immensely iconic. His interpretation of a star-filled night sky is so grand that it offered us a different way to look at our world. That kind of vibrant painting wouldn’t have been achieved by Van Gogh if he had been more analytical, less instinctive, and more aligned with the French Classical method of painting at that time. The French Classical method is pretty much what someone today would consider as the quintessential Long Grind.</p>
+<p>In the “Mama’s Ice Cream” speed paint above, I clearly made artistic decisions that I mentioned as being “brave” in my YouTube video. Some of the unconscious decisions that I thought were brave are the cop having a pink tie and the hooker looking a bit more naked. I was especially enamored with the cop’s pink tie in the fast version. Like I said in the video, there is no police department in the world that sports a pink tie in their uniform. So for me to have subconsciously chosen a pink tie for the police officer in the speed paint version is very cool. It was obvious in the polished version I had more time to rethink the fashion of the characters. But in the speed paint version, I had less time to be analytical and I was more instinctive. Being that instinctive led me to artistic decisions I wouldn’t have normally chosen.</p>
+<h2 id="so-what-exactly-am-i-trying-to-say">So What Exactly Am I Trying to Say?</h2>
+<p>After I had written all these thoughts down I suddenly have a nagging feeling that making a fuss about the Long Grind v Speed Paints seem unnecessary. How an artist approaches his/her work and the amount of time they spend on it is really up to them. Choosing one over the other doesn’t really make an artist better or worse. The only reason why I ever make a deal about it is because of my own inner contemplation of the original argument between Impressionism and French Classical method of painting. Impressionism is very much aligned with speed painting, while the French Classical method of painting is, like I already mentioned, your quintessential Long Grind. The inner artist in me keeps wondering… which art style should I practice?</p>
+<p>I realize now that I can honestly practice both. There is absolutely nothing wrong with that. I can practice the Long Grind in between bouts of Speed Paints. I think practicing both formats is good for my artistic development.</p>
+
+  </div>
+</div>
+
+<br>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    
+    <a
+      href="/blog/2020/2020-03-04-throwback-thursday-03042020/"
+      title="Throwback Thursday 03.04.2020"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+    Newer Posts
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    Older Posts
+    
+    
+    <a
+      href="/blog/2019/2019-12-04-conceptartorg-where-art-thou/"
+      title="Conceptart.org Where Art Thou"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-500  py-6 ">
+  <p class="markdownify">Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        Aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      Darshan.
+    </a>
+  </p>
+  
+  <p>
+    Theme modified by edgarej. 
+  </p>
+
+  
+</footer>
+
+    
+
+    
+    <script src="js/lightbox-plus-jquery.js"></script>
+  </body>
+</html>
