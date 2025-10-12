@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto  dark "><head>
+  
+  <title>Dating Small - Edgar E.J. Portfolio Website</title>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  />
+  <meta name="theme-color" content="" />
+  <meta name="description" content="Edgar E.J. Portfolio Website" />
+  <meta name="author" content="Edgar E.J." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/main.min.b3ef9de3b47e2ca8877cba66c450cb915e7c6c6481b3911da5a84d97ab34a0ea.css"
+    integrity="sha256-s&#43;&#43;d47R&#43;LKiHfLpmxFDLkV58bGSBs5EdpahNl6s0oOo="
+    crossorigin="anonymous"
+  />
+   
+
+  
+  <link href="css/lightbox.css" rel="stylesheet" />
+
+  <style>
+     
+    html {
+      touch-action: manipulation;
+      scroll-behavior: smooth;
+    }
+
+    .panel {
+      max-height: 0;
+      transition: 0.3s ease-out;
+    }
+
+    .profile-photo-container {
+      img {
+        max-width: 100%;
+      }
+    }
+     
+    .pagefind-ui__search-input {
+      color: black;
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      border: 1px solid gray;
+    }
+    .pagefind-ui__search-clear {
+      display: none;
+    }
+    .dark .pagefind-ui__search-input {
+      color: white;
+      background-color: #322d2d;
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      border: 1px solid gray;
+    }
+    .dark .pagefind-ui__search-input::placeholder {
+      color: #8f8f8f;
+    }
+    .chevron {
+      transition: 300ms linear rotate;
+    }
+    .active > .chevron {
+      transform: rotate(90deg);
+    }
+  </style>
+
+  <script>
+    const expandAccordion = (elem) => {
+      const allPanels = Array.from(document.querySelectorAll(".panel"));
+      const allAccordion = Array.from(document.querySelectorAll(".accordion"));
+
+      if (!elem.parentElement.classList.contains("active")) {
+        allAccordion.forEach((acc) => {
+          acc.classList.remove("active");
+        });
+        elem.parentElement.classList.add("active");
+        allPanels.forEach(function (elem) {
+          elem.style.maxHeight = null;
+        });
+        let activePanel = elem.parentElement.nextElementSibling;
+        if (
+          activePanel.id != "skill-panel" &&
+          document.querySelector("#skill-panel")
+        ) {
+          let skillBars = Array.from(
+            document.querySelectorAll("#skill-percent")
+          );
+          skillBars.forEach((elem) => {
+            elem.style.width = "0";
+          });
+        }
+        activePanel.style.maxHeight = activePanel.scrollHeight + "px";
+      }
+    };
+  </script>
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+
+    const setTheme = (theme) => {
+      html.classList.remove("light");
+      if (theme === "dark") {
+        html.classList.add("dark");
+        window.localStorage.setItem("theme", "dark");
+      } else {
+        html.classList.remove("dark");
+        window.localStorage.setItem("theme", "light");
+      }
+      fixThemeToggleIcon(theme);
+    };
+
+    const fixThemeToggleIcon = (theme) => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (themeToggle) {
+        if (theme === "dark") {
+          themeToggle.classList.remove("fa-moon");
+          themeToggle.classList.add("fa-sun");
+        } else {
+          themeToggle.classList.remove("fa-sun");
+          themeToggle.classList.add("fa-moon");
+        }
+      }
+    };
+
+    if (theme == null) {
+      if (html.classList.contains("dark")) {
+        theme = "dark";
+      } else if (html.classList.contains("light")) {
+        theme = "light";
+      } else {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (prefersDark) {
+          theme = "dark";
+        } else {
+          theme = "light";
+        }
+      }
+    }
+
+    setTheme(theme);
+
+    const toggleTheme = () => {
+      html.classList.contains("dark") ? setTheme("light") : setTheme("dark");
+    };
+
+    window.onload = () => {
+      fixThemeToggleIcon(theme);
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+
+  <body class="h-screen p-2 m-auto max-w-4xl flex flex-col bg-[url(/images/background-white.png)] dark:bg-[url(/images/background-gray.png)] bg-repeat bg-fixed bg-center">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-700 dark:border-gray-300 justify-between"
+>
+  <div>
+    
+    <a class="nav-menu-item" href="https://edgarej.github.io/">Home</a>
+    <a class="nav-menu-item" href="/blog">Journal</a>
+  </div>
+  <div>
+    <a class="mr-4" href="/search">
+      <i class="fas fa-search"></i>
+    </a>
+    
+    <i
+      class="fas fa-sun theme-toggle text-orange-500 hover:text-orange-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+      onclick="toggleTheme()"
+    ></i>
+  </div>
+</header>
+
+
+
+
+
+    
+    <main class="grow">
+
+<div class="prose prose-stone dark:prose-invert max-w-none">
+  <div class="mb-3">
+    <h1 class="top-h1">Dating Small</h1>
+    
+    <p class="mb-1">August 18, 2006<br>
+      
+        Work of Fiction</p>
+      
+      
+        <a href="/tags/shortstory">shortstory</a>
+      
+    <br>
+  </div>
+  <div class="content">
+    <p><em><strong>Note:</strong></em> This short story was originally published in livejournal. It is presented here in it&rsquo;s original form. A new version of this short story will be posted soon.</p>
+<h3 id="dating-small">Dating Small</h3>
+<p>Half of the passengers are early morning hawks, languishing in the language of snatched time. Devoid of rest, continuously seeking something that is always impermanent&hellip; they are the residents of Dallas&rsquo; premiere metro rail system. Half interested, half unaware – most don’t know that they are speaking the language of existentialism. They are wrapped in their own version of a Sisyphus moment, never realizing that they inwardly smile at their daily grind.</p>
+<p><em>They are caught in a snapshot moment&hellip; without anyone telling them to do a Kodak smile.</em></p>
+<p>I opened my copy of “Norton’s Anthology of World Masterpieces,” hoping to find amnesty from the dreaming population. It was still early; the cusp of the sun had barely kissed the skin of the sky. But I couldn’t read. The train is moving too erratically, and it didn’t take long for me to resign and put my relationship with a book on hold. None of the epiphanies were sticking to my head anyways, so it was very easy to let go of dead voices.</p>
+<p>I turn towards my companion, her head lightly resting against the window. She looks peaceful, even though the tell tale signs of weariness is still apparent on her. It’s pasted on her hand, beating to the monotone rhythm of the DART rail. Her form against the window rests in an awkward position. Sophie is taller than me by six inches, standing tall at five feet eleven inches. The small benches of the rail couldn’t hold her well, unless she’s sitting up. But she’s exhausted, and so she rested her form against the nurturing window as best as she can.</p>
+<p>Sophie sensed that I was looking at her, but she didn’t open her immaculate doe eyes. Instead, she reaches out for my hand. Her arms are moving as if fearing abandonment. I seek her out, silently portraying my loyalty. She grips my right hand hard, but I didn’t complain. I wanted to hold her as best as I can. I know the rail doesn’t hold her well&hellip; and I highly doubt that Dallas can do a better job. Not now anyways&hellip; Dallas has always welcome us well, but this last visit was painted with the colors of melancholy&hellip; composed of muted hues that don’t know how to smile. I was hoping my hands could be the smile that soothes her&hellip; the smile that could tame her wild sadness. Sophie is a good friend, and I wanted to return her fierce allegiance. <em>I am here Sophie&hellip; I am here.</em></p>
+<p>I look at the person in front of me, glancing beyond her shoulders, trying to focus on minute details that could easily vanish in a heartbeat. The lady was reading the Dallas Morning News. She was reading an article about the delays at the airport. London authorities just arrested some terrorists. They had a plot to reenact 9-11. Because of this alarming news, DFW airport authorities weren’t taking any chances. They had increased security, alienating would be weary travelers into the embarrassment of their own thoughts.</p>
+<p>A notion occurred to me, and I wanted to tell Sophie about my concern. I wanted to ask her whether or not she remembered not to pack a carry-on luggage. But when I turned around to look at her, I didn’t say anything. I don’t know why, but I just stared at the languid scenery she offered.</p>
+<p>Sophie quietly speaks.</p>
+<p>“Did you remember not to pack a carry-on luggage?”</p>
+<p>I smile. We were thinking the same thing.</p>
+<p>“Yes.”</p>
+<p>Sophie slowly opens her eyes as she yawns. She then sits up, slowly clinging herself onto my personal space. Her hand is still holding my hand.</p>
+<p>“I wish I was taller.”</p>
+<p>She looks at me, devoid of comprehension.</p>
+<p>“Why?”</p>
+<p>I wanted to make her smile. I want to make her smile. I hope to make her smile.</p>
+<p>“So I could marry a girl like you.”</p>
+<p>She looks at me oddly.</p>
+<p>“James, what are you trying to say?”</p>
+<p>I didn’t get to make her smile.</p>
+<p>“Nothing. I was just making polite conversation.”</p>
+<p>I couldn’t really understand her eyes. Her face I could understand. She’s weary. Her eyes&hellip; well, <em>I don’t know.</em></p>
+<p>“Polite conversations can turn into serious conversations.”</p>
+<p>I somewhat understand now.</p>
+<p>“And now is not the time&hellip;”</p>
+<p>“&hellip;for serous conversations.”</p>
+<p><em>We finish each other&rsquo;s sentences.</em></p>
+<p>But serious conversations have no room between our sentences&hellip; not now&hellip; not like this. The letters would never fully illustrate our true reality. <em>I agree with her words.</em></p>
+<p>She rests her head on my shoulders.</p>
+<p>She grips my hand tighter.</p>
+<p>Someone out there is writing an epiphany, and I could feel that epiphany looking too much like the image of Sophie and I. We were quietly stranded between the silk sheets of our friendship&hellip; torn apart and engulfed by the chaotic patterns of human traffic. We were peacefully together, <em>shot in a Kodak moment.</em> We were quiet for the rest of the trip to the airport. We barely spoke. We found ourselves swimming in our revelations, dreaming of Freudian reasons for the meaning of our <em>still</em> entangled hands. But even those dreams slowly faded away into mundane arrangements. I slowly started seeing how the train is swaying to the beat of dead love songs. I could tell by the early shadows it makes across the bitter floor. The songs sound too much like Tegan and Sara, but I won’t complain. I like Tegan and Sara. They sound nice&hellip; like this Kodak moment I have with Sophie. <em>It’s nice.</em></p>
+<p>Sophie and I dwelled in that image until we got to the airport. Quiet caricatures of someone’s wishful thinking&hellip; that’s what we were – and we played those characters <em>oh so well.</em> It wasn’t until we were in front of our departure gate, leaning on the window and watching planes as they seek freedom, that we finally reshaped the image. Sophie was the one who broke the magic of our Kodak moment. She did it to add another ingredient to the picture.</p>
+<p>“I didn’t mean to sound snappy when we were in the train.”</p>
+<p>I look at her, trying to understand those eyes again.</p>
+<p>“I didn’t really think you were. I just thought you were tired.”</p>
+<p>She smiles.</p>
+<p>She finally smiled.</p>
+<p>She finally smiled.</p>
+<p>I want to know why.</p>
+<p>But she didn’t tell me why&hellip;</p>
+<p>&hellip;she didn’t tell me why she smiled.</p>
+<p>“You’ve always been there for me James.”</p>
+<p>I smile.</p>
+<p>“Well&hellip; you’ve always been there for me Sophie&hellip;”</p>
+<p>She smiles again.</p>
+<p>I continue.</p>
+<p>“&hellip;and plus you always buy me beer.”</p>
+<p>She laughs.</p>
+<p>Her laughter was a nice ingredient to add to the mix. I barely heard that laugh the whole time we were in Dallas.</p>
+<p>She hesitates, her green eyes gleaming with something I couldn’t define.</p>
+<p>“I’ve always had a crush on you James.”</p>
+<p><em>My heart fell apart&hellip; rebuilt by Sophie’s immaculate doe eyes.</em></p>
+<p>I didn’t know how to respond.</p>
+<p>“I’ve always had a crush on you too Sophie.”</p>
+<p>She looks away for a second, and then looks at me again.</p>
+<p>“How come you never told me?”</p>
+<p>I sigh.</p>
+<p>“I never thought it would happen.”</p>
+<p>“Why did you think that?”</p>
+<p>I smile.</p>
+<p>“You’re too tall for me. I have nothing against it but&hellip;”</p>
+<p>“&hellip;you thought it might be awkward for me?”</p>
+<p>Pause.</p>
+<p>“Yes.”</p>
+<p>She grins.</p>
+<p>She reaches out for my hand again, but this time she just caresses it.</p>
+<p>“That’s so nice of you&hellip; always thinking of how it would feel to be me.”</p>
+<p>The Kodak moment approached us again. The background music to our movie is beginning to play.</p>
+<p>“I don’t want us to start out like this.”</p>
+<p>She says.</p>
+<p>I look away from her.</p>
+<p>“I know. You’re in mourning. Now is not the time.”</p>
+<p>She smiles.</p>
+<p>She reaches out to my face, touching it lightly.</p>
+<p>She quietly whispers.</p>
+<p>“Always thinking of how it would feel to be me.”</p>
+<p>I look at her again, discreetly deciphering the secrets of her eyes. She closes it as she grabs my face. She leans in. Our lips touch. Our lips caress. Our lips speak five hundred million colors. Her kiss is a lion’s kiss. Tender and fierce <em>– romantic.</em></p>
+<p>She breaks the kiss and looks at me again.</p>
+<p>“I thought you didn’t want anything to happen?”</p>
+<p>“I don’t. But I don’t know where life would lead us, and I don’t want to miss my one and only chance of remembering you like this.”</p>
+<p>“Remember me like what?”</p>
+<p>“Like you are the love of my life.”</p>
+<p>I leaned onto her, resting my head on her chest. She engulfs me as we look at planes, seeking freedom into the cerulean sky.</p>
+<p>We now have the perfect Kodak moment – trapped in a soliloquy of someone’s wishful thinking.</p>
+<p>Hold firm James.</p>
+<p>Hold firm.</p>
+<p>Don’t ever let go.</p>
+<p>Do not ever let go.</p>
+<p>There are reasons for why things are the way they are&hellip; but Kodak moments never need any explanations. Let the colors be James&hellip;</p>
+<p><em>&hellip;let the colors be.</em></p>
+<p>
+<hr class="border-t border-black dark:border-white my-4" />
+
+
+<strong>Disclaimer:</strong> This is a work of fiction. Names, characters, businesses, places, events, and incidents are a product of my imagination and are used fictitiously. Any resemblance to actual persons, living or dead, or actual events is purely coincidental.</p>
+
+  </div>
+</div>
+
+<br>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    
+    <a
+      href="/blog/2007/2007-06-21-dancing-under-the-midnight-rain/"
+      title="Dancing Under the Midnight Rain"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+    Newer Posts
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    Older Posts
+    
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-500  py-6 ">
+  <p class="markdownify">Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        Aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      Darshan.
+    </a>
+  </p>
+  
+  <p>
+    Theme modified by edgarej. 
+  </p>
+
+  
+</footer>
+
+    
+
+    
+    <script src="js/lightbox-plus-jquery.js"></script>
+  </body>
+</html>
