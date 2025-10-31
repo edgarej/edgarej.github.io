@@ -1,348 +1,395 @@
 <!DOCTYPE html>
-<html lang="en-us" class="m-auto  dark "><head>
-  
-  <title>Artnotes - Edgar E.J. Portfolio Website</title>
-  
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-  />
-  <meta name="theme-color" content="" />
-  <meta name="description" content="Edgar E.J. Portfolio Website" />
-  <meta name="author" content="Edgar E.J." />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
-    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
-  />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    rel="stylesheet"
-    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
-  />
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  
-  
-  
-  <link
-    rel="stylesheet"
-    href="/main.min.b3ef9de3b47e2ca8877cba66c450cb915e7c6c6481b3911da5a84d97ab34a0ea.css"
-    integrity="sha256-s&#43;&#43;d47R&#43;LKiHfLpmxFDLkV58bGSBs5EdpahNl6s0oOo="
-    crossorigin="anonymous"
-  />
-   
+<title itemprop="name">Artnotes | E.J.&#39;s Portfolio</title>
+<meta property="og:title" content="Artnotes | E.J.&#39;s Portfolio" />
+<meta name="twitter:title" content="Artnotes | E.J.&#39;s Portfolio" />
+<meta itemprop="name" content="Artnotes | E.J.&#39;s Portfolio" />
+<meta name="application-name" content="Artnotes | E.J.&#39;s Portfolio" />
+<meta property="og:site_name" content="E.J.&#39;s Portfolio" />
 
-  
-  <link href="css/lightbox.css" rel="stylesheet" />
+<meta name="description" content="Edgar E.J.&#39;s Portfolio Website">
+<meta itemprop="description" content="Edgar E.J.&#39;s Portfolio Website" />
+<meta property="og:description" content="Edgar E.J.&#39;s Portfolio Website" />
+<meta name="twitter:description" content="Edgar E.J.&#39;s Portfolio Website" />
 
-  <style>
-     
-    html {
-      touch-action: manipulation;
-      scroll-behavior: smooth;
-    }
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
 
-    .panel {
-      max-height: 0;
-      transition: 0.3s ease-out;
-    }
+  <link rel="alternate" hreflang="en" href="https://edgarej.github.io/tags/artnotes/" title="" />
 
-    .profile-photo-container {
-      img {
-        max-width: 100%;
-      }
-    }
-     
-    .pagefind-ui__search-input {
-      color: black;
-      width: 100%;
-      padding: 0.5em;
-      border-radius: 0.25em;
-      border: 1px solid gray;
-    }
-    .pagefind-ui__search-clear {
-      display: none;
-    }
-    .dark .pagefind-ui__search-input {
-      color: white;
-      background-color: #322d2d;
-      width: 100%;
-      padding: 0.5em;
-      border-radius: 0.25em;
-      border: 1px solid gray;
-    }
-    .dark .pagefind-ui__search-input::placeholder {
-      color: #8f8f8f;
-    }
-    .chevron {
-      transition: 300ms linear rotate;
-    }
-    .active > .chevron {
-      transform: rotate(90deg);
-    }
-  </style>
 
-  <script>
-    const expandAccordion = (elem) => {
-      const allPanels = Array.from(document.querySelectorAll(".panel"));
-      const allAccordion = Array.from(document.querySelectorAll(".accordion"));
 
-      if (!elem.parentElement.classList.contains("active")) {
-        allAccordion.forEach((acc) => {
-          acc.classList.remove("active");
-        });
-        elem.parentElement.classList.add("active");
-        allPanels.forEach(function (elem) {
-          elem.style.maxHeight = null;
-        });
-        let activePanel = elem.parentElement.nextElementSibling;
-        if (
-          activePanel.id != "skill-panel" &&
-          document.querySelector("#skill-panel")
-        ) {
-          let skillBars = Array.from(
-            document.querySelectorAll("#skill-percent")
-          );
-          skillBars.forEach((elem) => {
-            elem.style.width = "0";
-          });
-        }
-        activePanel.style.maxHeight = activePanel.scrollHeight + "px";
-      }
-    };
-  </script>
 
-  <script>
-    let html = document.querySelector("html");
-    let theme = window.localStorage.getItem("theme");
 
-    const setTheme = (theme) => {
-      html.classList.remove("light");
-      if (theme === "dark") {
-        html.classList.add("dark");
-        window.localStorage.setItem("theme", "dark");
-      } else {
-        html.classList.remove("dark");
-        window.localStorage.setItem("theme", "light");
-      }
-      fixThemeToggleIcon(theme);
-    };
 
-    const fixThemeToggleIcon = (theme) => {
-      let themeToggle = document.querySelector(".theme-toggle");
-      if (themeToggle) {
-        if (theme === "dark") {
-          themeToggle.classList.remove("fa-moon");
-          themeToggle.classList.add("fa-sun");
-        } else {
-          themeToggle.classList.remove("fa-sun");
-          themeToggle.classList.add("fa-moon");
-        }
-      }
-    };
+<meta name="generator" content="Hugo 0.149.0">
 
-    if (theme == null) {
-      if (html.classList.contains("dark")) {
-        theme = "dark";
-      } else if (html.classList.contains("light")) {
-        theme = "light";
-      } else {
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-        if (prefersDark) {
-          theme = "dark";
-        } else {
-          theme = "light";
-        }
-      }
-    }
+    
+    <meta property="og:url" content="https://edgarej.github.io/tags/artnotes/">
+  <meta property="og:site_name" content="E.J.&#39;s Portfolio">
+  <meta property="og:title" content="Artnotes">
+  <meta property="og:description" content="Edgar E.J.&#39;s Portfolio Website">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
 
-    setTheme(theme);
 
-    const toggleTheme = () => {
-      html.classList.contains("dark") ? setTheme("light") : setTheme("dark");
-    };
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Artnotes">
+  <meta name="twitter:description" content="Edgar E.J.&#39;s Portfolio Website">
 
-    window.onload = () => {
-      fixThemeToggleIcon(theme);
 
-      let defaultActivePanel = document.querySelector(".accordion.active");
-      if (defaultActivePanel) {
-        defaultActivePanel.nextElementSibling.style.maxHeight =
-          defaultActivePanel.nextElementSibling.scrollHeight + "px";
-      }
-    };
+    
 
-    window.onresize = () => {
-      let defaultActivePanel = document.querySelector(".accordion.active");
-      if (defaultActivePanel) {
-        defaultActivePanel.nextElementSibling.style.maxHeight =
-          defaultActivePanel.nextElementSibling.scrollHeight + "px";
-      }
-    };
-  </script>
+    <link rel="canonical" href="https://edgarej.github.io/tags/artnotes/">
+    <link href="/tags/artnotes/index.xml" rel="alternate" type="application/rss+xml" title="E.J.&#39;s Portfolio">
+    <link href="/tags/artnotes/index.xml" rel="feed" type="application/rss+xml" title="E.J.&#39;s Portfolio">
+    <link href="/style.min.7f14ffa85f7264afb13d126fffdc3651116d1d373a791cba8a5ac13fce9ed9ce.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://edgarej.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+    <meta name="color-scheme" content="light dark">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+    
+      
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    
 </head>
+<body data-theme = "dark" class="notransition">
 
-  <body class="h-screen p-2 m-auto max-w-4xl flex flex-col bg-[url(/images/background-white.png)] dark:bg-[url(/images/background-gray.png)] bg-repeat bg-fixed bg-center">
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://edgarej.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/">
+                        Journal
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+<div class="wrapper list-page">
+    <header class="header">
+        <h1 class="header-title center">Artnotes</h1>
+    </header>
+    <main class="page-content" aria-label="Content">
+        
+        
+        <h2 class="post-year">2025</h2>
+
+        
+
+        
+
+        <article class="post-item">
+    <h4 class="post-item-title">
+        <a href="/blog/2025/gallery-test/">The Gallery Test</a>
+    </h4>
     
-    <header
-  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-700 dark:border-gray-300 justify-between"
->
-  <div>
     
-    <a class="nav-menu-item" href="https://edgarej.github.io/">Home</a>
-    <a class="nav-menu-item" href="/blog">Journal</a>
-  </div>
-  <div>
-    <a class="mr-4" href="/search">
-      <i class="fas fa-search"></i>
-    </a>
     
-    <i
-      class="fas fa-sun theme-toggle text-orange-500 hover:text-orange-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
-      onclick="toggleTheme()"
-    ></i>
-  </div>
-</header>
-
-
-
-
-
     
-    <main class="grow">
+    <time class="post-item-meta" datetime="2025-10-25T03:47:30-0500">
+        October 25, 2025
+        
+    </time>
+</article>
 
-
-<div class="flex justify-center px-4">
-  <section class="w-full max-w-2xl space-y-8"><h2 class="list-group-key border-b border-black dark:border-white my-4">2020</h2><h4 class="list-group-heading">
-          <a href="/blog/2020/2020-06-21-the-trouble-with-likeness/">The Trouble With Likeness</a>
-          <time class="dim" style="float: right;" datetime="2023-05-02T00:00:00Z">Jun 21</time>
-        </h4>
-        Reading Time: 5 minutes<br />
-        
-          <a href="/tags/article">article</a>
-        
-          <a href="/tags/artnotes">artnotes</a>
-        
-          <a href="/tags/journal">journal</a>
-        
-        <div><p>I have not had an art tantrum in forever. Yes, art tantrums are a real thing… and yes, adult professional artists suffer art tantrums. There’s a Donald Duck cartoon that shows Donald frustrated with his artwork that he would crumple up what he’s doing and throw it behind him… just like the way real artists do. Seriously… I’m not joking. This happens frequently. Anyways… about two years ago was the last art tantrum I had. I was so frustrated with what I was doing, I pretty much did what Donald Duck did… threw away what I was working on and restarted from scratch. I was painting a portrait when I suffered this breakdown. Lucky for me, the canvas I was working with was only 5″ x 7″. I’m not so lucky if the canvas I’m working with is huge;</p></div><h4 class="list-group-heading">
-          <a href="/blog/2020/2020-03-04-throwback-thursday-03042020/">Throwback Thursday 03.04.2020</a>
-          <time class="dim" style="float: right;" datetime="2023-05-02T00:00:00Z">Mar 04</time>
-        </h4>
-        Reading Time: 3 minutes<br />
-        
-          <a href="/tags/article">article</a>
-        
-          <a href="/tags/artnotes">artnotes</a>
-        
-          <a href="/tags/journal">journal</a>
-        
-        <div><p>I just ran in the rain yesterday. Depending on the kind of rain it is, it’s really fun to do so. Yesterday wasn’t too bad. It was a nice breezy 58 degrees Fahrenheit, so it wasn’t freezing weather to be running in. I had fun jogging along getting wet until halfway through a flash of lightning cut across the clouds. That was when I realized that it was that kind of rain… the kind of rain I reaaaallly shouldn’t be running in. At that point, I was already halfway through. To turn back around would be pointless, so I just kept running my route.</p></div><h4 class="list-group-heading">
-          <a href="/blog/2020/2020-01-18-the-long-grind-vs-speed-painting/">The Long Grind vs Speed Painting</a>
-          <time class="dim" style="float: right;" datetime="2023-05-02T00:00:00Z">Jan 18</time>
-        </h4>
-        Reading Time: 5 minutes<br />
-        
-          <a href="/tags/article">article</a>
-        
-          <a href="/tags/artnotes">artnotes</a>
-        
-          <a href="/tags/journal">journal</a>
-        
-        <div><p>So to basically start this article on the right foot, I have to lay down some terms so we are all on the same page. The words “speed painting” gets misconstrued a lot. According to Wikipedia, “speed painting is an artistic technique where the artist has a limited time to finish the work.” The key words out of that sentence are “a limited time to finish the work.” Speed painting does not refer to a “speed up” video of someone doing artwork. The term for that is a “time-lapse” video. One can have a “time-lapse” video of one’s speed painting like I do on my YouTube channel. One can also have a “time-lapse” video of an artwork that is done in the span of months. I also have those kinds of videos on my YouTube channel.</p></div><h2 class="list-group-key border-b border-black dark:border-white my-4">2019</h2><h4 class="list-group-heading">
-          <a href="/blog/2019/2019-12-04-conceptartorg-where-art-thou/">Conceptart.org Where Art Thou</a>
-          <time class="dim" style="float: right;" datetime="2023-05-02T00:00:00Z">Dec 04</time>
-        </h4>
-        Reading Time: 5 minutes<br />
-        
-          <a href="/tags/article">article</a>
-        
-          <a href="/tags/artnotes">artnotes</a>
-        
-          <a href="/tags/journal">journal</a>
-        
-        <div><p><em><strong>Note:</strong></em> This article was originally published in an earlier version of my personal website. This article has been edited for republication in this website.</p></div><h4 class="list-group-heading">
-          <a href="/blog/2019/2019-11-25-simplicity-rules/">Simplicity Rules</a>
-          <time class="dim" style="float: right;" datetime="2023-05-02T00:00:00Z">Nov 25</time>
-        </h4>
-        Reading Time: 4 minutes<br />
-        
-          <a href="/tags/article">article</a>
-        
-          <a href="/tags/artnotes">artnotes</a>
-        
-          <a href="/tags/journal">journal</a>
-        
-        <div><blockquote>
-<p>Why do I keep my settings simple and not leverage the full power of digital painting software?</p></div><h4 class="list-group-heading">
-          <a href="/blog/2019/2019-10-13-norman-rockwell-vs-chuck-close/">Norman Rockwell vs Chuck Close</a>
-          <time class="dim" style="float: right;" datetime="2023-05-02T00:00:00Z">Oct 13</time>
-        </h4>
-        Reading Time: 3 minutes<br />
-        
-          <a href="/tags/article">article</a>
-        
-          <a href="/tags/artnotes">artnotes</a>
-        
-          <a href="/tags/journal">journal</a>
-        
-        <div><blockquote>
-<p>Why did I not go the fine art route? What is fine art even?</p></div><h4 class="list-group-heading">
-          <a href="/blog/2019/2019-10-07-traditional-vs-digital/">Traditional Medium vs Digital Painting</a>
-          <time class="dim" style="float: right;" datetime="2023-05-02T00:00:00Z">Oct 07</time>
-        </h4>
-        Reading Time: 2 minutes<br />
-        
-          <a href="/tags/article">article</a>
-        
-          <a href="/tags/artnotes">artnotes</a>
-        
-          <a href="/tags/journal">journal</a>
-        
-        <div><blockquote>
-<p>Why did I choose digital when inherently it has less value than oil and acrylic on canvas?</p></div>
-    <br />
-  </section>
+<div>
+    
+    <p>I messed up my website. I was trying to figure out how to get rid of certain margins that had been driving me crazy, and I just couldn’t, for the life of me, figure out which bit of code was responsible for them. Eventually, I gave up trying to decipher the template. I was ready to just live with the funky margins until I saw how badly they …</p>
 </div>
 
+
+         
+
+        
+        
+        <h2 class="post-year">2020</h2>
+
+        
+
+        
+
+        <article class="post-item">
+    <h4 class="post-item-title">
+        <a href="/blog/2020/2020-06-21-the-trouble-with-likeness/">The Trouble With Likeness</a>
+    </h4>
+    
+    
+    
+    
+    <time class="post-item-meta" datetime="2020-06-21T08:36:09-0500">
+        June 21, 2020
+        
+    </time>
+</article>
+
+<div>
+    
+    <p>I have not had an art tantrum in forever. Yes, art tantrums are a real thing… and yes, adult professional artists suffer art tantrums. There’s a Donald Duck cartoon that shows Donald frustrated with his artwork that he would crumple up what he’s doing and throw it behind him… just like the way real artists do. Seriously… I’m not joking. This …</p>
+</div>
+
+
+        
+
+        <article class="post-item">
+    <h4 class="post-item-title">
+        <a href="/blog/2020/2020-03-04-throwback-thursday-03042020/">Throwback Thursday 03.04.2020</a>
+    </h4>
+    
+    
+    
+    
+    <time class="post-item-meta" datetime="2020-03-04T07:41:27-0500">
+        March 4, 2020
+        
+    </time>
+</article>
+
+<div>
+    
+    <p>I just ran in the rain yesterday. Depending on the kind of rain it is, it’s really fun to do so. Yesterday wasn’t too bad. It was a nice breezy 58 degrees Fahrenheit, so it wasn’t freezing weather to be running in. I had fun jogging along getting wet until halfway through a flash of lightning cut across the clouds. That was when I realized that it …</p>
+</div>
+
+
+        
+
+        <article class="post-item">
+    <h4 class="post-item-title">
+        <a href="/blog/2020/2020-01-18-the-long-grind-vs-speed-painting/">The Long Grind vs Speed Painting</a>
+    </h4>
+    
+    
+    
+    
+    <time class="post-item-meta" datetime="2020-01-18T07:54:48-0500">
+        January 18, 2020
+        
+    </time>
+</article>
+
+<div>
+    
+    <p>So to basically start this article on the right foot, I have to lay down some terms so we are all on the same page. The words “speed painting” gets misconstrued a lot. According to Wikipedia, “speed painting is an artistic technique where the artist has a limited time to finish the work.” The key words out of that sentence are “a limited time to …</p>
+</div>
+
+
+         
+
+        
+        
+        <h2 class="post-year">2019</h2>
+
+        
+
+        
+
+        <article class="post-item">
+    <h4 class="post-item-title">
+        <a href="/blog/2019/2019-12-04-conceptartorg-where-art-thou/">Conceptart.org Where Art Thou</a>
+    </h4>
+    
+    
+    
+    
+    <time class="post-item-meta" datetime="2019-12-04T21:50:43-0500">
+        December 4, 2019
+        
+    </time>
+</article>
+
+<div>
+    
+    <p><em><strong>Note:</strong></em> This article was originally published in an earlier version of my personal website. This article has been edited for republication in this website.</p>
+<blockquote>
+<p>Why is it that I love art prompts so much instead of pursuing my own ideas?
+Why do I love art challenges but HATE spec work?</p></blockquote>
+<p>By the time I publish this article, Conceptart.org had been offline …</p>
+</div>
+
+
+        
+
+        <article class="post-item">
+    <h4 class="post-item-title">
+        <a href="/blog/2019/2019-11-25-simplicity-rules/">Simplicity Rules</a>
+    </h4>
+    
+    
+    
+    
+    <time class="post-item-meta" datetime="2019-11-25T07:47:11-0500">
+        November 25, 2019
+        
+    </time>
+</article>
+
+<div>
+    
+    <blockquote>
+<p>Why do I keep my settings simple and not leverage the full power of digital painting software?</p></blockquote>
+<p>There are quite a few stark differences in the work process between different artists in digital painting. Some work with a few simple brushes and one layer or a few layers, others work with many complex brushes on one layer, while others go “all-out” …</p>
+</div>
+
+
+        
+
+        <article class="post-item">
+    <h4 class="post-item-title">
+        <a href="/blog/2019/2019-10-13-norman-rockwell-vs-chuck-close/">Norman Rockwell vs Chuck Close</a>
+    </h4>
+    
+    
+    
+    
+    <time class="post-item-meta" datetime="2019-10-13T07:36:20-0500">
+        October 13, 2019
+        
+    </time>
+</article>
+
+<div>
+    
+    <blockquote>
+<p>Why did I not go the fine art route? What is fine art even?</p></blockquote>
+<p>I guess I had to preface this article by defining, or more accurately, trying to define what fine art is. But then I realized that trying to define it is going to be difficult. There are no rigid lines to draw to truly delineate one from the other. If Clement Greenberg thinks that Norman …</p>
+</div>
+
+
+        
+
+        <article class="post-item">
+    <h4 class="post-item-title">
+        <a href="/blog/2019/2019-10-07-traditional-vs-digital/">Traditional Medium vs Digital Painting</a>
+    </h4>
+    
+    
+    
+    
+    <time class="post-item-meta" datetime="2019-10-07T09:10:06-0500">
+        October 7, 2019
+        
+    </time>
+</article>
+
+<div>
+    
+    <blockquote>
+<p>Why did I choose digital when inherently it has less value than oil and acrylic on canvas?</p></blockquote>
+<p>I originally wanted to do more research about this topic, but once I saw how deep the rabbit hole goes, I decided against it. The topic is immensely controversial. Digital art in of itself has no value compared to a tangible object such as an acrylic …</p>
+</div>
+
+
+         
+
+         
+
     </main>
-    
-    <footer class="text-sm text-center border-t border-gray-500  py-6 ">
-  <p class="markdownify">Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
-  <p >
-    <i>
-      <a href="https://github.com/darshanbaral/aafu">
-        Aafu
-      </a>
-    </i>
-    by
-    <a href="https://www.darshanbaral.com/">
-      Darshan.
-    </a>
-  </p>
-  
-  <p>
-    Theme modified by edgarej. 
-  </p>
-
-  
-</footer>
+</div><footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
 
     
 
+    <small class="footer_copyright">
+        © 2025 Edgar E.J..
+        <br>
+        Template by <a href="https://github.com/hugo-sid/hugo-blog-awesome">Sidharth R.</a> Powered by <a href="https://gohugo.io/">Hugo.</a><br> 
+        Theme modified by ChatGPT and edgarej.
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
     
-    <script src="js/lightbox-plus-jquery.js"></script>
-  </body>
+
+
+
+
+
+
+    
+    <script src="https://edgarej.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
 </html>

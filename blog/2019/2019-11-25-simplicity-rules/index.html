@@ -1,270 +1,193 @@
 <!DOCTYPE html>
-<html lang="en-us" class="m-auto  dark "><head>
-  
-  <title>Simplicity Rules - Edgar E.J. Portfolio Website</title>
-  
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-  />
-  <meta name="theme-color" content="" />
-  <meta name="description" content="Edgar E.J. Portfolio Website" />
-  <meta name="author" content="Edgar E.J." />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
-    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
-  />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    rel="stylesheet"
-    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
-  />
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  
-  
-  
-  <link
-    rel="stylesheet"
-    href="/main.min.b3ef9de3b47e2ca8877cba66c450cb915e7c6c6481b3911da5a84d97ab34a0ea.css"
-    integrity="sha256-s&#43;&#43;d47R&#43;LKiHfLpmxFDLkV58bGSBs5EdpahNl6s0oOo="
-    crossorigin="anonymous"
-  />
-   
+<title itemprop="name">Simplicity Rules | E.J.&#39;s Portfolio</title>
+<meta property="og:title" content="Simplicity Rules | E.J.&#39;s Portfolio" />
+<meta name="twitter:title" content="Simplicity Rules | E.J.&#39;s Portfolio" />
+<meta itemprop="name" content="Simplicity Rules | E.J.&#39;s Portfolio" />
+<meta name="application-name" content="Simplicity Rules | E.J.&#39;s Portfolio" />
+<meta property="og:site_name" content="E.J.&#39;s Portfolio" />
 
-  
-  <link href="css/lightbox.css" rel="stylesheet" />
+<meta name="description" content="Edgar E.J.&#39;s Portfolio Website">
+<meta itemprop="description" content="Edgar E.J.&#39;s Portfolio Website" />
+<meta property="og:description" content="Edgar E.J.&#39;s Portfolio Website" />
+<meta name="twitter:description" content="Edgar E.J.&#39;s Portfolio Website" />
 
-  <style>
-     
-    html {
-      touch-action: manipulation;
-      scroll-behavior: smooth;
-    }
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
 
-    .panel {
-      max-height: 0;
-      transition: 0.3s ease-out;
-    }
+  <link rel="alternate" hreflang="en" href="https://edgarej.github.io/blog/2019/2019-11-25-simplicity-rules/" title="" />
 
-    .profile-photo-container {
-      img {
-        max-width: 100%;
-      }
-    }
-     
-    .pagefind-ui__search-input {
-      color: black;
-      width: 100%;
-      padding: 0.5em;
-      border-radius: 0.25em;
-      border: 1px solid gray;
-    }
-    .pagefind-ui__search-clear {
-      display: none;
-    }
-    .dark .pagefind-ui__search-input {
-      color: white;
-      background-color: #322d2d;
-      width: 100%;
-      padding: 0.5em;
-      border-radius: 0.25em;
-      border: 1px solid gray;
-    }
-    .dark .pagefind-ui__search-input::placeholder {
-      color: #8f8f8f;
-    }
-    .chevron {
-      transition: 300ms linear rotate;
-    }
-    .active > .chevron {
-      transform: rotate(90deg);
-    }
-  </style>
 
-  <script>
-    const expandAccordion = (elem) => {
-      const allPanels = Array.from(document.querySelectorAll(".panel"));
-      const allAccordion = Array.from(document.querySelectorAll(".accordion"));
 
-      if (!elem.parentElement.classList.contains("active")) {
-        allAccordion.forEach((acc) => {
-          acc.classList.remove("active");
-        });
-        elem.parentElement.classList.add("active");
-        allPanels.forEach(function (elem) {
-          elem.style.maxHeight = null;
-        });
-        let activePanel = elem.parentElement.nextElementSibling;
-        if (
-          activePanel.id != "skill-panel" &&
-          document.querySelector("#skill-panel")
-        ) {
-          let skillBars = Array.from(
-            document.querySelectorAll("#skill-percent")
-          );
-          skillBars.forEach((elem) => {
-            elem.style.width = "0";
-          });
-        }
-        activePanel.style.maxHeight = activePanel.scrollHeight + "px";
-      }
-    };
-  </script>
 
-  <script>
-    let html = document.querySelector("html");
-    let theme = window.localStorage.getItem("theme");
 
-    const setTheme = (theme) => {
-      html.classList.remove("light");
-      if (theme === "dark") {
-        html.classList.add("dark");
-        window.localStorage.setItem("theme", "dark");
-      } else {
-        html.classList.remove("dark");
-        window.localStorage.setItem("theme", "light");
-      }
-      fixThemeToggleIcon(theme);
-    };
 
-    const fixThemeToggleIcon = (theme) => {
-      let themeToggle = document.querySelector(".theme-toggle");
-      if (themeToggle) {
-        if (theme === "dark") {
-          themeToggle.classList.remove("fa-moon");
-          themeToggle.classList.add("fa-sun");
-        } else {
-          themeToggle.classList.remove("fa-sun");
-          themeToggle.classList.add("fa-moon");
-        }
-      }
-    };
+<meta name="generator" content="Hugo 0.149.0">
 
-    if (theme == null) {
-      if (html.classList.contains("dark")) {
-        theme = "dark";
-      } else if (html.classList.contains("light")) {
-        theme = "light";
-      } else {
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-        if (prefersDark) {
-          theme = "dark";
-        } else {
-          theme = "light";
-        }
-      }
-    }
+    
+    <meta property="og:url" content="https://edgarej.github.io/blog/2019/2019-11-25-simplicity-rules/">
+  <meta property="og:site_name" content="E.J.&#39;s Portfolio">
+  <meta property="og:title" content="Simplicity Rules">
+  <meta property="og:description" content="Why do I keep my settings simple and not leverage the full power of digital painting software?
+There are quite a few stark differences in the work process between different artists in digital painting. Some work with a few simple brushes and one layer or a few layers, others work with many complex brushes on one layer, while others go “all-out” and leverage the full power of digital painting software. These brave souls would use hundreds of brushes on hundreds of layers…. okay that last bit might be an exaggeration. The point is that there are many variations in the work process. These processes can be categorized into two camps; a process that is simple and is typically destructive, and a process that is non-destructive editing.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2019-11-25T07:47:11-05:00">
+    <meta property="article:modified_time" content="2019-11-25T07:47:11-05:00">
+    <meta property="article:tag" content="Article">
+    <meta property="article:tag" content="Artnotes">
+    <meta property="article:tag" content="Journal">
 
-    setTheme(theme);
 
-    const toggleTheme = () => {
-      html.classList.contains("dark") ? setTheme("light") : setTheme("dark");
-    };
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Simplicity Rules">
+  <meta name="twitter:description" content="Why do I keep my settings simple and not leverage the full power of digital painting software?
+There are quite a few stark differences in the work process between different artists in digital painting. Some work with a few simple brushes and one layer or a few layers, others work with many complex brushes on one layer, while others go “all-out” and leverage the full power of digital painting software. These brave souls would use hundreds of brushes on hundreds of layers…. okay that last bit might be an exaggeration. The point is that there are many variations in the work process. These processes can be categorized into two camps; a process that is simple and is typically destructive, and a process that is non-destructive editing.">
 
-    window.onload = () => {
-      fixThemeToggleIcon(theme);
 
-      let defaultActivePanel = document.querySelector(".accordion.active");
-      if (defaultActivePanel) {
-        defaultActivePanel.nextElementSibling.style.maxHeight =
-          defaultActivePanel.nextElementSibling.scrollHeight + "px";
-      }
-    };
+    
 
-    window.onresize = () => {
-      let defaultActivePanel = document.querySelector(".accordion.active");
-      if (defaultActivePanel) {
-        defaultActivePanel.nextElementSibling.style.maxHeight =
-          defaultActivePanel.nextElementSibling.scrollHeight + "px";
-      }
-    };
-  </script>
+    <link rel="canonical" href="https://edgarej.github.io/blog/2019/2019-11-25-simplicity-rules/">
+    <link href="/style.min.7f14ffa85f7264afb13d126fffdc3651116d1d373a791cba8a5ac13fce9ed9ce.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://edgarej.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+    <meta name="color-scheme" content="light dark">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+    
+      
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    
 </head>
+<body data-theme = "dark" class="notransition">
 
-  <body class="h-screen p-2 m-auto max-w-4xl flex flex-col bg-[url(/images/background-white.png)] dark:bg-[url(/images/background-gray.png)] bg-repeat bg-fixed bg-center">
-    
-    <header
-  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-700 dark:border-gray-300 justify-between"
->
-  <div>
-    
-    <a class="nav-menu-item" href="https://edgarej.github.io/">Home</a>
-    <a class="nav-menu-item" href="/blog">Journal</a>
-  </div>
-  <div>
-    <a class="mr-4" href="/search">
-      <i class="fas fa-search"></i>
-    </a>
-    
-    <i
-      class="fas fa-sun theme-toggle text-orange-500 hover:text-orange-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
-      onclick="toggleTheme()"
-    ></i>
-  </div>
-</header>
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://edgarej.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/">
+                        Journal
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Simplicity Rules</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2019-11-25T07:47:11-05:00" itemprop="datePublished"> November 25, 2019 </time>
+                </div>
+                
+            </header>
+            
 
 
+            
+            
+                Journal Entry<br>
+            
+            
+                
+                    <a href="/tags/article" class="tag">article</a>
+                
+                    <a href="/tags/artnotes" class="tag">artnotes</a>
+                
+                    <a href="/tags/journal" class="tag">journal</a>
+                
+             
 
-
-
-    
-    <main class="grow">
-
-<div class="prose prose-stone dark:prose-invert max-w-none">
-  <div class="mb-3">
-    <h1 class="top-h1">Simplicity Rules</h1>
-    
-    <p class="mb-1">November 25, 2019<br>
-      
-        Journal Entry</p>
-      
-      
-        <a href="/tags/article">article</a>
-      
-        <a href="/tags/artnotes">artnotes</a>
-      
-        <a href="/tags/journal">journal</a>
-      
-    <br>
-  </div>
-  <div class="content">
-    <blockquote>
+            <div class="page-content">
+                <blockquote>
 <p>Why do I keep my settings simple and not leverage the full power of digital painting software?</p></blockquote>
 <p>There are quite a few stark differences in the work process between different artists in digital painting. Some work with a few simple brushes and one layer or a few layers, others work with many complex brushes on one layer, while others go “all-out” and leverage the full power of digital painting software. These brave souls would use hundreds of brushes on hundreds of layers…. okay that last bit might be an exaggeration. The point is that there are many variations in the work process. These processes can be categorized into two camps; a process that is simple and is typically destructive, and a process that is non-destructive editing.</p>
 <p>Let me take a few moments to explain the concept of destructive v non-destructive editing. Traditional painting is a destructive process. Once a person paints over his or her initial sketch, that sketch is gone forever. That is not like digital painting at all. In digital painting, one can keep their sketch up until the final product is complete. One can then decide in the end if they want to include the sketch in the final product or not. This is an example of non-destructive editing. Practically all the steps of the painting process are preserved so one can jump back and forth between the steps and “go back in time” if one needs to.</p>
 <p>For an outsider who doesn’t know much about the painting process, it seems to them that the non-destructive process is the best process. It makes sense from a logical point of view. If one can keep all the steps of a painting process intact so one can go back and forth between all the steps, then every digital artist should have this process. The camp of “keeping it simple” shouldn’t even exist. Unfortunately, that is not the case. There are quite a lot of artists like me who find themselves more at home with the destructive process.</p>
-
-
-
-<figure
-  id="figure-1"
-  class="mt-4 pt-2 text-center flex flex-col justify-center items-center"
->
-  <img
-    class="rounded-sm"
-    src="settings.png"
-    alt="My digital painting software settings"
-    style="max-width: 90%; max-height: 95vh; min-width: 250px; min-height: 250px !important;"
-  />
-  
-  <figcaption class="mt-2">
-    
-    <em>I keep everything simple; a few brushes and one layer.</em>
-  </figcaption>
-  
+<figure><img src="/blog/2019/2019-11-25-simplicity-rules/settings.png"
+    alt="My digital painting software settings"><figcaption>
+      <p>I keep everything simple; a few brushes and one layer.</p>
+    </figcaption>
 </figure>
 
 <p>What can I say, it feels more natural to do everything in one layer. Even though using multiple layers offer the most flexibility, when it comes to blending the colors it works best if everything is in one layer. Trying to blend with multiple layers just doesn’t work well.</p>
@@ -272,64 +195,40 @@
 <p>As for brush settings… well, I keep everything simple with that also. If one looks at the image above one can see I only have about five to seven brushes in my brushes docker. Out of these seven I rotate between two to three of these the majority of the time. That doesn’t mean I don’t enjoy using other brushes… I actually have settings for other brushes in case I need them for something specific. But as for the majority of the time, I’m painting, I’m only ever using those seven.</p>
 <p>If you’re a beginner in digital painting you might not find yourself in a camp yet. You might find yourself experimenting between one layer or multiple layers or a few brushes v many brushes. But as time goes on you will definitely find yourself in one camp for sure. There is really no right or wrong as to which camp you end up with. There are pros and cons to working with either style. So long as you feel comfortable with one then that is all the really matters.</p>
 
-  </div>
+            </div>
+        </article></main>
 </div>
-
-<br>
-<div class="flex flex-row justify-around my-2">
-  <h3 class="mb-1 mt-1 text-left mr-4">
-    
-    
-    <a
-      href="/blog/2019/2019-12-04-conceptartorg-where-art-thou/"
-      title="Conceptart.org Where Art Thou"
-    >
-      <i class="nav-menu fas fa-chevron-circle-left"></i>
-    </a>
-    
-    Newer Posts
-  </h3>
-  <h3 class="mb-1 mt-1 text-left ml-4">
-    Older Posts
-    
-    
-    <a
-      href="/blog/2019/2019-10-13-norman-rockwell-vs-chuck-close/"
-      title="Norman Rockwell vs Chuck Close"
-    >
-      <i class="nav-menu fas fa-chevron-circle-right"></i>
-    </a>
-    
-  </h3>
-</div>
-
-
-    </main>
-    
-    <footer class="text-sm text-center border-t border-gray-500  py-6 ">
-  <p class="markdownify">Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
-  <p >
-    <i>
-      <a href="https://github.com/darshanbaral/aafu">
-        Aafu
-      </a>
-    </i>
-    by
-    <a href="https://www.darshanbaral.com/">
-      Darshan.
-    </a>
-  </p>
-  
-  <p>
-    Theme modified by edgarej. 
-  </p>
-
-  
-</footer>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
 
     
 
+    <small class="footer_copyright">
+        © 2025 Edgar E.J..
+        <br>
+        Template by <a href="https://github.com/hugo-sid/hugo-blog-awesome">Sidharth R.</a> Powered by <a href="https://gohugo.io/">Hugo.</a><br> 
+        Theme modified by ChatGPT and edgarej.
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
     
-    <script src="js/lightbox-plus-jquery.js"></script>
-  </body>
+
+
+
+
+
+
+    
+    <script src="https://edgarej.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
 </html>

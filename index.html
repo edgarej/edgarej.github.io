@@ -1,641 +1,3649 @@
-<!DOCTYPE html>
-<html lang="en-us" class="m-auto  dark "><head>
-	<meta name="generator" content="Hugo 0.149.0">
-  
-  <title>Edgar E.J. Portfolio Website</title>
-  
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-  />
-  <meta name="theme-color" content="" />
-  <meta name="description" content="Edgar E.J. Portfolio Website" />
-  <meta name="author" content="Edgar E.J." />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
-    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
-  />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    rel="stylesheet"
-    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
-  />
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<!DOCTYPE html><html lang="en-us" class="dark"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  
-  
-  
-  <link
-    rel="stylesheet"
-    href="/main.min.b3ef9de3b47e2ca8877cba66c450cb915e7c6c6481b3911da5a84d97ab34a0ea.css"
-    integrity="sha256-s&#43;&#43;d47R&#43;LKiHfLpmxFDLkV58bGSBs5EdpahNl6s0oOo="
-    crossorigin="anonymous"
-  />
-   
+<title itemprop="name">My Portfolio | E.J.&#39;s Portfolio</title>
+<meta property="og:title" content="My Portfolio | E.J.&#39;s Portfolio" />
+<meta name="twitter:title" content="My Portfolio | E.J.&#39;s Portfolio" />
+<meta itemprop="name" content="My Portfolio | E.J.&#39;s Portfolio" />
+<meta name="application-name" content="My Portfolio | E.J.&#39;s Portfolio" />
+<meta property="og:site_name" content="E.J.&#39;s Portfolio" />
 
-  
-  <link href="css/lightbox.css" rel="stylesheet" />
+<meta name="description" content="Edgar E.J.&#39;s Portfolio Website">
+<meta itemprop="description" content="Edgar E.J.&#39;s Portfolio Website" />
+<meta property="og:description" content="Edgar E.J.&#39;s Portfolio Website" />
+<meta name="twitter:description" content="Edgar E.J.&#39;s Portfolio Website" />
 
-  <style>
-     
-    html {
-      touch-action: manipulation;
-      scroll-behavior: smooth;
-    }
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
 
-    .panel {
-      max-height: 0;
-      transition: 0.3s ease-out;
-    }
+  <link rel="alternate" hreflang="en" href="https://edgarej.github.io/" title="" />
 
-    .profile-photo-container {
-      img {
-        max-width: 100%;
-      }
-    }
-     
-    .pagefind-ui__search-input {
-      color: black;
-      width: 100%;
-      padding: 0.5em;
-      border-radius: 0.25em;
-      border: 1px solid gray;
-    }
-    .pagefind-ui__search-clear {
-      display: none;
-    }
-    .dark .pagefind-ui__search-input {
-      color: white;
-      background-color: #322d2d;
-      width: 100%;
-      padding: 0.5em;
-      border-radius: 0.25em;
-      border: 1px solid gray;
-    }
-    .dark .pagefind-ui__search-input::placeholder {
-      color: #8f8f8f;
-    }
-    .chevron {
-      transition: 300ms linear rotate;
-    }
-    .active > .chevron {
-      transform: rotate(90deg);
-    }
-  </style>
 
-  <script>
-    const expandAccordion = (elem) => {
-      const allPanels = Array.from(document.querySelectorAll(".panel"));
-      const allAccordion = Array.from(document.querySelectorAll(".accordion"));
 
-      if (!elem.parentElement.classList.contains("active")) {
-        allAccordion.forEach((acc) => {
-          acc.classList.remove("active");
-        });
-        elem.parentElement.classList.add("active");
-        allPanels.forEach(function (elem) {
-          elem.style.maxHeight = null;
-        });
-        let activePanel = elem.parentElement.nextElementSibling;
-        if (
-          activePanel.id != "skill-panel" &&
-          document.querySelector("#skill-panel")
-        ) {
-          let skillBars = Array.from(
-            document.querySelectorAll("#skill-percent")
-          );
-          skillBars.forEach((elem) => {
-            elem.style.width = "0";
-          });
-        }
-        activePanel.style.maxHeight = activePanel.scrollHeight + "px";
-      }
-    };
-  </script>
 
-  <script>
-    let html = document.querySelector("html");
-    let theme = window.localStorage.getItem("theme");
 
-    const setTheme = (theme) => {
-      html.classList.remove("light");
-      if (theme === "dark") {
-        html.classList.add("dark");
-        window.localStorage.setItem("theme", "dark");
-      } else {
-        html.classList.remove("dark");
-        window.localStorage.setItem("theme", "light");
-      }
-      fixThemeToggleIcon(theme);
-    };
 
-    const fixThemeToggleIcon = (theme) => {
-      let themeToggle = document.querySelector(".theme-toggle");
-      if (themeToggle) {
-        if (theme === "dark") {
-          themeToggle.classList.remove("fa-moon");
-          themeToggle.classList.add("fa-sun");
-        } else {
-          themeToggle.classList.remove("fa-sun");
-          themeToggle.classList.add("fa-moon");
-        }
-      }
-    };
+<meta name="generator" content="Hugo 0.149.0">
 
-    if (theme == null) {
-      if (html.classList.contains("dark")) {
-        theme = "dark";
-      } else if (html.classList.contains("light")) {
-        theme = "light";
-      } else {
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-        if (prefersDark) {
-          theme = "dark";
-        } else {
-          theme = "light";
-        }
-      }
-    }
+    
+    <meta property="og:url" content="https://edgarej.github.io/">
+  <meta property="og:site_name" content="E.J.&#39;s Portfolio">
+  <meta property="og:title" content="My Portfolio">
+  <meta property="og:description" content="Hi, welcome to my portfolio website. I am an artist who specializes in narrative illustration and character creation. I have a background in illustrating environments for interior design projects. I started out my career in the education industry working in various teaching positions. Currently I work as a freelance artist as well as a generalist for Cookies by Design. To see my full CV, check out my LinkedIn link in my socials menu. Also check out a portion of my art portfolio below and on my art profile links. Read my thoughts and fiction in my journal link in the navigation menu, and watch my art tutorial videos on my YouTube. Thank you for visiting, and have a great day.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
 
-    setTheme(theme);
 
-    const toggleTheme = () => {
-      html.classList.contains("dark") ? setTheme("light") : setTheme("dark");
-    };
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="My Portfolio">
+  <meta name="twitter:description" content="Hi, welcome to my portfolio website. I am an artist who specializes in narrative illustration and character creation. I have a background in illustrating environments for interior design projects. I started out my career in the education industry working in various teaching positions. Currently I work as a freelance artist as well as a generalist for Cookies by Design. To see my full CV, check out my LinkedIn link in my socials menu. Also check out a portion of my art portfolio below and on my art profile links. Read my thoughts and fiction in my journal link in the navigation menu, and watch my art tutorial videos on my YouTube. Thank you for visiting, and have a great day.">
 
-    window.onload = () => {
-      fixThemeToggleIcon(theme);
 
-      let defaultActivePanel = document.querySelector(".accordion.active");
-      if (defaultActivePanel) {
-        defaultActivePanel.nextElementSibling.style.maxHeight =
-          defaultActivePanel.nextElementSibling.scrollHeight + "px";
-      }
-    };
+    
 
-    window.onresize = () => {
-      let defaultActivePanel = document.querySelector(".accordion.active");
-      if (defaultActivePanel) {
-        defaultActivePanel.nextElementSibling.style.maxHeight =
-          defaultActivePanel.nextElementSibling.scrollHeight + "px";
-      }
-    };
-  </script>
+    <link rel="canonical" href="https://edgarej.github.io/">
+    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="E.J.&#39;s Portfolio">
+    <link href="/index.xml" rel="feed" type="application/rss+xml" title="E.J.&#39;s Portfolio">
+    <link href="/style.min.7f14ffa85f7264afb13d126fffdc3651116d1d373a791cba8a5ac13fce9ed9ce.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://edgarej.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+    <meta name="color-scheme" content="light dark">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+    
+      
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    
 </head>
+<body data-theme="dark" class="notransition">
 
-  <body class="h-screen p-2 m-auto max-w-4xl flex flex-col bg-[url(/images/background-white.png)] dark:bg-[url(/images/background-gray.png)] bg-repeat bg-fixed bg-center">
-    
-    <header
-  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-700 dark:border-gray-300 justify-between"
->
-  <div>
-    
-    <a class="nav-menu-item" href="https://edgarej.github.io/">Home</a>
-    <a class="nav-menu-item" href="/blog">Journal</a>
-  </div>
-  <div>
-    <a class="mr-4" href="/search">
-      <i class="fas fa-search"></i>
-    </a>
-    
-    <i
-      class="fas fa-sun theme-toggle text-orange-500 hover:text-orange-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
-      onclick="toggleTheme()"
-    ></i>
-  </div>
-</header>
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
 
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://edgarej.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
 
-
-
-
-    
-    <main class="grow">
-<div class="grid grid-cols-1 md:grid-cols-5 gap-2 sm py-2">
-  <div class="col-span-2">
-    <div class="bg-gray-300 dark:bg-darker drop-shadow-md p-2 rounded-lg">
-      <div class="flex flex-col justify-center">
-        <div
-  class="w-full p-2 flex justify-center align-middle profile-photo-container"
->
-
-  <img
-    class="rounded-lg"
-    src="/images/profile.jpg"
-    alt="Edgar E.J."
-  />
-</div>
-
-        <div class="px-2 text-center">
-          <h1 class="mb-0">Edgar E.J.</h1>
-<h2 class="mb-0">Artist</h2>
-
-<div class="mb-4 flex flex-wrap justify-center">
-  
-  <div class="mx-2">
-    <a class="text-2xl" href="https://www.facebook.com/edgarej.mercado">
-      <i class="mt-1 fab fa-facebook"></i>
-    </a>
-  </div>
-  
-  <div class="mx-2">
-    <a class="text-2xl" href="https://cara.app/edgarej">
-      <i class="mt-1 fas fa-paint-brush"></i>
-    </a>
-  </div>
-  
-  <div class="mx-2">
-    <a class="text-2xl" href="https://www.artstation.com/edgarej">
-      <i class="mt-1 fab fa-artstation"></i>
-    </a>
-  </div>
-  
-  <div class="mx-2">
-    <a class="text-2xl" href="https://www.linkedin.com/in/edgarej/">
-      <i class="mt-1 fab fa-linkedin-in"></i>
-    </a>
-  </div>
-  
-  <div class="mx-2">
-    <a class="text-2xl" href="https://www.youtube.com/@edgarej">
-      <i class="mt-1 fab fa-youtube"></i>
-    </a>
-  </div>
-  
-  <div class="mx-2">
-    <a class="text-2xl" href="https://www.instagram.com/edgarejmercado/">
-      <i class="mt-1 fab fa-instagram"></i>
-    </a>
-  </div>
-  
-  <div class="mx-2">
-    <a class="text-2xl" href="https://www.fab.com/sellers/Edgar%20E.J.">
-      <i class="mt-1 fas fa-paint-roller"></i>
-    </a>
-  </div>
-  
-</div>
-
-          
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link active" href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/">
+                        Journal
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-span-3 relative">
+    </nav>
+</div>
+<div  class="wrapper">
+        <main aria-label="Content">
+            
+
+
+<div class="author">
     
-    <div class="px-2">
-      <h2 class="accordion active">
-        
-        <p
-         
-          onclick="expandAccordion(this)"
-          style="cursor: pointer"
-        >
-          <i class="fas fa-user"></i>
-          About Me</p>
-      </h2>
-
-      <div
-        class="panel overflow-hidden px-2 ml-2"
-        
-      >
-        <div class=""><p class="markdownify">
-  Hi, thank you for visiting my portfolio website. I am an artist who specializes in narrative illustration and character creation. I have a background in illustrating environments for interior design projects. I started out my career in the education industry working in various teaching positions. Currently I work as a freelance artist as well as a generalist for Cookies by Design. To see my full CV, check out my LinkedIn link in my socials menu. Also check out a portion of my art portfolio down below and on my art profile links. Read my thoughts and fiction in the journal link above, and watch my art tutorial videos on my YouTube.
-</p>
-</div>
-      </div>
-    </div>
     
-    <div class="px-2">
-      <h2 class="accordion">
-        
-        <p
-         
-          onclick="expandAccordion(this)"
-          style="cursor: pointer"
-        >
-          <i class="fas fa-briefcase"></i>
-          Experiences</p>
-      </h2>
-
-      <div
-        class="panel overflow-hidden px-2 ml-2"
-        
-      >
-        <div class="">
-<h4 style="text-decoration: underline;">Freelance Artist</h4>
-<p class="mb-0">
-  2010 - <em>Present</em> &middot;  Self-Employed 
-</p>
-
-<div class="prose prose-stone dark:prose-invert max-w-none">
-<ul>
-<li>Paint narrative illustrations in a realist style, crafting scenes with humor and strong storytelling using strong light and composition.</li>
-<li>Sculpt, model, unwrap, and paint 3D characters, focusing on painterly realism.</li>
-<li>Visualize interior design layouts using 3D paintovers, transforming floor plans into immersive, client-friendly presentations.</li>
-<li>Deliver highly detailed renderings of interior environments, effectively communicating material composition and structural elements of interior design concepts.</li>
-<li>Design SEO-optimized, responsive websites tailored to client goals. Utilize clean and intuitive code to enhance usability and engagement.</li>
-</ul>
-
-</div>
-
-
-
-<h4 style="text-decoration: underline;">Generalist</h4>
-<p class="mb-0">
-  2020 - Present &middot; 
-  <a href="https://www.cookiesbydesign.com/">Cookies by Design</a>
-  
-</p>
-
-<div class="prose prose-stone dark:prose-invert max-w-none">
-<ul>
-<li>Coordinated with clients to develop a comprehensive design theme specific to customers&rsquo; confectionery needs. Revised design as necessary based on feedback.</li>
-<li>Worked collaboratively with team members to finalize cohesive concept designs for patrons.</li>
-<li>Secured and nurtured high-value contracts with nationwide corporations. Achieved a high client retention rate by tailoring product offerings and providing exceptional service.</li>
-</ul>
-
-</div>
-
-
-
-<h4 style="text-decoration: underline;">Teacher</h4>
-<p class="mb-0">
-  2007 - 2015 &middot;  Faith Family Academy, Golden Rule Charter Schools, Plano ISD 
-</p>
-
-<div class="prose prose-stone dark:prose-invert max-w-none">
-<ul>
-<li>Instructed over 70 middle school students across 3+ classes in foundational art concepts, including the Elements of Art and Principles of Design; dynamically adjusted lesson plans based on real-time assessment of student engagement and comprehension.</li>
-<li>Led a specialized advanced art class of 23 students in producing and publishing the school’s monthly newspaper. Leveraged the class platform to teach design analysis, visual storytelling, and layout best practices, enhancing students’ critical thinking and creative expression skills.</li>
-<li>Led all technology operations as the school’s IT administrator, optimizing performance and reliability across 350+ student and faculty workstations. Improved system uptime, streamlined support response times, and drove tech-driven learning initiatives.</li>
-</ul>
-
-</div>
-
-
-
-</div>
-      </div>
-    </div>
     
-    <div class="px-2">
-      <h2 class="accordion">
-        
-        <p
-         
-          onclick="expandAccordion(this)"
-          style="cursor: pointer"
-        >
-          <i class="fas fa-graduation-cap"></i>
-          Education</p>
-      </h2>
-
-      <div
-        class="panel overflow-hidden px-2 ml-2"
-        
-      >
-        <div class="">
-
-<h4 style="text-decoration: underline;">Bachelor of Arts (B.A.) - General Studies - Cum Laude Honors</h4>
-<p >2001 - 2005 &middot; University of North Texas</p>
-
-
-
-<h4 style="text-decoration: underline;">Associate of Arts - Communications Design</h4>
-<p >1998 - 2001 &middot; Collin College</p>
-
-
-</div>
-      </div>
-    </div>
     
-    <div class="px-2">
-      <h2 class="accordion">
-        
-        <p
-         
-          onclick="expandAccordion(this)"
-          style="cursor: pointer"
-        >
-          <i class="fas fa-trophy"></i>
-          Honors and Awards</p>
-      </h2>
-
-      <div
-        class="panel overflow-hidden px-2 ml-2"
-        
-      >
-        <div class="">
-<h4>
-  <a href="https://www.unt.edu/">Cum Laude Graduate</a>
-</h4>
-<p class="markdownify indent-8">Graduated University of Norh Texas with Honors</p>
-
-<h4>
-  <a href="https://krita-artists.org/">July 2025 Monthly Challenge Winner</a>
-</h4>
-<p class="markdownify indent-8">July 205 - Krita Artists</p>
-
-<h4>
-  <a href="https://discord.gg/artprof">Art Dare Honorable Mention</a>
-</h4>
-<p class="markdownify indent-8">July 2024 - Discord, Art Prof</p>
-
-<h4>
-  <a href="https://www.blendernation.com/">Featured Artist</a>
-</h4>
-<p class="markdownify indent-8">July 2023, July 2024 - Blendernation</p>
-
-<h4>
-  <a href="https://krita-artists.org/">Featured Artist</a>
-</h4>
-<p class="markdownify indent-8">December 2022, April 2020 - Krita Artists</p>
-
-<h4>
-  <a href="https://www.unt.edu/">Invited Art Show Participant - Spring Showcase</a>
-</h4>
-<p class="markdownify indent-8">May 2004 - SOVA Light Well</p>
-
-<h4>
-  <a href="https://www.unt.edu/">Invited Art Show Participant - International Student Culture Week</a>
-</h4>
-<p class="markdownify indent-8">February 2003 - Union Gallery</p>
-
-</div>
-      </div>
-    </div>
     
-    <div class="px-2">
-      <h2 class="accordion">
-        
-        <p
-         
-          onclick="expandAccordion(this)"
-          style="cursor: pointer"
-        >
-          <i class="fas fa-cogs"></i>
-          Skills</p>
-      </h2>
+    <img
+        class="author-avatar"
+        src="/avatar_hu_cc57afece4b548b9.webp"
+        srcset="/avatar_hu_967dd23d6eae85a.webp 2x, /avatar_hu_8303428afa3f853f.webp 3x"
+        alt="Edgar E.J."
+        width="70"
+        height="70" />
+    
+    
+    <h2 class="author-name">Edgar E.J.&#39;s Portfolio Website</h2>
+    <p class="author-bio"></p>
 
-      <div
-        class="panel overflow-hidden px-2 ml-2"
-        
-        id="skill-panel"
-        
-      >
-        <div class=""><script>
-  let skillPanel = document.querySelector("#skill-panel")
-    .previousElementSibling;
-  skillPanel.addEventListener("click", function() {
-    let skillBars = document.querySelectorAll("#skill-percent");
-    skillBars.forEach(elem => {
-      elem.style.width = elem.classList[0];
-    });
-  });
+    
+    <div class="footer_social-icons" style="display: flex; justify-content: center; align-items: center;">
+<a href="https://www.artstation.com/edgarej" target="_blank" rel="noopener noreferrer me"
+    title="Artstation">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+</a>
+<a href="https://cara.app/edgarej" target="_blank" rel="noopener noreferrer me"
+    title="Cara">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+</a>
+<a href="https://www.fab.com/sellers/Edgar%20E.J." target="_blank" rel="noopener noreferrer me"
+    title="Fab">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+</a>
+<a href="https://www.facebook.com/edgarej.mercado" target="_blank" rel="noopener noreferrer me"
+    title="Facebook">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+</svg>
+</a>
+<a href="https://www.instagram.com/edgarejmercado/" target="_blank" rel="noopener noreferrer me"
+    title="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/edgarej/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="https://www.youtube.com/@edgarej" target="_blank" rel="noopener noreferrer me"
+    title="Youtube">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+    </path>
+    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+</svg>
+</a>
+</div>
+</div>
+
+
+            
+            <p>Hi, welcome to my portfolio website. I am an artist who specializes in narrative illustration and character creation. I have a background in illustrating environments for interior design projects. I started out my career in the education industry working in various teaching positions. Currently I work as a freelance artist as well as a generalist for Cookies by Design. To see my full CV, check out my LinkedIn link in my socials menu. Also check out a portion of my art portfolio below and on my art profile links. Read my thoughts and fiction in my journal link in the navigation menu, and watch my art tutorial videos on my YouTube. Thank you for visiting, and have a great day.</p>
+<h1 id="my-portfolio">My Portfolio</h1>
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+	
+		<script src="/shortcode-gallery/jquery-3.7.1.min.js"></script>
+	
+
+	
+		<script src="/shortcode-gallery/lazy/jquery.lazy.min.js"></script>
+	
+
+	<script src="/shortcode-gallery/swipebox/js/jquery.swipebox.min.js"></script>
+	<link rel="stylesheet" href="/shortcode-gallery/swipebox/css/swipebox.min.css">
+
+	<script src="/shortcode-gallery/justified_gallery/jquery.justifiedGallery.min.js"></script>
+	<link rel="stylesheet" href="/shortcode-gallery/justified_gallery/justifiedGallery.min.css"/>
+
+
+<style>
+	
+
+	
+</style>
+
+
+
+
+
+<div id="gallery-3976528693a0108357f4928017600865-0-wrapper" class="gallery-wrapper">
+<div id="gallery-3976528693a0108357f4928017600865-0" class="justified-gallery">
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/wet-rain.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AM25iNuwBXJPesnUlebYNiyMHVlhPSTB&#43;7&#43;Nel6t4RF1zYuE3EZjc8D3BrF1DT7K3u4o7aMIhnRVc/ebBznPvjNdFbHU3Tst2VToyciyuqwRaBPdLp0cyRR/u4I4yGEpGDzjHf8ASvN4bsmRZmztc5I&#43;telJpMka/u53K79wjGAoJ6mo7zwTBqtpN5SeXe7S8TA8Mw/hb1zXBh8ZCE7dzatRbWh2VxKI49pcKZB1Jxha4/WJIG1SEp8ypIHG3ucEf1P5V0mp2cl7s8tgpVduWPArkjbi111vPk8xl&#43;VGK4H&#43;c5rgjJXbep001Y2UlMbcngc1t2B&#43;VX/2s1hCJpGwOrdq17FZVi&#43;cEAHFc0mE3c//2Q=="
+							
+							class="lazy"
+							data-src="/portfolio/wet-rain_hu_8d6964af8b39338.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/tricycle-reader.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APKVEseGKMo6g4rqNHvmjSBjm15ytw2DuwDkY9Dx&#43;XfNZ0MoEqSJdTFY48ljk4bPQA9q1Yb9Y4ZIfJMk8ke4s6A7QOQeenIHSnFKT1InFaEHiWyMl01/ZZuIHUFipyVOOcj096zbCe9sUj1CJgse4gOCCQfTB6GpCirOZLORgUztMTkknPH0qvcst5HIxiQzRjc0qZBIyByOnf60W7By6FqNJLc&#43;XsWNFQt84/Tnr9Ksx3kd3cOPJiA8sg7s/MME4HPtVafUY76ZmuWKSsSEVeVA7Dn8ac32eGQNEGE0fzGQnK7vQD0/Cr&#43;FWLtdlyHSLrSlhvrkB1Zk2FGGN3UZ/L0qfT9GtZ0lYvI235ZNuAOxx0z1/lVa1jWQwlpPtAjlcGAMQSoyQSc8eldHpWmztbAMuwMxZs9F5PAqUW2uh//Z"
+							
+							class="lazy"
+							data-src="/portfolio/tricycle-reader_hu_48bdd70898b12af2.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/tmnt-april.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APLcFSUkHIqSygCXqRsQEkYLuJ4Ge9dtYTeDC8VjPqXnxu24SyRvH5T&#43;xxgduvHArR1iz0DTI7RtNltr1rqVfKmwrbQPvHjg81Ht3zcvKzqVGKV&#43;ZHL&#43;ItCt7XSIdQt02pNMYoxuyzY6k1gJIsyiF0O7PNdtNf6dc6ojaxdwLAjlSQmFzu5zt6cZqbWLXwdZxPcWus205zlBG4dx6ZA5oVWUFaSbNZU6dV8yko&#43;R51twcbBXb&#43;HHOo6UZptE&#43;0jTAAs0FwUlAx2Q5DD8O9U4fCpzmRm59BWvHb/2Vo7QW0jRyXFwibgcEAjB/SuidNyVluckLxdzE1GPQ7lwUW5t4ZAX3XA/ebxwemR&#43;grAvEso5gLYSyJtHzPgHP4V2FzokYu7OORv3KxeaQx&#43;98xX8elWZ7bSLSMSOtvGCO4BoScdGU482p//Z"
+							
+							class="lazy"
+							data-src="/portfolio/tmnt-april_hu_6ca9b8be83df1be1.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/sand-drift.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AONluZLiWKFM5OHJFW9M1&#43;eK5AuHaWMEggnJrK03UjGywtD5jn5E55ye1aUugzXkKX1mo2uu50B6GuClKVKXY9TE044hPm1OntdX0&#43;7dY0lCOxxtOK2lsF2hsE/jXM6PpdrY2oubiGOScDgEElahPjC5ivWR7RvJU4ICkH8//wBfSuxY&#43;T05dvkeTLKE9VKxxFxbSW6jzOGLEAew7/r/ADrpNFvja6OvmyNjeyYPRTj5Tn0zXQ654es762S9to8sigNj8v8ACuCklkhumW6jLIrH92eFB/wp4adKotdz0KzlF3TLkWs3wucvhZUwnTggDANb9pqsjqI2kBdsZPGarj7ANOiUxwi4ljGJVBALYyAQemc8EHn0q1pvgu91FUu47lEVsHBUgiufH0mpc8zejWUY66n/2Q=="
+							
+							class="lazy"
+							data-src="/portfolio/sand-drift_hu_9dc6801fa06401b5.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/rock.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOkPSsy4k/4mHlPHKBs3bihC4&#43;vStGQsIn8vG/adu7pn3riJbu8v9Q0&#43;SMtM6qrAO4Xfxk&#43;1fEZdg4141JyduVH1U6zpyVup1KsokVR0NT3C4gJUelVreC4JWSTy1HGVXJI/Grr48sg9MVwTspKzudbkm00NeQdDXLB3k8RrISNouZEQbf7qc10eIFZjdXAh2gEg44Hv6VnjTpLiVJ7C7s2w7socNkBuuQD1/KvoMuwGIVOTtbmVtfR/8A83E4qjGSV72epeW4wQtLJONh57Uy30e9yTPe27f9c4WGPzY0XGm3SD5MSD26/lXJVyjE0tXG68tTrpY3C1XZSs/PQ//9k="
+							
+							class="lazy"
+							data-src="/portfolio/rock_hu_a47db5070a0dd123.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/reflection.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AL/h7WYGjvt4LmG3LKT/ABAFeDx61hjUrmDXYpHbZIzAFegHGcH9K0vDdqwuLmS5jt40a12sEZicbl5OayZNIuDq0rsuXikByXyASeDz1pt3bdzthJRi1bc09b1W5OuXlsJtkaynbgHPXjpWlN4iW18MC6RT5i3LQ8pgFsAnv0xWRrNxcWmv3s0cEL4bksD0z7H3/lT5TNe&#43;FHkkhgDC8LbU3AEBAPXOaXM7L5GThHX5m3ZaZJEt1vkJLwFfunuVqN7Mm&#43;y0gJZAxGDktxW6iTMh3CMbhgjYOfyrNmmuFmdY9Nk&#43;VlIIUKDj05rG7bN4pIo6tZu91eSMY1jfdktnp&#43;VBg8zSVtoyu9ZNx54xtxkcVNeS6zcIQtpbQhs8u5dhn6HFQWtvdW8hlupnnJQJjJUY/PNWtiND/9k="
+							
+							class="lazy"
+							data-src="/portfolio/reflection_hu_860ba4c4247b6f27.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/random-mech-sketch.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOFt/KbKO7RnsduR&#43;PcfrUi5Z1ijRp5GOAsSkk46nHWo4SkYLNj8apT3obUEnh&#43;QxjaTnGfy9q0ndbDjZtXRsX2nyW0jRqH4PG5Cpx9D0rPkgdSATV6zJu0Yo7u4GXLemeO5Pf2qWOzbzh5g4rOMujLqwtK6WhhXrsgwrcMO9TJaW8dnbyzPGTLnKLndwcVFdJ57qq9hU1pH510ibdqRcZI/PFaTVyIOzLwvFS3SPTrXYE&#43;8xXJP&#43;f61py3SvEsjx&#43;UWGQp6j/CqlyZJP3FtF5MXQ88sPc1DPGYh&#43;8l6epzWLp2sdE53P//Z"
+							
+							class="lazy"
+							data-src="/portfolio/random-mech-sketch_hu_cb7bcf73839380d5.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/queen-of-the-discarded-robots.jpg"
+					class="galleryImg"
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AH/ZpPSsvRri5vBdx3SlZo5SAm3Gwenqc1t66Wi0uQxbgxZFG3ry4H9a5bSdcMim1t4JEuJJDgR4wDz&#43;nrXIot7HFhqMXTle2unodA8ZijLyEIq9WY4ApIwkwzDLHLwCdjg4z0zTLuzn1y0it7qzeHHMgaTCbvoOT7dKn8OaQdPsGBVAZHLDb/d/h/SjlVjndGMYNt6l3xcnk6GzDqZogPf5xXD6HqcOmaqZJg8gaUj/AFoUKSSDnjmvRPG2nTXPhi5KZBgxNx6Lyf0ryrQ9In8Qa8kW2UwGXdKyjlVZvyzzWqjc9PDtRpu5675CmPzFIK4zkelLZW7LZwAjny1z&#43;VZujxXdrZappM832h7FNqTAY3ArwD79K6N41t1AdlXjgZ5NTbscU6Tg7H//2Q=="
+							
+							class="lazy"
+							data-src="/portfolio/queen-of-the-discarded-robots_hu_c252a176361d6da0.jpg"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/penguin-troop.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APQpLVUjLu5AUZJrPe7BsFuIkZstt28A9fepNWvbixZ5EUzKI8iMVztvftIgjZZAhJdgT908cV2QhfU55VUkzprmVLSza4SPewAITPJz9aWK/gcR7yFaTgcVg6ixu9FdmnZGU4iIbGX7fWqGjXV5dTCGTb5lo4JI4BUnr/OtPZLlOWWJnrKK0X9fkXdY8T29zbypZ2dzNIUID&#43;WwHI&#43;lcpa6lqvmbH0q5eOTILIhBHv0rv8AEvmb1BxnoWGKtIxJBLIhPoM0lNJWsazhKWh5xL/wkb3CL/Zl29v0izg7T3JA6Z4/KtXS9I1e5trlZ7FInkym6d8ZXHYDOep612jpE2N87D6NimOtjEpLyA/7zk0/aaWQo05JWdrH/9k="
+							
+							class="lazy"
+							data-src="/portfolio/penguin-troop_hu_c2cee43659ab955e.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/peggy-porcupine-slayer.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOKmvlWBVC5ZeME9qpPeghUxj0PpVaZmOQvUVT&#43;Z8g//AKq3kzBRNVb8uVX06n0q7HeApu3Z&#43;h61kNbKLaN42JYZ8wY6dOf6U2NyrFWPJ/OqU2JwNafRNQhYqbaRh6hTWdNpl0LkFoJF9flNdFN4j1iP5luww90X/Col8Wamow3kv/vJQ1cqyWxXtrfTvPjQSyrvBSXzVAxwSCMemKvv4XDfcnAPqV6/rUX/AAlt0eXtLRj6mOnnxpOi/NawfQEimnHqVY//2Q=="
+							
+							class="lazy"
+							data-src="/portfolio/peggy-porcupine-slayer_hu_6046c1b762564467.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/oldest-game.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOeeAD7oJqvJGc9cVrKFY7R19KosVliLuojcEjaT6GvPirK59Z7ZcyiUGh9TURQZwDVphjmmNFuXcCBWt0le45LqX5xIscKm4XbHLIrDkbcqApyPUD9DV6SzbUJGumlDxSTKo28EO2Ny5x75qvBpMTSTtcX1xKzNnG1GyfX5ga6LQdIsobZ4mcygSBgJ8NtPHI9K6VyzXKeUsPWhLnMSTS5NPmKTq8UgiZwXGMAcZxj3p/8AYVxcQRTAmRWiXDIox0/yK6TUvC8WqkzzXpTjB8iJELD3JBP61u6LpFvp&#43;lx28c7SKOhlbJ&#43;lZSopQtc0&#43;sTjU55LyP/Z"
+							
+							class="lazy"
+							data-src="/portfolio/oldest-game_hu_3b99214649fa5b07.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/milks-brie-repairing-robot-ramin.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APOZIMA8HI7VVaEcEqDmtnU7Jra/uLZCSqNg7fl5/D2qGz2WauRahpCwKsw3bcdevf8Axrr5uZJoxceV2ZkNC2TsRiMfNgdKIYQ&#43;c9uea7LR7F9RF5KJo0nuF8zy3bA8pW&#43;bPAHb3PFZl1HHaTNBLbojIP7o59D9Peufn95qxv7L3U7nQXmjxXF22p22to8c/LxxgKy4AByCc449Kki2W8ZnS3MjYCq0w3cgY&#43;6Aff8AT8d3Rfhutxdia&#43;1ETO1uWaK3BAjY4wGP4njii4sGt0eFQFZMjnnms2rrludEZWk5NbnMxPPcxS26Wrw&#43;WHk81j8pGOwIH05GOTXPRW814XmuZXkkPALnJx0x9K7GS0m8p4nJcPwf9oVVeyTyygQDjGAOK0ppRMqsnNI//9k="
+							
+							class="lazy"
+							data-src="/portfolio/milks-brie-repairing-robot-ramin_hu_65bbf35c28d37c1f.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/military-officers.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/ANLRrcaF8TryyOFt9RjYBT0J&#43;&#43;v6bhWp4t8E6Rd6Ne3VvYRxXccLSIYht3EDOMDjnFcJrnxFg1XVbPU4NKe3ntGVhmcHftbOPu/UfjWrH8YbaPzJX8PEtP8AfP27PA4AwV44rB7qSN&#43;VmHD8PtZu9OtJrJYri2u4g6yB8eWSOdwPIIPpmsF/DOrx2P2h9MuZIcvmWNC6/KSDkjpgg9a7/wAM&#43;Po9P8OwW1rpN1qMqTyloocloYshsnAOfvEDp07VreG/FdndWV&#43;LOC5CzXLyRYjz5W/BIOOMhy3Hfijmtdiseaad4H1zUiCLRrdD0kuMop/H3q/qvgmLw7p8d7qNysrb8SW4Iif/AIATnd9QOPSneIPivqGoRm2022jsoN2c/fc85zk8D14HHrXGzy3upTm4vJ5JpH6vIxYn8TWNONeTvOyXYtzilpudZf8AirwtaWMcGi&#43;HQ8&#43;0b5rxydrd8YOT&#43;Y&#43;lcwLuW6u2uHRFeTk&#43;VGqKPwGBVZ7V1/hNX9JvLaxk/wBLsBdxsMbfMKMvuCOPzBroVNQWmpnzu5//2Q=="
+							
+							class="lazy"
+							data-src="/portfolio/military-officers_hu_87b3cbea9bfa2b55.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/mecha-coffee.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOa8R2ckkEfkRbcNtwnTkVzsGjuL02125idlOCRja2MjI/z1rs572F47WTKR/vI2YmQH&#43;IZ9O1ZGsXialrl1PDiNH&#43;USOeBg5H/fW3p71jTbi1FlYeNklMzovCWqzCApZSbbk4iYsoDcFu59ATSX&#43;jXGhzpb3yiOR0DqofdkEkdvpXQaZr9jp1xBIZ7iSNZQzRgblU7HBxz33L6dDWZ4ovZ9WvLa4mxu8ojC8YUOxH44Ipc03Kz2NWlcyGlaWQcAjOOuamt5bi0uwYioJHVl3DH0/CkhjVhKPN5UggBetWbxZfs0MojYEAhiRjvwa2lpoSkup0reGLD&#43;xG1JXYOy7vkG0dj61yeoIZ/sckAYFkWMg/3hx/Sui0rXI10GW2nlaRwhVVkPyCslLnTdxZtPkJRsh1k6c5HFQnrqx2euh//Z"
+							
+							class="lazy"
+							data-src="/portfolio/mecha-coffee_hu_5a867a956b04fa79.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/maya-lynx.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APPruZ5I4ZceUdnrnzCG6/8A1vpVm81i61KEyXGSwb5csQqDPQDtWk1vYo1xeXNmIIYSDFYPNsd3IOWGf4RjoO9YWxSZJJY3VXwsaZyVyT07Gs4tSe2w1dO1xqz&#43;bIIt3CHGe59asah5dy4Qy4UZxjvjii7s0gtpUJb7RFJjIH3hjrkHFZokXnG4n1Y9K2ZUk4e73Op8SWt5reuyXN/KgaLZG0MKN&#43;6XONqjvgk85wetLYaJCmkXN5dO7R2l0EhSRM&#43;bxkAjI4568/StTT7jS9Gsb&#43;D7aJWliUK4cglhu/xFT37WNn4HsIhOZbq7m88sTntjH&#43;e&#43;awpQatFbG7ioq/Uqy6BHrOlXWo20pW8hhV5LZMAE4JPGO4B79jXAxIA5aUAknO7GcVuWms3OkW16LVykrtDIGHZlJ4PrkMayr17aaUzW4ZDKd3lD7seeoH41qoOLaYq01U94/9k="
+							
+							class="lazy"
+							data-src="/portfolio/maya-lynx_hu_bca407c41910f007.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/marevlous-metal.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APXVp3BOM8&#43;lRQPkcnJ&#43;lc5p/iK9v/EN3araiKCLIaRkIZQrYH3sDnk/071CRtytnTOOKqzEKKnaQeUMMW9zj&#43;lZc84lZo15cMVx&#43;Gc/TkfnQ2VDzLMXEnyS4x1Xrzx&#43;VcL4tvZHlui8cjSoCA65AVVYEcc54b2zXYTwT29tI9mUNwV&#43;UTu23PvzXB3FsS00U5dp5nYSTNliPmXOM89&#43;PYCuahUcmdFKDbdjZ8D37XduxfdGblFnjXB2sOQcdfQV0Vw8kSlsr2xx71xnguI2yF/JkmiCbIZB8pHPIzn6fjmukngViGnmYYPA37v6U6krVLC5W3qf/9k="
+							
+							class="lazy"
+							data-src="/portfolio/marevlous-metal_hu_889a2e4431f75853.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/jewelry.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AONvraNLB2VcE4Gfxq34Yimm1Sxs3RkguZO65Ei960Tpi3&#43;nzwJgSMh2Z7HqP1rY8CagUtrezu7eSO5g3BRIgx8pxwfX5q5uZOLHRakdnfa5p1gI9KuLhI5SuEi2np&#43;WBXBamkU2qSIuC0a4Y46Z6DNehzWmn3k6XRsEN0o&#43;/t5bjvXG38NpJqV3cWtu8bSEGQv34GMflURaRtUuqbKGlyAPsVMsa2EgsW1FJJQLeeOBsyk87tw2nH0BFEWqOsiadpVnApHDSlM5Puew/OmeII9ft7bFwttqMJBGIZlJX6jy1rNXvcdLCuErtk0fiWyv5X0m6h84kEExgFWA&#43;vSsed7fTYnhtlCIWLHpx&#43;Vc5Z3ZtdSW7xIoGVKOvI7dalub4vI7ED5/yrXl1M66nt0P/9k="
+							
+							class="lazy"
+							data-src="/portfolio/jewelry_hu_321cdfbef7b9d163.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/icy-isolation.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AO6tbbgcVR8SahPpn2WC2C&#43;bcE8swAAAz3I9K6G0hGM1w/xTuUzaWbxRJhTMk7sQcg4IGPqDXItWbQV2a2gaw2s6eCyBZ/OMeBzwOSfyB/StG5tsZ4rzXwf4gm0i8e8khWSxhZYZXB/1YfkAdh93n6AZr1uZUngWaMhkdQykdwaHo9AnG2pbjiP2YiMgOR8pPTNeK&#43;OY/EGpCM6vJa&#43;ZZSyQiKMnP8J3dOhG0j8K9hi1FFhLY6V5741tI9d16GU3bRIFSJljHXBJJ&#43;vIFXeK2HTtf3tjL8Dtb28d/pmpKkgnlgl2N911VxkYPfn8RmvWfNgeALCV2gfKAMACvDPssOmX7zXnnJLCUaIAltxxkliMjpj869B0DVbme4kWQjywM&#43;uPQZ/z0pNe7djkk27H/9k="
+							
+							class="lazy"
+							data-src="/portfolio/icy-isolation_hu_75a15423e5a5213f.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/hoodie.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOJq/o0UE2oqtwVEYUklulZvme1dHo01rCq20ynLRiRsDk5PGa6ZRbVjpwtH2tS19jM1aOOLUZVjXauegXaPwFUq3PEM1vKMQqcoAxYjnk4rA8wURi0rE4ml7Ko4kG6tzS9TmS2aRoIphEAgZhyB1/pWAJSCpCqCPbOa6nRbxB4R1aW4CytkLyvTIwKuo&#43;VXsTQnKErwdiHVNUM9icWccImwnmDrgc9Kw3QIm7zUJzjapyfrW74jmhaw061Uxw7IN&#43;Np&#43;YnjPA9j19a5kkAnaSR6kYopvmV1oOvOc53nqz//2Q=="
+							
+							class="lazy"
+							data-src="/portfolio/hoodie_hu_90bf0b4262e44d86.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/harujuku-fashion.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AK9RpcQ292JLp1MPCFCxBGf4unb61JWP4g3oLWVF4RyGbHTp/h&#43;lcMI8z5T6DEycKfMuhssu1sUlVLDWba41VtImSZd2DbzFQSM9nx1Ge9XCMEjIOPSlKLi7MqhWVWNxKxdZhWGLe1xL&#43;9lyVJyuOvStqua8VzlXRB/BEWH1Jx/StaPxmOOsqWpKNRN3qtvewxxxRl1tl2jlgB1roK5DS0fZpnI2m6Y478KK6&#43;nWWpGAbcGf/9k="
+							
+							class="lazy"
+							data-src="/portfolio/harujuku-fashion_hu_3716e5af822283.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/goat-bodyguard-ver2.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOKO1AIwsmFOcMxIPuDWpcW6S2KM9ooU9GKcjPevRIdLtX1W701dNtn8hEZmCAfeHGc9a0f7DX7MIHtYtnZAM1r7RDseSaLbR/a5HvLGWWHGAYIwwH/fRwKjnkgF27pbs0KE7QE2lsDPQE46V2OqXMWmazcWVpbiL7NFgRiPIkZtpyR7VzTzXBXd5Sv06fMckZ7URmnsVy9y3beLNcttRub9blfOuVRXbYp3bc44xgde1Xl&#43;IWtT77Z5lBZSGcIBgY5IIxzUqxaZ0ayhP&#43;9GD/SrENtoiMHFlbKw7iMCudzXY9L6o12Oel1WfUrue6nj8yW4XblTnG1QB169qzUt76JSkdpM4z/F1rv420aDDJBbIQc5WMDn8BVr&#43;29PiGWmVR70lOzukT9Vtuz/2Q=="
+							
+							class="lazy"
+							data-src="/portfolio/goat-bodyguard-ver2_hu_a6c32659d1c96fb3.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/forgotten-god.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AMyz8KJZ3KXBsZLm3lGPkkVl6cHIwf0q14dink0y60tgFaxuGIBPRW6j8D/Osnwr4pTTZWW5LyQsDhMZAPHJ9quTeKbO0vLh7GBXM7fvSrZxnrTp3jNWV3odFakq1CUL2umjc&#43;xTL1h3j1A/wpWt4Txlo27hxkfn/wDWpmk&#43;IPtgmUQ&#43;W0LD7jcMp6Hp7GtZdRhkwJ4d2O5AP&#43;Fe1GpKSukfn2Iw0cPVdKpK0l9336Hjltb3KqSm795kZHXFXLJzYOUfTmmUDJbBz2z7cA/rXSGxUgA3N1nPUyk5/A5FH2C1XJEEDSdnZSCD&#43;BFeZGMoO8T9N&#43;rSRJ4Z1i2n1kwPZPbWc0eF3Kchxx97v34rrrprC3hDwRPdNnGxMA49fmwK5G3uTApVrSFV3AnyrhkyOfY85OamGs29uNpdFHoWzirhN3absctTK8LXnz146/15H//Z"
+							
+							class="lazy"
+							data-src="/portfolio/forgotten-god_hu_207f4588fb82db5.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/foreign-suns.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AK&#43;v&#43;GrjQY7aSSVZknTJZBwreme9VvDtpDq1xKkhjWLlFd3K/N1OMf1rW1pvEuvaHLeyxhLWzjMgJUIhx3x3OKxPD97AIgFsTcTOyjaDk/fBPAIByPpXqYvE1IwUE9etjDAUIzk5SWhtt4F1KTUGhtSj2wAb7SzfIAffvUpj8NeHThz/AGzej&#43;EcQqf61vjTrTX0XTbPV0trWxXbPbxPls4HXJ7dM5POacH8I&#43;GBiCNby5X&#43;LiRs/XoPwqqOJlUprmbb7L9X/kc1elyVHbRf1sZamTxVFrL6tcutqm9LaJWKpFt6OBn27/3q47S/DLNbveadfLNNC3EOzO7gEj0Pf8qlujLceHrqKBplnspHe7LTNtkUkYCjOO2ap&#43;BvEL6Zc7ZojJEX3gg9M9jXhvm953&#43;R60baI3LTQoYpZtV80pNMjO0KOwyxzu&#43;Xaeepxupfs3tXTX3imKQC7s9NhWRRklgPMcd1AHf6n8Kp3EKyXMrouFZyQPQZr0Mtqu0kznxtK3K7WP/Z"
+							
+							class="lazy"
+							data-src="/portfolio/foreign-suns_hu_9e00edc2c256a572.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/female-bust-02.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APKVUswVQSScADvV1tNkjfy3DtIv30iTds&#43;vvTtDB/tWKQYzEGkBPYqpIP5gV3lvqml2lpLZWyNM0EXmOyp9/wBT&#43;taybS0NqcU9zzy4spYIxIQShOCcYKn0I7VXrs5PL1HTLndA0R8xUAcYOG/wIBri81FObk2n0KrU1GzWzNHRWCXFwT3tpAP&#43;&#43;a7LRvEAk0Qw28SLcxKsblYA5wO/UdhXO6dob21pJfTTBHaCTyosZLDaeT6U7w5pd3eyXNzYXDxTxKAAhwWHcVpWg4O0kOlLTQv65q8k820rJGXcbUcANtGc5HbnFcbXQPbfZ7tnv/MMqHJVs5J96oPZafcMVt52gk7JJypPpntWcIOLb7mlX95FJdD/2Q=="
+							
+							class="lazy"
+							data-src="/portfolio/female-bust-02_hu_c016119215bf49e6.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/female-bust-01.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APKa2NJ0cX88CK6ASHaXk6KT0wOp/KsY9K6fQdI1PUVgENrKtvJGQJiDtyAeM&#43;5H605uxrTV2R&#43;K/Ctx4bmiSbY3mLkPESUP58iudrt9VfVZ/DZstWmt1WzdQqFv3ikcfl/SuIbAYgHIzRTldBUjYWJPOlWNerHArrNF1ie0tf8AhHr2VEjB3xM7sq4JBIypGCP6msXw9p8l7f70HywDexP8q7DRNM0rVNSmgvNjvcRGK3PdXHPB7f8A1qmqmzSlormD4z1L7VcIgmgl2BUJt8lAB0GTyx965gsMnt&#43;FdKr2Gj6pc2s8Ed9JE2xSDldwPb1qyjadrYIurJklHHmR8E8dRx&#43;la04aBNc/U//Z"
+							
+							class="lazy"
+							data-src="/portfolio/female-bust-01_hu_5e3b30262bfa4ae0.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/face-sculpt.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APMba3e6nWKMZJrpdE0OxuHBngaYE/LjgGsjw&#43;A&#43;piJjgSRupPp8pOf0rb8PRXwuJY4nCYXcFPQE8fhzXq4FRak2v&#43;AXik3FJGh4g8F2drpv22zRo9hHmwk5BB9O4NcNdW/2eXAJKnlSa7az0C/tLq9&#43;1XcUXBMksgyX6klfUEH2rk9SAYOynKpIQv0/yKqrSj7Nvdo0wj5qbT6DNFuUt9XgeT/VsSj/AO6wwf0NdXNINLvY4FjuHVmLF02KGXOBjgn&#43;Hv8AhXDW8dwsiTeTJsDA7tpx&#43;ddG2r3tvpljdI3mNGDFhvTJx/h&#43;FcuGnJTs3ZMKnvQbOuub5b2wlV3aLcvz7yCVHfpx0rz92FzBcMgwCdyj2z/hWxZtdanZahM6fMI22ogwuccfjmuctJwmAfxr0p8qfs&#43;jM8LNQWvU/9k="
+							
+							class="lazy"
+							data-src="/portfolio/face-sculpt_hu_e1d79804085b9ec5.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/docdraws-geisha03.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APH60bLTRPtPmQSMwyIxIdw&#43;oANU7NPMvIUDRLlxzKcIOe/tXYWwMVq8jNZs&#43;W&#43;az6YAHB/Oqtpc0hHmZlXfh6S2skupEgET5G8St8h9D8vFYc0Xkvt8xJOM5Q5Fej6XrEUlpJbtbsEnRkYmP5enf25rgb0s0Q3PanB/5ZdazjK5damo7FFSVYNgHBzgjIrqNO1AXET&#43;WljbrIuJUiiZWUdAc9OpFc1ZxC4vIYXYqjuAzDqB3P5V2DXFsdONjZWyRRE9vvNzxk9zWidhUk73Iba/uxYXkUTKRsLEHkAYwTgD&#43;tcvcyh22qkQA7ouM13&#43;jJDYoXYKWb7xrn/FtjYKkd/p6CIO&#43;ySNemeoIHbvWUX0Na0W1dH/2Q=="
+							
+							class="lazy"
+							data-src="/portfolio/docdraws-geisha03_hu_54662e5231416d2.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/docdraws-geisha02.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APHq7fw74QtJNDlvdXAVpx&#43;5Af5lUdwOmT756e9cbbLumHyo2BnDnArsl1S2t9Ngj&#43;yRyfuQsbDOAxADe3GO3pUzb6G9CKb1MPU/D8cAZ7Cd50VsEOqqV/HP9KxCCpIIwRwa6qd9lvdKfLYShVVJT8pIINc7eptlB2xLkdIjkVdrE1IpPQrowVwSoYehrs9P8KSXdpCbhlg5yUGc4PPfp/8AXrk9OCnUYN6b1VwzL6gcn&#43;Vdm/ihLqQJE2MsBn8azm30NKCWrZNqvh5YrFXhW2upIuqyZB2&#43;x/CuCuJFllJWNEA4wg4rrby/dtSSHzDhQRgHgcfzrkrpfLu5kxja5H61cdVcVbc//9k="
+							
+							class="lazy"
+							data-src="/portfolio/docdraws-geisha02_hu_44e56331a99d5764.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/docdraws-geisha01.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APIoInnmSKMAu5CjJxXXaXpVrEAtyZbbPDeTOWJx1zgAfzrlbBkF7F5kccilsFZDhTnjk10&#43;oiVYYmhKKsYIcIeB838uavlbi2ioNc2pd8R6NDb2NrPbI9xDJ8rmS6YDd1BwSff8q4i5haCYowA7jDbuPrXVS31rd6QLcx5mVxnzpiI&#43;On6E1zN/tFyVVIl2jB8ptyn8aiO2pdVK90QQRtPPHDGMvIwVR7mu8GiSjTltWeJ343uCMg1xumqI9QikP8BLfkM1rvqs8dqk4clkbaTnoOcZ/Oqk2lZCppN3Zsx&#43;GDHptwqzqkwJeMlFZX44ByOOn61wTHk5PNdIPFFy&#43;yOTCRkjcR6VzsoHnPtORuOD61Eb9Sqri7NH/9k="
+							
+							class="lazy"
+							data-src="/portfolio/docdraws-geisha01_hu_1983678d47bad1a0.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/darryl-photo-study-01.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOxiYR6HdBjt3gjOCeox0FL4L1&#43;DVIJbKOB4XtVB&#43;dgS2SQeOxBHQ9M1B4nvG0fRpni2&#43;bJlYgxAHv19q5DwPq99p2vpBMgS2lLm5LLg7jjBJOCOcfWvMVJV6M2t&#43;g78rR68feg9K848YeKmsL28spldkkZdqEEgFTkEHtn5c8V3Gj3F1daRbXF4YjNMgcmLO3B5H6EV506EoQU31NbnMfEGMX3hOceVA7Qsso8wE4weox35rgvh7aBvEsS3kaywhHfym5QkAYyD165Geleg&#43;K4g3hbUAud3kkjI7iud8NRRr4h09Vbap0pGJA6ttXP65r16VlRcUQ17xta1Yre6jLdnTJJJDKpDAqd6Dysg5PorfpXQaTdGDS7eBoWjMSBNrHkAcCmFkXjrSCVK53TUoqNtiz//2Q=="
+							
+							class="lazy"
+							data-src="/portfolio/darryl-photo-study-01_hu_a3e69d9a95388c7.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/cute-the-royal-turtle.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOLDBEyTgDuapxkNPKoIzuLDPC/XPr6UyS8EkLIEIyOuahtgguA0r74gcuoHIHtzyamT0OuMrO5etJEZXw&#43;WLnOeprSsdGvNULGJCIk5eVh8o/xNO0LSobq6/tCaELbwsEaFSVLcHBJ9&#43;&#43;K7RNct1220VmPKA4UEYFc1TEKPurc7cPhpT/eNaHmbWaSMIokdmPy8HqfyrrND8J2Vmi3V/ukmxkRlvlT/AOvVfwvpayb9QnUbfuxgjv3NdIIYcfcX/vmqq1Le6a4fAOUVNuxLFZ2Xmh1&#43;bbj5WI2n2xV24022urffbQiOTH3oVz&#43;nes4Qw/8APNP&#43;&#43;auafcLY3AdUj2nggqMGuVuPY6p4SqldT1P/2Q=="
+							
+							class="lazy"
+							data-src="/portfolio/cute-the-royal-turtle_hu_7d1b8a075e3b8129.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/clown.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APQZbV42wyFT1rM1qU2ukXckF1FDcrExjMpGA2Pl6&#43;9WL&#43;4/ti6uNMuZHgBQGGaIcq459Dxzg1xvinRZ4ZZ57W0ZVtYvtSySszlhwpUse/Uj27V4uGwuHqyTcrev/DnfWrVacbWOg8NW2oR6ai6hem8lPLP/AHD3XPfB/wA9huLABXJfDzVk1bVrtJR5QKKdhbkn/Jrp4pnGqXVqPmhiICv745/XNGYYVU8RJq1vu6GmHqOVNehOyQC887cN44H5VleMxcTeFrxLZWaRgowvUjcM/pXNtd62ZN/kbj&#43;JqbzdblQi4iCxsMNk9B611UsIlOM7p2aZzVa0ORpsp&#43;BtAuoZZrsRPbOBE8Ylb7ynO7PJxkdvpXoMdusTuQeX5P6/41523iS5lkeS0ZlimbdkcdOBx9AKaddlPEk82frXZi8NUxFTmbIp1lTgoM//2Q=="
+							
+							class="lazy"
+							data-src="/portfolio/clown_hu_8b3ba2ef8cee9213.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/breakfast-in-bed.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOg13WJdNigMaq&#43;9/mUjquOefWuN1ud2uneJJTuO5W2nBB5GKk1Np5pxbxXTtHCm0Ozbi57k5561QGq3UMaRvqE52/L/AK1sDHFcMaSikxzp&#43;76DEuLkRFlBVQQOVPXk/wBKr3LzXPLAscEAKCea1Z725i04h283z8qC7E4HqP1qpp2oTQFLYMyg55RiM/Wq21GqK5b9SO&#43;kuXkVYJjbpzvR4wpQ9yQcHt3qvqVzYraRRW9lNLKVx5rnhuuW4Hc81vX3jK/DzW93pljcHOdxRsEY6CsmLVXtri4u5bNZYJCPlBceUMY&#43;Xt6dfQV1Km&#43;W8tLfidDnroTG2lisrW0lzvSEyNxwDnO38AT&#43;VMEKxbZiw2gjkV1mkwWOv2huJJzbvMWZkkAAYHtmsLU/BmpWbOIIpJLfk/JKjZHsMg1muVqzdjWUlHbU/9k="
+							
+							class="lazy"
+							data-src="/portfolio/breakfast-in-bed_hu_b1f0568292376c2a.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/blue-astronaut.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AHf2Y3oaP7Mb0NV/&#43;Fg3X/QNtR&#43;Df41KfHlwlvFL9htWEgPIB4IPTGfp&#43;ddF6h5/s4D/AOyz1INRRWizkiPJx37H/OKYPGt/cHdHFbJggBdnXJ9zz0x261nR&#43;Kb6MuRcKpfGSsajpn/GhOo20N04pJ9xLrw2EgPlvKzEY3ZHB&#43;mOabpfhdyjx3cvyswKlOo9Rzx6V1CjjtkfpSxqDKp7k8ewri9tOx6XsIXObu/DvkhorRgx3A7pSc8EelNi8NLcyHdcEN1YBehrpZk5BJ5IPNRyIscokXjd19Pekqsu5XsoPSx//9k="
+							
+							class="lazy"
+							data-src="/portfolio/blue-astronaut_hu_1820924c82d1a10c.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/blowfish.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOLw3pSDPpWt9xCEijU&#43;uwE/rVi21NBH5M0MLg8EMoP5e9dtTE8mtiFKL6mFg0u1vStW9ubOP/VWq7sdCe9U4Q1w5ITYMZxVQxMZ9BOSRqiItwFNZ9/pN6JfOtULqeSmeQa7qLRv90fjVpdGG3jGa4ZVUzzPb22PPLG1u5Flins3CnB&#43;ZCBxUaRTxXsEUSOFEmcMc5zjI&#43;ld9NoLsp2sUPYhzWZ/Yd5FPmSXevbJ6H1/z61CklqjSNZS3P/Z"
+							
+							class="lazy"
+							data-src="/portfolio/blowfish_hu_33a59f2f32f32f83.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/ayangs-queen.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APVJp0hTe5wvrSfaE2biccZxWXIwuLdSCDnn1qK/mEdjIxkWMY5LHpW1gPNviTYpea2LuJ9z3HyhVTHTA59a4S4tjbOUcqSPeu18R6gxXKTELhgqg8nNcdPKksbA9j/SqlFIDqz4t1O2iBWU4BAGTmnXXiq&#43;vYTG4Xd3JP8ASuTkbedwlbIPel&#43;0yFgzPkgYz60X1DSxbupZWYu6BmP8X&#43;FZJTkjp61cN62McGq80wcHpTbVtRH/2Q=="
+							
+							class="lazy"
+							data-src="/portfolio/ayangs-queen_hu_253f4bd7962ec533.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/autumn-adventure.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AMXw9qPhqwvXikt/OwCPtEsxRQARzx1zz/hXQ&#43;JNVt/ETR6TpcaEglBhsAbe5NeSqju2EUs2FIUDJOavWOrTWrNKi5ZBkgngfhXNKgubmT1OmnUSfvbHaTafBbaZdvd3gWeEArEnO9vQ/wCe1Ytj4jge6AmjCREZYr1J7D2rDvrq5umEryYWQ5wOOtZ8ExibefXGa35dLHTPFNTXJojo4ksreT5YAJlT92ZVYq2F6kZ65poGlvZgPbTCWVf3snv7D0r0w6hYyH95awA&#43;oVSamGoIiYgk2r/dUACudzk&#43;n4/8A51FHl4/sWJtywSz7F2qr9BzUE9xpDKqrZMNpIJHf0NepnUMn/XkflUMmpSA4juGPvgf4UJy/pmltNLfcf/Z"
+							
+							class="lazy"
+							data-src="/portfolio/autumn-adventure_hu_1fbe993c62fdbf74.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/art-class.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOy1vS7K/wDE9gl5CksVxbzxspHcBSD9eK8o13whdacvnRAyoXlXCDOwIeSfbGDXoGs6x/xUWlzx7isXmqfxQ5/lXO6Jr&#43;o6hNqC3sSrDmUopjwfmif16ggCs48yN&#43;TQ8/ndZUVXY&#43;YvtVV9znJJJHetjW5JZNbv40tYEKzSNwCOAx96zI3LYBHX0&#43;grW9yJRaPYPFGuWksyNpsUbW0y7nmiba2/6dj1561wqXMGn&#43;JYJY0dGZzHMsjGTG4YPA579q5X7dfROn&#43;kSAKeOcgfhSG4MzHc7MxYseOtCSSsa&#43;191ROuZdP1a81OW2DSytGVACHIkJyMcA84YYx3qhpsQimj&#43;0rDFAjBHmIBIzzkeoyMZ6c0aTrl1Z6beQQ7FmuiP32PmXjHH1Ax&#43;JrEdGNuEUBtxLN2POP8KhJ3ZpKqlFH/2Q=="
+							
+							class="lazy"
+							data-src="/portfolio/art-class_hu_d2cdea229032e5e1.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/aprilias-sun.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/ANO1gTI&#43;X9a6fSIoFcF14zWZHYOnQVchWSPoDXpz95WMYOzOL8bXvh8ahD9htGZv9apDbVGOc49&#43;avaZfrrFq1y0KqARkLxniuF8RW95/bz2csLNccIqgZz34/A/lXe&#43;GdIFtpkkccjuvmn7xzjgVzUG07HdiGnE6/VYriK1820Zhs5cL1Irj213U7O6lxNvtiA8e8hmyeo&#43;g/DgirOv&#43;PNJubBo7S6mimAJUxjIb2IJFefXWrPcosYxnqMk5J71DUpO9iKTjGNpMv8AiPVrqItdWsccL3HyyT53yH2yeldP8KdQN3YXdhcPukjYSoSeSDwf1A/OvM2hm8owNdu6k52lCdv05rU8M63P4c1H7ZCgcxgp83Q57HnntTUZR2QTnGaauf/Z"
+							
+							class="lazy"
+							data-src="/portfolio/aprilias-sun_hu_978e5cc63c8d994b.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/antibody-soldier.jpg"
+					class="galleryImg"
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOXuLa5gXM1u6j&#43;9jj86dpdzaxXqNfDMAPzjJyR6DGTW3Jemy53oY2OAH5rMubrSrLUlnjUmRAJPLj&#43;6TzxXr1KSgrxZ4OGlKtUUakdDKuLuKaZzACiMSVVmyQO1T2WvXunq8MEhWN/vLUOraudX1M3K28duGQKUhUAcd/z71SIIOT&#43;dcslzLU7qtOMKnuafgdtbw2VxpLXWoTRBIxna3U8dvf271x&#43;nQxahfkFf3ckm0heMA1Y&#43;yahrEEVtaKJAOSgkC5P41Lp&#43;NJuZo7mzaOSGQq8W8HbkAc&#43;v/wBetqs4yqLTQKEJRovv/X4iS6L9nEpRWQR4I3EEkEZz&#43;tUZFA/nXZ3ccQiKqDK0v3jnnoAP0Arj72ExyEJnHoab5FBNHOnOdZxfyP/Z"
+							
+							class="lazy"
+							data-src="/portfolio/antibody-soldier_hu_bdba5ecec2b87de7.jpg"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/alien-still-life.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APOFjElrEsFu5kTIlfqCOMflV4&#43;HrhbwWszhSygk9l9friuo0zSI4BAAzQRIrPKhbO6QLgY9j6V0mo6JHHYQXcf&#43;kKy7ySvQezfh0raMTGpWjGVjjvD1pY3Ewsbl2twJgsz7chUO0A57E5Iz/KrXjfwtp2lzW/8AZUn7nYYn3OCAcfKcj1GffjPeolspdLe6ngneJCAzOhJJA557jnBqjqjMILJBIhgKZBjGwMT/AHse2f09q3cYqyJp88&#43;aUdkep6E&#43;neJfC/2Iosd1CuC2Od3973z3rHtNQm0eWXS759sAJyCm7acdRzXG6H4hn0e&#43;S5gOdpG5CeGFa3irxXaa3NDLawNG6riR2ABY&#43;nHpWCdtTGSd1G39f194t/JDcx33k3YtVdW2Jg/vB1I47dK5S8CGFIfKZUJA5bgEDpipHvsPuJB4wR6g9RUU&#43;pxzW0iTLudVXymB&#43;6Qcfjx/IVDk2dlNqEUo7n//2Q=="
+							
+							class="lazy"
+							data-src="/portfolio/alien-still-life_hu_34eecfc68b4b5354.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/abandoned-creation.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AMK61cWZQTEHzDgfLUseoLKilMFH6MDUn2NF1Jku4U8yONsJNGW/IZ61nSxramVI2BWNzt2jA9eBW9k20dvNJK9yDVoLd42eTCgDOcVz4l2sqRzsu4gDGcVvX5EkasWyrPswfQkVkCFHiiYABkOMeuDWerJqJXR77q3h/T9UUSzKBMh&#43;VsfofWvMPEWmHTriRUSMAtxuYDj2HpXrElyS20DANYOr&#43;Hv7Udsvb&#43;Ww6Sw72B9jkYrhpYuMXZs29nJxseQTzFY1jYxkOwZTH2INTwZ&#43;zCNgg37nHufmFdFrXw6vYV82wmScLj93sCN/ga5i5jvLQx29zFJG0SFSrgjOST/WuqFWE37rE6c0rtH/2Q=="
+							
+							class="lazy"
+							data-src="/portfolio/abandoned-creation_hu_23306de44e6deb82.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/portfolio/7am-flight.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOliudMnkWNWdSxwCVwKrajYadqVhewrPv8As/ysRg4bGeP5ce9clKs00LCXCqMtgdz2pNDVoZZSV3kxsNxOABjOfy/nW0uZJoqFODaaOImj33hiHzEysgK9&#43;eMfpXpVh4OsRBBb3wC3xhDyJ5pyK4O70iWGwW5YlfNmyvuCAauRltSYy3lxLIwH35JCSMepNaK/QmUbt3Z6NFoMSjDkY92z/Kob/TLOzsmVAwEg8tmA4CnGf0ra6L82Kr3F1EYyjRq6kYIYZBrz/aVKjsnc2i1B3ZyviyLTf7LWO2ZGAVmwr5wcDBrl9CuYYbO4t5ViLGTO6TGcY7V2N9FprEgWFqSewiX/AArHuNL03GTZW49hGK9XD0J8qcvxOOrVi3ZH/9k="
+							
+							class="lazy"
+							data-src="/portfolio/7am-flight_hu_b76984c01fa2abb2.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+</div>
+</div>
+
+<script>
+	if (!("HSCGjQuery" in window)) {
+		if (!window.jQuery) {
+			throw new Error("jQuery is not loaded, hugo-shortcode-gallery wont work without it!");
+		}
+		window.HSCGjQuery = window.jQuery.noConflict(true);
+	}
+
+	
+	
+	
+	
+	
+	;(function($) {
+
+		$( document ).ready(() => {
+			const gallery = $("#gallery-3976528693a0108357f4928017600865-0");
+			
+
+			
+			let swipeboxInstance = null;
+
+			
+			
+			gallery.on('jg.complete', () => {
+				
+					
+					
+					$(() => {
+						$('.lazy').Lazy({
+							visibleOnly: true,
+							afterLoad: element => element.css({filter: "none", transition: "filter 1.0s ease-in-out"})
+						});
+					});
+				
+
+				swipeboxInstance = $('.galleryImg').swipebox(
+					$.extend({},
+						{  }
+					)
+				);
+			});
+
+			
+			gallery.justifiedGallery($.extend(
+				{
+					rowHeight : "150",
+					margins : "5",
+					border : 0,
+					randomize :  false ,
+					waitThumbnailsLoad : false,
+					lastRow : "justify",
+					captions : false,
+					
+					
+				},
+				{  }
+			));
+
+			
+			
+		});
+
+	
+	
+	
+	})(window.HSCGjQuery)
 </script>
 
-<code>Color Theory, Lighting and Rendering, Anatomy and Proportion, Composition and Framing, Value Control, Narrative Illustration, Speed Painting and Thumbnail Creation, Krita, Photoshop</code>
+<h2 id="recent-journal-entries">Recent Journal Entries</h2>
 
-
-
-<div class="w-100 mt-1 mb-3 border border-black dark:border-gray-300 rounded-sm" style="height: 1.25rem;">
-  <div id="skill-percent" class="98% bg-orange-500 dark:bg-yellow-700 h-full rounded-sm" style="width: 0; transition: all 0.5s;"></div>
-</div>
-
-<code>Form and Silhouette, Anatomy, Digital Sculpting, Poly Modeling, Retopology, UV Mapping and Unwrapping, Polypainting/Vertex Painting, Hand-painted Textures, Rendering</code>
-
-
-
-<div class="w-100 mt-1 mb-3 border border-black dark:border-gray-300 rounded-sm" style="height: 1.25rem;">
-  <div id="skill-percent" class="95% bg-orange-500 dark:bg-yellow-700 h-full rounded-sm" style="width: 0; transition: all 0.5s;"></div>
-</div>
-
-<code>Acrylics, Color Pencils, Watercolor Pencils</code>
-
-
-
-<div class="w-100 mt-1 mb-3 border border-black dark:border-gray-300 rounded-sm" style="height: 1.25rem;">
-  <div id="skill-percent" class="92% bg-orange-500 dark:bg-yellow-700 h-full rounded-sm" style="width: 0; transition: all 0.5s;"></div>
-</div>
-
-<code>Curriculum Development, Lesson Planning, Classroom Management, Behavioral Support, Lesson Modifications, Conflict Resolution, Mentorship, Professional Development</code>
-
-
-
-<div class="w-100 mt-1 mb-3 border border-black dark:border-gray-300 rounded-sm" style="height: 1.25rem;">
-  <div id="skill-percent" class="83% bg-orange-500 dark:bg-yellow-700 h-full rounded-sm" style="width: 0; transition: all 0.5s;"></div>
-</div>
-
-<code>HTML5, CSS3, Javascript, Responsive Design, Mobile First Development, Cross-Browser Compatability, Tailwind CSS, Bootstrap</code>
-
-
-
-<div class="w-100 mt-1 mb-3 border border-black dark:border-gray-300 rounded-sm" style="height: 1.25rem;">
-  <div id="skill-percent" class="78% bg-orange-500 dark:bg-yellow-700 h-full rounded-sm" style="width: 0; transition: all 0.5s;"></div>
-</div>
-
-
-
-
-
-</div>
-      </div>
-    </div>
         
-  </div>
-</div>
-<div class="grid grid-cols-1">
-  
-  <h2 class="text-orange-500 dark:text-yellow-500">My Portfolio</h2>
+            <h3 class="posts-item-note" aria-label="Recent Posts"></h3>
+            
+            
+            
+            
+            <article class="post-item">
+    <h4 class="post-item-title">
+        <a href="/blog/2025/gallery-test/">The Gallery Test</a>
+    </h4>
+    
+    
+    
+    
+    <time class="post-item-meta" datetime="2025-10-25T03:47:30-0500">
+        October 25, 2025
+        
+    </time>
+</article>
 
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-
-    <div>
-      <a href="images/portfolio/CLASSIC-Ok-to-Go.jpg" data-lightbox="portfolio"><img src="images/portfolio/CLASSIC-Ok-to-Go.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
-    </div>
-    <div>
-      <a href="images/portfolio/2025-EPCH01-Jewelry.jpg" data-lightbox="portfolio"><img src="images/portfolio/2025-EPCH01-Jewelry.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
-    </div>
-    <div>
-      <a href="images/portfolio/2025-EP03-Reflection.jpg" data-lightbox="portfolio"><img src="images/portfolio/2025-EP03-Reflection.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
-    </div>
-
-    <div>
-      <a href="images/portfolio/2021-11-25-Maya-Lynx.jpg" data-lightbox="portfolio"><img src="images/portfolio/2021-11-25-Maya-Lynx.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
-    </div>
-    <div>
-      <a href="images/portfolio/2021-01-29-Penguin-Troop.jpg" data-lightbox="portfolio"><img src="images/portfolio/2021-01-29-Penguin-Troop.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
-    </div>
-    <div>
-      <a href="images/portfolio/CLASSIC-3DHoodie.jpg" data-lightbox="portfolio"><img src="images/portfolio/CLASSIC-3DHoodie.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
-    </div>
-
-    <div>
-      <a href="images/portfolio/CLASSIC-Icy-Isolation.jpg" data-lightbox="portfolio"><img src="images/portfolio/CLASSIC-Icy-Isolation.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
-    </div>
-    <div>
-      <a href="images/portfolio/2018-02-12-Apocalypse-Centaur.jpg" data-lightbox="portfolio"><img src="images/portfolio/2018-02-12-Apocalypse-Centaur.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
-    </div>
-    <div>
-      <a href="images/portfolio/2025-EP17-Harujuku-Fashion.jpg" data-lightbox="portfolio"><img src="images/portfolio/2025-EP17-Harujuku-Fashion.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
-    </div>
-
-    <div>
-      <a href="images/portfolio/2025-EP02-Alien-Still-Life.jpg" data-lightbox="portfolio"><img src="images/portfolio/2025-EP02-Alien-Still-Life.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
-    </div>
-    <div>
-      <a href="images/portfolio/2021-02-18-Sworn-Enemies.jpg" data-lightbox="portfolio"><img src="images/portfolio/2021-02-18-Sworn-Enemies.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
-    </div>
-    <div>
-      <a href="images/portfolio/CLASSIC-Tricycle-Reader.jpg" data-lightbox="portfolio"><img src="images/portfolio/CLASSIC-Tricycle-Reader.jpg" alt="Portfolio Image Astronaut" class="h-auto max-w-full rounded-lg"></a>
-    </div>
-
-  </div>
-
-</div>
-<br>
-<div class="grid grid-cols-1">
-  
-  <footer class="text-sm text-center border-t border-gray-500  py-2 ">
-  <p class="markdownify">Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
-  <p >
-    <i>
-      <a href="https://github.com/darshanbaral/aafu">
-        Aafu
-      </a>
-    </i>
-    by
-    <a href="https://www.darshanbaral.com/">
-      Darshan.
-    </a>
-  </p>
-  
-  <p>
-    Theme modified by edgarej. 
-  </p>
-
-  
-</footer>
-
+<div>
+    
+    <p>I messed up my website. I was trying to figure out how to get rid of certain margins that had been driving me crazy, and I just couldn’t, for the life of me, figure out which bit of code was responsible for them. Eventually, I gave up trying to decipher the template. I was ready to just live with the funky margins until I saw how badly they …</p>
 </div>
 
-    </main>
+            
+            <article class="post-item">
+    <h4 class="post-item-title">
+        <a href="/blog/2025/2025-10-04-first-post/">Personal Blog is Back</a>
+    </h4>
+    
+    
+    
+    
+    <time class="post-item-meta" datetime="2025-10-04T11:42:50-0500">
+        October 4, 2025
+        
+    </time>
+</article>
+
+<div>
+    
+    <p>It’s been a while since I’ve had an online journal. It feels really nice to have a blog again. There are plenty of social platforms where I could write or blog, but there’s always been a certain allure to having a website of my own. And so, here I am&hellip; starting yet another personal website.</p>
+<p>I really do need to reflect on what my true aim is …</p>
+</div>
+
+            
+            <article class="post-item">
+    <h4 class="post-item-title">
+        <a href="/blog/2020/2020-06-21-the-trouble-with-likeness/">The Trouble With Likeness</a>
+    </h4>
+    
+    
+    
+    
+    <time class="post-item-meta" datetime="2020-06-21T08:36:09-0500">
+        June 21, 2020
+        
+    </time>
+</article>
+
+<div>
+    
+    <p>I have not had an art tantrum in forever. Yes, art tantrums are a real thing… and yes, adult professional artists suffer art tantrums. There’s a Donald Duck cartoon that shows Donald frustrated with his artwork that he would crumple up what he’s doing and throw it behind him… just like the way real artists do. Seriously… I’m not joking. This …</p>
+</div>
+
+            
+            <article class="post-item">
+    <h4 class="post-item-title">
+        <a href="/blog/2020/2020-03-04-throwback-thursday-03042020/">Throwback Thursday 03.04.2020</a>
+    </h4>
+    
+    
+    
+    
+    <time class="post-item-meta" datetime="2020-03-04T07:41:27-0500">
+        March 4, 2020
+        
+    </time>
+</article>
+
+<div>
+    
+    <p>I just ran in the rain yesterday. Depending on the kind of rain it is, it’s really fun to do so. Yesterday wasn’t too bad. It was a nice breezy 58 degrees Fahrenheit, so it wasn’t freezing weather to be running in. I had fun jogging along getting wet until halfway through a flash of lightning cut across the clouds. That was when I realized that it …</p>
+</div>
+
+            
+            <article class="post-item">
+    <h4 class="post-item-title">
+        <a href="/blog/2020/2020-01-18-the-long-grind-vs-speed-painting/">The Long Grind vs Speed Painting</a>
+    </h4>
+    
+    
+    
+    
+    <time class="post-item-meta" datetime="2020-01-18T07:54:48-0500">
+        January 18, 2020
+        
+    </time>
+</article>
+
+<div>
+    
+    <p>So to basically start this article on the right foot, I have to lay down some terms so we are all on the same page. The words “speed painting” gets misconstrued a lot. According to Wikipedia, “speed painting is an artistic technique where the artist has a limited time to finish the work.” The key words out of that sentence are “a limited time to …</p>
+</div>
+
+            
+            
+            <p>
+                
+                <a href="https://edgarej.github.io/blog/"></a>
+                
+            </p>
+            
+        </main>
+    </div><footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
     
 
+    <small class="footer_copyright">
+        © 2025 Edgar E.J..
+        <br>
+        Template by <a href="https://github.com/hugo-sid/hugo-blog-awesome">Sidharth R.</a> Powered by <a href="https://gohugo.io/">Hugo.</a><br> 
+        Theme modified by ChatGPT and edgarej.
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
     
-    <script src="js/lightbox-plus-jquery.js"></script>
-  </body>
+
+
+
+
+
+
+    
+    <script src="https://edgarej.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+
 </html>

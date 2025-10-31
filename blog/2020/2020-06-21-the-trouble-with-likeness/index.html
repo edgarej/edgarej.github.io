@@ -1,407 +1,893 @@
 <!DOCTYPE html>
-<html lang="en-us" class="m-auto  dark "><head>
-  
-  <title>The Trouble With Likeness - Edgar E.J. Portfolio Website</title>
-  
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-  />
-  <meta name="theme-color" content="" />
-  <meta name="description" content="Edgar E.J. Portfolio Website" />
-  <meta name="author" content="Edgar E.J." />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
-    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
-  />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    rel="stylesheet"
-    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
-  />
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  
-  
-  
-  <link
-    rel="stylesheet"
-    href="/main.min.b3ef9de3b47e2ca8877cba66c450cb915e7c6c6481b3911da5a84d97ab34a0ea.css"
-    integrity="sha256-s&#43;&#43;d47R&#43;LKiHfLpmxFDLkV58bGSBs5EdpahNl6s0oOo="
-    crossorigin="anonymous"
-  />
-   
+<title itemprop="name">The Trouble With Likeness | E.J.&#39;s Portfolio</title>
+<meta property="og:title" content="The Trouble With Likeness | E.J.&#39;s Portfolio" />
+<meta name="twitter:title" content="The Trouble With Likeness | E.J.&#39;s Portfolio" />
+<meta itemprop="name" content="The Trouble With Likeness | E.J.&#39;s Portfolio" />
+<meta name="application-name" content="The Trouble With Likeness | E.J.&#39;s Portfolio" />
+<meta property="og:site_name" content="E.J.&#39;s Portfolio" />
 
-  
-  <link href="css/lightbox.css" rel="stylesheet" />
+<meta name="description" content="Edgar E.J.&#39;s Portfolio Website">
+<meta itemprop="description" content="Edgar E.J.&#39;s Portfolio Website" />
+<meta property="og:description" content="Edgar E.J.&#39;s Portfolio Website" />
+<meta name="twitter:description" content="Edgar E.J.&#39;s Portfolio Website" />
 
-  <style>
-     
-    html {
-      touch-action: manipulation;
-      scroll-behavior: smooth;
-    }
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
 
-    .panel {
-      max-height: 0;
-      transition: 0.3s ease-out;
-    }
+  <link rel="alternate" hreflang="en" href="https://edgarej.github.io/blog/2020/2020-06-21-the-trouble-with-likeness/" title="" />
 
-    .profile-photo-container {
-      img {
-        max-width: 100%;
-      }
-    }
-     
-    .pagefind-ui__search-input {
-      color: black;
-      width: 100%;
-      padding: 0.5em;
-      border-radius: 0.25em;
-      border: 1px solid gray;
-    }
-    .pagefind-ui__search-clear {
-      display: none;
-    }
-    .dark .pagefind-ui__search-input {
-      color: white;
-      background-color: #322d2d;
-      width: 100%;
-      padding: 0.5em;
-      border-radius: 0.25em;
-      border: 1px solid gray;
-    }
-    .dark .pagefind-ui__search-input::placeholder {
-      color: #8f8f8f;
-    }
-    .chevron {
-      transition: 300ms linear rotate;
-    }
-    .active > .chevron {
-      transform: rotate(90deg);
-    }
-  </style>
 
-  <script>
-    const expandAccordion = (elem) => {
-      const allPanels = Array.from(document.querySelectorAll(".panel"));
-      const allAccordion = Array.from(document.querySelectorAll(".accordion"));
 
-      if (!elem.parentElement.classList.contains("active")) {
-        allAccordion.forEach((acc) => {
-          acc.classList.remove("active");
-        });
-        elem.parentElement.classList.add("active");
-        allPanels.forEach(function (elem) {
-          elem.style.maxHeight = null;
-        });
-        let activePanel = elem.parentElement.nextElementSibling;
-        if (
-          activePanel.id != "skill-panel" &&
-          document.querySelector("#skill-panel")
-        ) {
-          let skillBars = Array.from(
-            document.querySelectorAll("#skill-percent")
-          );
-          skillBars.forEach((elem) => {
-            elem.style.width = "0";
-          });
-        }
-        activePanel.style.maxHeight = activePanel.scrollHeight + "px";
-      }
-    };
-  </script>
 
-  <script>
-    let html = document.querySelector("html");
-    let theme = window.localStorage.getItem("theme");
 
-    const setTheme = (theme) => {
-      html.classList.remove("light");
-      if (theme === "dark") {
-        html.classList.add("dark");
-        window.localStorage.setItem("theme", "dark");
-      } else {
-        html.classList.remove("dark");
-        window.localStorage.setItem("theme", "light");
-      }
-      fixThemeToggleIcon(theme);
-    };
 
-    const fixThemeToggleIcon = (theme) => {
-      let themeToggle = document.querySelector(".theme-toggle");
-      if (themeToggle) {
-        if (theme === "dark") {
-          themeToggle.classList.remove("fa-moon");
-          themeToggle.classList.add("fa-sun");
-        } else {
-          themeToggle.classList.remove("fa-sun");
-          themeToggle.classList.add("fa-moon");
-        }
-      }
-    };
+<meta name="generator" content="Hugo 0.149.0">
 
-    if (theme == null) {
-      if (html.classList.contains("dark")) {
-        theme = "dark";
-      } else if (html.classList.contains("light")) {
-        theme = "light";
-      } else {
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-        if (prefersDark) {
-          theme = "dark";
-        } else {
-          theme = "light";
-        }
-      }
-    }
+    
+    <meta property="og:url" content="https://edgarej.github.io/blog/2020/2020-06-21-the-trouble-with-likeness/">
+  <meta property="og:site_name" content="E.J.&#39;s Portfolio">
+  <meta property="og:title" content="The Trouble With Likeness">
+  <meta property="og:description" content="I have not had an art tantrum in forever. Yes, art tantrums are a real thing… and yes, adult professional artists suffer art tantrums. There’s a Donald Duck cartoon that shows Donald frustrated with his artwork that he would crumple up what he’s doing and throw it behind him… just like the way real artists do. Seriously… I’m not joking. This happens frequently. Anyways… about two years ago was the last art tantrum I had. I was so frustrated with what I was doing, I pretty much did what Donald Duck did… threw away what I was working on and restarted from scratch. I was painting a portrait when I suffered this breakdown. Lucky for me, the canvas I was working with was only 5″ x 7″. I’m not so lucky if the canvas I’m working with is huge;">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2020-06-21T08:36:09-05:00">
+    <meta property="article:modified_time" content="2020-06-21T08:36:09-05:00">
+    <meta property="article:tag" content="Article">
+    <meta property="article:tag" content="Artnotes">
+    <meta property="article:tag" content="Journal">
 
-    setTheme(theme);
 
-    const toggleTheme = () => {
-      html.classList.contains("dark") ? setTheme("light") : setTheme("dark");
-    };
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Trouble With Likeness">
+  <meta name="twitter:description" content="I have not had an art tantrum in forever. Yes, art tantrums are a real thing… and yes, adult professional artists suffer art tantrums. There’s a Donald Duck cartoon that shows Donald frustrated with his artwork that he would crumple up what he’s doing and throw it behind him… just like the way real artists do. Seriously… I’m not joking. This happens frequently. Anyways… about two years ago was the last art tantrum I had. I was so frustrated with what I was doing, I pretty much did what Donald Duck did… threw away what I was working on and restarted from scratch. I was painting a portrait when I suffered this breakdown. Lucky for me, the canvas I was working with was only 5″ x 7″. I’m not so lucky if the canvas I’m working with is huge;">
 
-    window.onload = () => {
-      fixThemeToggleIcon(theme);
 
-      let defaultActivePanel = document.querySelector(".accordion.active");
-      if (defaultActivePanel) {
-        defaultActivePanel.nextElementSibling.style.maxHeight =
-          defaultActivePanel.nextElementSibling.scrollHeight + "px";
-      }
-    };
+    
 
-    window.onresize = () => {
-      let defaultActivePanel = document.querySelector(".accordion.active");
-      if (defaultActivePanel) {
-        defaultActivePanel.nextElementSibling.style.maxHeight =
-          defaultActivePanel.nextElementSibling.scrollHeight + "px";
-      }
-    };
-  </script>
+    <link rel="canonical" href="https://edgarej.github.io/blog/2020/2020-06-21-the-trouble-with-likeness/">
+    <link href="/style.min.7f14ffa85f7264afb13d126fffdc3651116d1d373a791cba8a5ac13fce9ed9ce.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://edgarej.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+    <meta name="color-scheme" content="light dark">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+    
+      
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    
 </head>
+<body data-theme = "dark" class="notransition">
 
-  <body class="h-screen p-2 m-auto max-w-4xl flex flex-col bg-[url(/images/background-white.png)] dark:bg-[url(/images/background-gray.png)] bg-repeat bg-fixed bg-center">
-    
-    <header
-  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-700 dark:border-gray-300 justify-between"
->
-  <div>
-    
-    <a class="nav-menu-item" href="https://edgarej.github.io/">Home</a>
-    <a class="nav-menu-item" href="/blog">Journal</a>
-  </div>
-  <div>
-    <a class="mr-4" href="/search">
-      <i class="fas fa-search"></i>
-    </a>
-    
-    <i
-      class="fas fa-sun theme-toggle text-orange-500 hover:text-orange-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
-      onclick="toggleTheme()"
-    ></i>
-  </div>
-</header>
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://edgarej.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/">
+                        Journal
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">The Trouble With Likeness</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2020-06-21T08:36:09-05:00" itemprop="datePublished"> June 21, 2020 </time>
+                </div>
+                
+            </header>
+            
 
 
+            
+            
+                Journal Entry<br>
+            
+            
+                
+                    <a href="/tags/article" class="tag">article</a>
+                
+                    <a href="/tags/artnotes" class="tag">artnotes</a>
+                
+                    <a href="/tags/journal" class="tag">journal</a>
+                
+             
 
-
-
-    
-    <main class="grow">
-
-<div class="prose prose-stone dark:prose-invert max-w-none">
-  <div class="mb-3">
-    <h1 class="top-h1">The Trouble With Likeness</h1>
-    
-    <p class="mb-1">June 21, 2020<br>
-      
-        Journal Entry</p>
-      
-      
-        <a href="/tags/article">article</a>
-      
-        <a href="/tags/artnotes">artnotes</a>
-      
-        <a href="/tags/journal">journal</a>
-      
-    <br>
-  </div>
-  <div class="content">
-    <p>I have not had an art tantrum in forever. Yes, art tantrums are a real thing… and yes, adult professional artists suffer art tantrums. There’s a Donald Duck cartoon that shows Donald frustrated with his artwork that he would crumple up what he’s doing and throw it behind him… just like the way real artists do. Seriously… I’m not joking. This happens frequently. Anyways… about two years ago was the last art tantrum I had. I was so frustrated with what I was doing, I pretty much did what Donald Duck did… threw away what I was working on and restarted from scratch. I was painting a portrait when I suffered this breakdown. Lucky for me, the canvas I was working with was only 5″ x 7″. I’m not so lucky if the canvas I’m working with is huge;</p>
-
-
-
-<figure
-  id="figure-1"
-  class="mt-4 pt-2 text-center flex flex-col justify-center items-center"
->
-  <img
-    class="rounded-sm"
-    src="bryce01.jpg"
-    alt="painting of the artist&#39;s nephew"
-    style="max-width: 90%; max-height: 95vh; min-width: 250px; min-height: 250px !important;"
-  />
-  
-  <figcaption class="mt-2">
-    
-    <em>Bryce Portrait - 3 Years Old</em>
-  </figcaption>
-  
+            <div class="page-content">
+                <p>I have not had an art tantrum in forever. Yes, art tantrums are a real thing… and yes, adult professional artists suffer art tantrums. There’s a Donald Duck cartoon that shows Donald frustrated with his artwork that he would crumple up what he’s doing and throw it behind him… just like the way real artists do. Seriously… I’m not joking. This happens frequently. Anyways… about two years ago was the last art tantrum I had. I was so frustrated with what I was doing, I pretty much did what Donald Duck did… threw away what I was working on and restarted from scratch. I was painting a portrait when I suffered this breakdown. Lucky for me, the canvas I was working with was only 5″ x 7″. I’m not so lucky if the canvas I’m working with is huge;</p>
+<figure><img src="/blog/2020/2020-06-21-the-trouble-with-likeness/bryce01.jpg"
+    alt="painting of the artist&#39;s nephew"><figcaption>
+      <p>Bryce Portrait - 3 Years Old</p>
+    </figcaption>
 </figure>
 
 <p>This particular portrait had been immensely frustrating. I finished it a while back, but every time I see it I’m tempted to take it down and fix it. It’s a very well done painting. There is a lot of immense details that I poured into this painting. It is remarkably hyper-realistic. It’s a portrait of my nephew. Sadly, it doesn’t look like him much. The good news is that I have captured my nephews’ likeness numerous times on small paintings;</p>
 
 
 
-<figure
-  id="figure-1"
-  class="mt-4 pt-2 text-center flex flex-col justify-center items-center"
->
-  <img
-    class="rounded-sm"
-    src="bryce02.jpg"
-    alt="painting of the artist&#39;s nephew"
-    style="max-width: 90%; max-height: 95vh; min-width: 250px; min-height: 250px !important;"
-  />
-  
-  <figcaption class="mt-2">
-    
-    <em>Bryce Portrait - 7 Years Old</em>
-  </figcaption>
-  
-</figure>
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+	
+		<script src="/shortcode-gallery/jquery-3.7.1.min.js"></script>
+	
+
+	
+		<script src="/shortcode-gallery/lazy/jquery.lazy.min.js"></script>
+	
+
+	<script src="/shortcode-gallery/swipebox/js/jquery.swipebox.min.js"></script>
+	<link rel="stylesheet" href="/shortcode-gallery/swipebox/css/swipebox.min.css">
+
+	<script src="/shortcode-gallery/justified_gallery/jquery.justifiedGallery.min.js"></script>
+	<link rel="stylesheet" href="/shortcode-gallery/justified_gallery/justifiedGallery.min.css"/>
+
+
+<style>
+	
+
+	
+</style>
+
+
+
+
+
+<div id="gallery-bda7eac7a89d50cf0db9dca5b8524f64-1-wrapper" class="gallery-wrapper">
+<div id="gallery-bda7eac7a89d50cf0db9dca5b8524f64-1" class="justified-gallery">
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/blog/2020/2020-06-21-the-trouble-with-likeness/images1/bryce02-03.jpeg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APQ2dEHzMq/U4rk/G2rXcLW2n2EjI1wCXKcEgnAAP51lxyhYhPdykySfNl29z61YtjbXtxBuKt5T74yGzg&#43;lXHK1Bc/Ndo4KdVOolJaEVr4R1G1jE76gI5W5IVS2D9c12OlPc/ZxHduskiAfvFGNw9x68VHaXjy5R4kYjgKAc/n3qxpwl&#43;zEzKwcuchiOPpjtXn1U5Rdz2cTRiqd0tUZM2irbLGYgDkhmfP3h3JODk02bw9FfBgnlKVAbeqjIOR36iqS63qOmQraXNp5tuh2q0bfMvsM/oDU2la&#43;l5ePbRCWIdjM/wA5Pp7V3ezqqe/zB4qm6LXXsabXDrHEnltiMgNt6g&#43;9X7PznLyOCA/3VLZPuegqlHZYl87kgnLYOCD71NKwlIWMHMYIBJ7nrWTo3k4v7y61WMqXu7s//9k="
+							
+							class="lazy"
+							data-src="/blog/2020/2020-06-21-the-trouble-with-likeness/images1/bryce02-03_hu_838a73977fcb301a.jpeg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/blog/2020/2020-06-21-the-trouble-with-likeness/images1/bryce02-02.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="Canon MX450 series Network<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/ANFLNLvxJavKAY7SFpsN03ZAB/r&#43;FdbbX8FzBvimVgvHB71maVbL9sMoJDtFs69uufbrU8OmFI7h5JMs2eRx9Kus71Gb4KCjQin6/eNur2LUIJ4VkWYhSrKPToa5rw6zto6JIfmiLRn14NdVp9lHbwPIzAsclBnlR6Vj21nFawyeWGzLK0jEnu3P5VWHfLOxnmNPnoNr7JZsp/Km2ltobofSku2YIomfZIOjrJ97n0/T8KsW&#43;lzRyxzXUeyEMCQefz9Kpaq9zafurOeKeF&#43;UDgF0Hp6mqr8vPdE5dOcafLNegyG8mDqC24kflVhn3qFwAq8CotGs0Nyv2li8jo23A&#43;UHB5qeW3lt2CzRlM9M96vD8t33Mc0qzdox&#43;Hqf/9k="
+							
+							class="lazy"
+							data-src="/blog/2020/2020-06-21-the-trouble-with-likeness/images1/bryce02-02_hu_711b77667ca49c93.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/blog/2020/2020-06-21-the-trouble-with-likeness/images1/bryce02-01.jpeg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AO91dWfSpo16y4i/76IX&#43;tT2s6WFr9nSPagGF4wBS3CF4gMcBgx49Dn&#43;lUZ9GMt2kkaRKGyS&#43;0bs/Xr0rSrrI2wMYezfN3ItQ1GBDteZAxGQCwHFJ4e3JDdQf8s0m3x4OcKwB/nmmPZSx3GEkGwA7sjJPp9Kfp6ML47CcAfP6EdqKdk9DtxdJToPXbU29pxgnGayLm6nt5X3s8eFwrqeF9zwcitGe6WIfJtYjqWOAKorci9lkjfh42wDjj2/A05tM87Az9nK0lozLiuzM5kjuPMQfebBAP5gc1uaYEeySSJldXydynOfxrKvYvIBlndERfX5VH51z9lqbWTyy20rIpZnKBsA/N6dOlKMuXU7swtOkoxZ/9k="
+							
+							class="lazy"
+							data-src="/blog/2020/2020-06-21-the-trouble-with-likeness/images1/bryce02-01_hu_a8c59f8a3b1a5dfd.jpeg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+</div>
+</div>
+
+<script>
+	if (!("HSCGjQuery" in window)) {
+		if (!window.jQuery) {
+			throw new Error("jQuery is not loaded, hugo-shortcode-gallery wont work without it!");
+		}
+		window.HSCGjQuery = window.jQuery.noConflict(true);
+	}
+
+	
+	
+	
+	
+	
+	;(function($) {
+
+		$( document ).ready(() => {
+			const gallery = $("#gallery-bda7eac7a89d50cf0db9dca5b8524f64-1");
+			
+
+			
+			let swipeboxInstance = null;
+
+			
+			
+			gallery.on('jg.complete', () => {
+				
+					
+					
+					$(() => {
+						$('.lazy').Lazy({
+							visibleOnly: true,
+							afterLoad: element => element.css({filter: "none", transition: "filter 1.0s ease-in-out"})
+						});
+					});
+				
+
+				swipeboxInstance = $('.galleryImg').swipebox(
+					$.extend({},
+						{  }
+					)
+				);
+			});
+
+			
+			gallery.justifiedGallery($.extend(
+				{
+					rowHeight : "150",
+					margins : "5",
+					border : 0,
+					randomize :  false ,
+					waitThumbnailsLoad : false,
+					lastRow : "justify",
+					captions : false,
+					
+					
+				},
+				{  }
+			));
+
+			
+			
+		});
+
+	
+	
+	
+	})(window.HSCGjQuery)
+</script>
 
 <p>So the truth of the matter is, I’m really not that bad when it comes to doing portraits. I have about a 60%-70% success rate with capturing the likeness of a person. That’s not a bad number honestly. It’s just immensely frustrating when I fail.</p>
 <p>Initially, I wanted to write about tips on how to capture the likeness of a person, but after doing a google search on the subject matter, it turns out there’s already quite a lot of good articles about it. The best I can honestly write about are tips for what to do when one is frustrated with capturing the likeness of a person. So yeah, here are things to ponder when one’s portrait painting isn’t going too well;</p>
-<h3 id="even-the-pros-fail">Even the Pros Fail</h3>
+<h2 id="even-the-pros-fail">Even the Pros Fail</h2>
 <p>It’s no lie, I have seen it before. I have seen masters paint a gorgeous portrait day in and day out… and then out of nowhere paint a very good looking painting that does not look like the person. It honestly happens to the best all the time. No matter how great the technique and execution are, a likeness in a portrait can fail. Think about it, we all have had at least one photo of us that sorta doesn’t look like us. That one photo that is so confusing, when your mom sees it, she either thinks you are your brother or your best friend. Maybe it’s the lighting… maybe it’s the shadows… who knows? But for one reason or another, everyone else thinks you are someone else in that one photo. If that happens with photographs, then likeness in portrait paintings can fail.</p>
-<h3 id="take-your-time">Take Your Time</h3>
+<h2 id="take-your-time">Take Your Time</h2>
 <p>Honestly, this is great advice. If you are frustrated with any painting, just walk away from it and do something else. Then come back to it when you have a fresher mind. Either that or restart your painting from the beginning.</p>
-<h3 id="go-back-to-fundamentals">Go Back to Fundamentals</h3>
+<h2 id="go-back-to-fundamentals">Go Back to Fundamentals</h2>
 <p>This is practically what each and every article about portrait likeness talks about. Always go back to your fundamentals and foundation. It doesn’t matter how well-rendered the nose is, or how attractive you made the mouth look. If you put all these great looking separate parts of the face together in a haphazard way because your foundation is ill, then your portrait is going to look like a moose instead of the person you are trying to capture. Enough said.</p>
-<h3 id="cheat-if-you-have-to">Cheat if You Have To!</h3>
+<h2 id="cheat-if-you-have-to">Cheat if You Have To!</h2>
 <p>I have had some successes in doing freehand portrait paintings;</p>
 
 
 
-<figure
-  id="figure-1"
-  class="mt-4 pt-2 text-center flex flex-col justify-center items-center"
->
-  <img
-    class="rounded-sm"
-    src="angel.jpg"
-    alt="painting of the artist&#39;s niece"
-    style="max-width: 90%; max-height: 95vh; min-width: 250px; min-height: 250px !important;"
-  />
-  
-  <figcaption class="mt-2">
-    
-    <em>Angel</em>
-  </figcaption>
-  
-</figure>
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+	
+
+	
+</style>
+
+
+
+
+
+<div id="gallery-bda7eac7a89d50cf0db9dca5b8524f64-2-wrapper" class="gallery-wrapper">
+<div id="gallery-bda7eac7a89d50cf0db9dca5b8524f64-2" class="justified-gallery">
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/blog/2020/2020-06-21-the-trouble-with-likeness/images2/fitz.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="Canon MX450 series Network<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APS9P1O31G386HcAPvK4wV&#43;orjL3xLqd7Owt5WjRidkafKQPc1zUV7c6pqC6ZNKkVushciFFQuVBx0HP4&#43;tdG&#43;nCxsmvEV5ZmyFjB6L6mpjO56tTBqjNK&#43;/4EVlqeuWd0sqPLNzgxs5cN&#43;Fd1pOrQ6rZrMgMb5KtG3UEda4m3uI4pYHlWbLthRDyc/jiuq0eCOO4kYLjcWfp6mrWpy4yEadrdTzLTtC1hdZjY2k8SxS/PIybQoB5OT14rp9Tuj5n&#43;jux2naQp6YrsJ1Vo8kcYrhtc0qWxunubV8CTnaeQfUfX&#43;lRGFjuWM9vNOSsTW2pPavG0JjlYvwCATzjOQCSD09OtdVplw019KSBg56HpXL2Ej3FpE8ogBHP7pMH8TXT6OUWJhGi5JyW/pWqVkeXi6salRRj0P/Z"
+							
+							class="lazy"
+							data-src="/blog/2020/2020-06-21-the-trouble-with-likeness/images2/fitz_hu_15e0010915029ab0.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+
+			
+			
+
+			
+			
+				
+			
+
+			
+				
+			
+
+			
+			
+				
+					
+				
+			
+
+
+			
+			
+
+			<div>
+				
+				
+					
+					
+				
+
+				
+				
+					
+					
+				
+
+				<a href="/blog/2020/2020-06-21-the-trouble-with-likeness/images2/angel.jpg"
+					class="galleryImg"
+					
+						
+
+						
+							data-description="Canon MX450 series Network<br/> "
+						
+
+						
+					
+					>
+					<img
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/ANjxP4hln1Oa2Sd47e3fYEUffYdSfUZrN0u2uNXuXM8rLGuAcLz&#43;FVtZhZNUn3x7W85soeoyc1vW2mpcwQ2okWMRuHIIIDD0zmmz0IRSiXhpxsYlmgd3jYiN42OcHsw/rW/pt208axuRuVefU1zd0t4&#43;kvDBPthijJ8wEZJB4znnHGeDVnwlLeTu7XPDouJMLw3XBz&#43;FCZz1aLV5pmZ4ssiuryOE5lAYYPU/41WtdYgkTckgEhX7pOCDXQeL7QSSW032oIw4ETd8HqPzFUH8H&#43;XHFcRqlxHwzLj5sdSB60HRRqRUVzDbYJ9nVAIUaQbtiKMgDnkg9/wrX8NNia4jMoDYB8rHP1rJ0/S2iu0RVYLgsDnggjr&#43;tW9L0&#43;9OoW99DtEW4hvp3prY5675pn//2Q=="
+							
+							class="lazy"
+							data-src="/blog/2020/2020-06-21-the-trouble-with-likeness/images2/angel_hu_751f92cc55488867.jpg"
+						
+
+						
+							
+								
+							
+						
+					>
+				</a>
+			</div>
+		
+	
+</div>
+</div>
+
+<script>
+	if (!("HSCGjQuery" in window)) {
+		if (!window.jQuery) {
+			throw new Error("jQuery is not loaded, hugo-shortcode-gallery wont work without it!");
+		}
+		window.HSCGjQuery = window.jQuery.noConflict(true);
+	}
+
+	
+	
+	
+	
+	
+	;(function($) {
+
+		$( document ).ready(() => {
+			const gallery = $("#gallery-bda7eac7a89d50cf0db9dca5b8524f64-2");
+			
+
+			
+			let swipeboxInstance = null;
+
+			
+			
+			gallery.on('jg.complete', () => {
+				
+					
+					
+					$(() => {
+						$('.lazy').Lazy({
+							visibleOnly: true,
+							afterLoad: element => element.css({filter: "none", transition: "filter 1.0s ease-in-out"})
+						});
+					});
+				
+
+				swipeboxInstance = $('.galleryImg').swipebox(
+					$.extend({},
+						{  }
+					)
+				);
+			});
+
+			
+			gallery.justifiedGallery($.extend(
+				{
+					rowHeight : "150",
+					margins : "5",
+					border : 0,
+					randomize :  false ,
+					waitThumbnailsLoad : false,
+					lastRow : "justify",
+					captions : false,
+					
+					
+				},
+				{  }
+			));
+
+			
+			
+		});
+
+	
+	
+	
+	})(window.HSCGjQuery)
+</script>
 
 <p>But even with these great looking freehand portraits, I have way better success at my portraits if I trace the image first. So I’m going to trace as much as I can get away with. Even pros do it, no shame in that. And lastly…</p>
-<h3 id="just-breathe">Just Breathe</h3>
+<h2 id="just-breathe">Just Breathe</h2>
 <p>Honestly… just breathe. That is the best one can do when one is frustrated.</p>
 <p>My frustration is still currently high when it comes to the subject matter of likeness. My acrylic portrait paintings are so far going good, so that isn’t what is currently disappointing me. What is currently aggravating me is that I’m not doing too good in capturing a likeness in digital sculpting. I had one sculpture that came close to my subject matter… everything else looks meh. But it’s ok… cause at least I finished this one illustration that still looks like the person I based the painting on. It’s my recent Bridgit Mendler inspired painting that gives me a small smile in my face;</p>
-
-
-
-<figure
-  id="figure-1"
-  class="mt-4 pt-2 text-center flex flex-col justify-center items-center"
->
-  <img
-    class="rounded-sm"
-    src="bridgit.jpg"
-    alt="an illustration of a dalaga and a royal baby"
-    style="max-width: 90%; max-height: 95vh; min-width: 250px; min-height: 250px !important;"
-  />
-  
-  <figcaption class="mt-2">
-    
-    <em>Ang Dalaga and the Royal Baby</em>
-  </figcaption>
-  
+<figure><img src="/blog/2020/2020-06-21-the-trouble-with-likeness/bridgit.jpg"
+    alt="an illustration of a dalaga and a royal baby"><figcaption>
+      <p>Ang Dalaga and the Royal Baby</p>
+    </figcaption>
 </figure>
 
 <p>It might not look exactly like Bridgit Mendler, but given that the original photo I was referencing had a totally different lighting condition than the illustration above, I think I pulled off the likeness nicely.</p>
 <p>Anyways… for all the frustrated artists out there, don’t forget to breathe! Happy art-ing!</p>
 
-  </div>
+            </div>
+        </article></main>
 </div>
-
-<br>
-<div class="flex flex-row justify-around my-2">
-  <h3 class="mb-1 mt-1 text-left mr-4">
-    
-    
-    <a
-      href="/blog/2025/2025-10-04-first-post/"
-      title="Personal Blog is Back"
-    >
-      <i class="nav-menu fas fa-chevron-circle-left"></i>
-    </a>
-    
-    Newer Posts
-  </h3>
-  <h3 class="mb-1 mt-1 text-left ml-4">
-    Older Posts
-    
-    
-    <a
-      href="/blog/2020/2020-03-04-throwback-thursday-03042020/"
-      title="Throwback Thursday 03.04.2020"
-    >
-      <i class="nav-menu fas fa-chevron-circle-right"></i>
-    </a>
-    
-  </h3>
-</div>
-
-
-    </main>
-    
-    <footer class="text-sm text-center border-t border-gray-500  py-6 ">
-  <p class="markdownify">Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
-  <p >
-    <i>
-      <a href="https://github.com/darshanbaral/aafu">
-        Aafu
-      </a>
-    </i>
-    by
-    <a href="https://www.darshanbaral.com/">
-      Darshan.
-    </a>
-  </p>
-  
-  <p>
-    Theme modified by edgarej. 
-  </p>
-
-  
-</footer>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
 
     
 
+    <small class="footer_copyright">
+        © 2025 Edgar E.J..
+        <br>
+        Template by <a href="https://github.com/hugo-sid/hugo-blog-awesome">Sidharth R.</a> Powered by <a href="https://gohugo.io/">Hugo.</a><br> 
+        Theme modified by ChatGPT and edgarej.
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
     
-    <script src="js/lightbox-plus-jquery.js"></script>
-  </body>
+
+
+
+
+
+
+    
+    <script src="https://edgarej.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
 </html>

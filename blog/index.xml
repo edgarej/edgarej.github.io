@@ -1,89 +1,160 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Journal on Edgar E.J. Portfolio Website</title>
+    <title>Journal on E.J.&#39;s Portfolio</title>
     <link>https://edgarej.github.io/blog/</link>
-    <description>Recent content in Journal on Edgar E.J. Portfolio Website</description>
-    <generator>Hugo</generator>
+    <description>Recent content in Journal on E.J.&#39;s Portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Oct 2025 11:42:50 -0500</lastBuildDate>
-    <atom:link href="https://edgarej.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Oct 2025 03:47:30 -0500</lastBuildDate><atom:link href="https://edgarej.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Gallery Test</title>
+      <link>https://edgarej.github.io/blog/2025/gallery-test/</link>
+      <pubDate>Sat, 25 Oct 2025 03:47:30 -0500</pubDate>
+      
+      <guid>https://edgarej.github.io/blog/2025/gallery-test/</guid>
+      
+      <description>&lt;p&gt;I messed up my website. I was trying to figure out how to get rid of certain margins that had been driving me crazy, and I just couldn’t, for the life of me, figure out which bit of code was responsible for them. Eventually, I gave up trying to decipher the template. I was ready to just live with the funky margins until I saw how badly they interacted with a gallery shortcode I was trying to use. In the end, I had to move on from that Hugo theme. The new template I settled on is so much easier to edit&amp;hellip; and, amazingly enough, its simplicity makes it one of the most gorgeous-looking Hugo themes out there. I love it.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>Personal Blog is Back</title>
       <link>https://edgarej.github.io/blog/2025/2025-10-04-first-post/</link>
       <pubDate>Sat, 04 Oct 2025 11:42:50 -0500</pubDate>
+      
       <guid>https://edgarej.github.io/blog/2025/2025-10-04-first-post/</guid>
-      <description>&lt;p&gt;It’s been a while since I’ve had an online journal. It feels really nice to have a blog again. There are plenty of social platforms where I could write or blog, but there’s always been a certain allure to having a website of my own. And so, here I am&amp;hellip; starting yet another personal website.&lt;/p&gt;</description>
+      
+      <description>&lt;p&gt;It’s been a while since I’ve had an online journal. It feels really nice to have a blog again. There are plenty of social platforms where I could write or blog, but there’s always been a certain allure to having a website of my own. And so, here I am&amp;hellip; starting yet another personal website.&lt;/p&gt;
+&lt;p&gt;I really do need to reflect on what my true aim is for this site, though. My last personal journal was very art-focused, and rightfully so. As a true reflection of who I am, I am first and foremost a visual artist. Having that previous website be predominantly about art made perfect sense. Still, I have other talents&amp;hellip; ones that were never pursued or shared in that last journal&amp;hellip; and I’m hoping to change that this time.&lt;/p&gt;</description>
+      
     </item>
+    
     <item>
       <title>The Trouble With Likeness</title>
       <link>https://edgarej.github.io/blog/2020/2020-06-21-the-trouble-with-likeness/</link>
       <pubDate>Sun, 21 Jun 2020 08:36:09 -0500</pubDate>
+      
       <guid>https://edgarej.github.io/blog/2020/2020-06-21-the-trouble-with-likeness/</guid>
+      
       <description>&lt;p&gt;I have not had an art tantrum in forever. Yes, art tantrums are a real thing… and yes, adult professional artists suffer art tantrums. There’s a Donald Duck cartoon that shows Donald frustrated with his artwork that he would crumple up what he’s doing and throw it behind him… just like the way real artists do. Seriously… I’m not joking. This happens frequently. Anyways… about two years ago was the last art tantrum I had. I was so frustrated with what I was doing, I pretty much did what Donald Duck did… threw away what I was working on and restarted from scratch. I was painting a portrait when I suffered this breakdown. Lucky for me, the canvas I was working with was only 5″ x 7″. I’m not so lucky if the canvas I’m working with is huge;&lt;/p&gt;</description>
+      
     </item>
+    
     <item>
       <title>Throwback Thursday 03.04.2020</title>
       <link>https://edgarej.github.io/blog/2020/2020-03-04-throwback-thursday-03042020/</link>
       <pubDate>Wed, 04 Mar 2020 07:41:27 -0500</pubDate>
+      
       <guid>https://edgarej.github.io/blog/2020/2020-03-04-throwback-thursday-03042020/</guid>
+      
       <description>&lt;p&gt;I just ran in the rain yesterday. Depending on the kind of rain it is, it’s really fun to do so. Yesterday wasn’t too bad. It was a nice breezy 58 degrees Fahrenheit, so it wasn’t freezing weather to be running in. I had fun jogging along getting wet until halfway through a flash of lightning cut across the clouds. That was when I realized that it was that kind of rain… the kind of rain I reaaaallly shouldn’t be running in. At that point, I was already halfway through. To turn back around would be pointless, so I just kept running my route.&lt;/p&gt;</description>
+      
     </item>
+    
     <item>
       <title>The Long Grind vs Speed Painting</title>
       <link>https://edgarej.github.io/blog/2020/2020-01-18-the-long-grind-vs-speed-painting/</link>
       <pubDate>Sat, 18 Jan 2020 07:54:48 -0500</pubDate>
+      
       <guid>https://edgarej.github.io/blog/2020/2020-01-18-the-long-grind-vs-speed-painting/</guid>
+      
       <description>&lt;p&gt;So to basically start this article on the right foot, I have to lay down some terms so we are all on the same page. The words “speed painting” gets misconstrued a lot. According to Wikipedia, “speed painting is an artistic technique where the artist has a limited time to finish the work.” The key words out of that sentence are “a limited time to finish the work.” Speed painting does not refer to a “speed up” video of someone doing artwork. The term for that is a “time-lapse” video. One can have a “time-lapse” video of one’s speed painting like I do on my YouTube channel. One can also have a “time-lapse” video of an artwork that is done in the span of months. I also have those kinds of videos on my YouTube channel.&lt;/p&gt;</description>
+      
     </item>
+    
     <item>
       <title>Conceptart.org Where Art Thou</title>
       <link>https://edgarej.github.io/blog/2019/2019-12-04-conceptartorg-where-art-thou/</link>
       <pubDate>Wed, 04 Dec 2019 21:50:43 -0500</pubDate>
+      
       <guid>https://edgarej.github.io/blog/2019/2019-12-04-conceptartorg-where-art-thou/</guid>
-      <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/em&gt; This article was originally published in an earlier version of my personal website. This article has been edited for republication in this website.&lt;/p&gt;</description>
+      
+      <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/em&gt; This article was originally published in an earlier version of my personal website. This article has been edited for republication in this website.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Why is it that I love art prompts so much instead of pursuing my own ideas?
+Why do I love art challenges but HATE spec work?&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;By the time I publish this article, Conceptart.org had been offline for close to six months. The forum went offline at the end of 2019’s summer. I miss the place. Conceptart.org was probably the website I was most active with compared to any other art social media place/forum. I am a member of other art forums/sites longer than I have ever been a member of Conceptart.org, but that website was the forum that defined my art practice today. Conceptart.org was the first site to entice me to join art challenges every day.&lt;/p&gt;</description>
+      
     </item>
+    
     <item>
       <title>Simplicity Rules</title>
       <link>https://edgarej.github.io/blog/2019/2019-11-25-simplicity-rules/</link>
       <pubDate>Mon, 25 Nov 2019 07:47:11 -0500</pubDate>
+      
       <guid>https://edgarej.github.io/blog/2019/2019-11-25-simplicity-rules/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Why do I keep my settings simple and not leverage the full power of digital painting software?&lt;/p&gt;</description>
+      
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Why do I keep my settings simple and not leverage the full power of digital painting software?&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;There are quite a few stark differences in the work process between different artists in digital painting. Some work with a few simple brushes and one layer or a few layers, others work with many complex brushes on one layer, while others go “all-out” and leverage the full power of digital painting software. These brave souls would use hundreds of brushes on hundreds of layers…. okay that last bit might be an exaggeration. The point is that there are many variations in the work process. These processes can be categorized into two camps; a process that is simple and is typically destructive, and a process that is non-destructive editing.&lt;/p&gt;</description>
+      
     </item>
+    
     <item>
       <title>Norman Rockwell vs Chuck Close</title>
       <link>https://edgarej.github.io/blog/2019/2019-10-13-norman-rockwell-vs-chuck-close/</link>
       <pubDate>Sun, 13 Oct 2019 07:36:20 -0500</pubDate>
+      
       <guid>https://edgarej.github.io/blog/2019/2019-10-13-norman-rockwell-vs-chuck-close/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Why did I not go the fine art route? What is fine art even?&lt;/p&gt;</description>
+      
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Why did I not go the fine art route? What is fine art even?&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;I guess I had to preface this article by defining, or more accurately, trying to define what fine art is. But then I realized that trying to define it is going to be difficult. There are no rigid lines to draw to truly delineate one from the other. If Clement Greenberg thinks that Norman Rockwell is too kitsch, then how come Chuck Close is not? And who gets to pick if they are in one group or another?&lt;/p&gt;</description>
+      
     </item>
+    
     <item>
       <title>Traditional Medium vs Digital Painting</title>
       <link>https://edgarej.github.io/blog/2019/2019-10-07-traditional-vs-digital/</link>
       <pubDate>Mon, 07 Oct 2019 09:10:06 -0500</pubDate>
+      
       <guid>https://edgarej.github.io/blog/2019/2019-10-07-traditional-vs-digital/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Why did I choose digital when inherently it has less value than oil and acrylic on canvas?&lt;/p&gt;</description>
+      
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Why did I choose digital when inherently it has less value than oil and acrylic on canvas?&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;I originally wanted to do more research about this topic, but once I saw how deep the rabbit hole goes, I decided against it. The topic is immensely controversial. Digital art in of itself has no value compared to a tangible object such as an acrylic painting on canvas. But the commercial industry champions digital work. It is a much easier medium for the commercial industry to handle compare to traditional works.&lt;/p&gt;</description>
+      
     </item>
+    
     <item>
       <title>Christmas Eve Luncheon</title>
       <link>https://edgarej.github.io/blog/2007/2007-12-28-christmas-eve-luncheon/</link>
       <pubDate>Fri, 28 Dec 2007 22:44:52 -0500</pubDate>
+      
       <guid>https://edgarej.github.io/blog/2007/2007-12-28-christmas-eve-luncheon/</guid>
-      <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/em&gt; This short story was originally published in livejournal. It is presented here in it&amp;rsquo;s original form. A new version of this short story will be posted soon.&lt;/p&gt;</description>
+      
+      <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/em&gt; This short story was originally published in livejournal. It is presented here in it&amp;rsquo;s original form. A new version of this short story will be posted soon.&lt;/p&gt;
+&lt;h2 id=&#34;christmas-eve-luncheon&#34;&gt;Christmas Eve Luncheon&lt;/h2&gt;
+&lt;p&gt;Philip couldn&amp;rsquo;t decipher where his melancholy is rooted in. Though it is the season for Philip&amp;rsquo;s annual digression from his overall sunny disposition, the company that he is currently keeping doesn&amp;rsquo;t stink of the proverbial sadness that has a tendency to blanket Philip. Philip knew his cycle all too well, knew that he have to do something about it. So with an ingenious late-night yuletide inspiration, he decided to round up his gang today to shield him from the onslaught of holiday blues. It&amp;rsquo;s not that he is a depressive person; he just did not want to feel like he is &lt;em&gt;missing something&lt;/em&gt; during this manic season.&lt;/p&gt;</description>
+      
     </item>
+    
     <item>
       <title>Dancing Under the Midnight Rain</title>
       <link>https://edgarej.github.io/blog/2007/2007-06-21-dancing-under-the-midnight-rain/</link>
       <pubDate>Thu, 21 Jun 2007 09:20:54 -0500</pubDate>
+      
       <guid>https://edgarej.github.io/blog/2007/2007-06-21-dancing-under-the-midnight-rain/</guid>
-      <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/em&gt; This short story was originally published in livejournal. It is presented here in it&amp;rsquo;s original form. A new version of this short story will be posted soon.&lt;/p&gt;</description>
+      
+      <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/em&gt; This short story was originally published in livejournal. It is presented here in it&amp;rsquo;s original form. A new version of this short story will be posted soon.&lt;/p&gt;
+&lt;h3 id=&#34;dancing-under-the-midnight-rain&#34;&gt;Dancing Under the Midnight Rain&lt;/h3&gt;
+&lt;p&gt;All I could think about was that I couldn&amp;rsquo;t feel the pain anymore. It&amp;rsquo;s gone. The pulsating shock that reverberates around my stressed leg, stemming from an injured runner&amp;rsquo;s foot, is gone. I couldn&amp;rsquo;t feel it. It&amp;rsquo;s not there. The empty bottle laid down perfunctorily on the floor of the car became the unambiguous proof as to why I couldn&amp;rsquo;t feel the pain. I wanted to say that I felt release when that bottle aided me&amp;hellip; but what I really felt was&amp;hellip; &lt;em&gt;youth.&lt;/em&gt;&lt;/p&gt;</description>
+      
     </item>
+    
     <item>
       <title>Dating Small</title>
       <link>https://edgarej.github.io/blog/2006/2006-08-18-dating-small/</link>
       <pubDate>Fri, 18 Aug 2006 00:47:39 -0500</pubDate>
+      
       <guid>https://edgarej.github.io/blog/2006/2006-08-18-dating-small/</guid>
-      <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/em&gt; This short story was originally published in livejournal. It is presented here in it&amp;rsquo;s original form. A new version of this short story will be posted soon.&lt;/p&gt;</description>
+      
+      <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/em&gt; This short story was originally published in livejournal. It is presented here in it&amp;rsquo;s original form. A new version of this short story will be posted soon.&lt;/p&gt;
+&lt;h3 id=&#34;dating-small&#34;&gt;Dating Small&lt;/h3&gt;
+&lt;p&gt;Half of the passengers are early morning hawks, languishing in the language of snatched time. Devoid of rest, continuously seeking something that is always impermanent&amp;hellip; they are the residents of Dallas&amp;rsquo; premiere metro rail system. Half interested, half unaware – most don’t know that they are speaking the language of existentialism. They are wrapped in their own version of a Sisyphus moment, never realizing that they inwardly smile at their daily grind.&lt;/p&gt;</description>
+      
     </item>
+    
   </channel>
 </rss>

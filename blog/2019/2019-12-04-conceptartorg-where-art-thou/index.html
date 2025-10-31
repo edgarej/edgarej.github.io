@@ -1,343 +1,250 @@
 <!DOCTYPE html>
-<html lang="en-us" class="m-auto  dark "><head>
-  
-  <title>Conceptart.org Where Art Thou - Edgar E.J. Portfolio Website</title>
-  
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-  />
-  <meta name="theme-color" content="" />
-  <meta name="description" content="Edgar E.J. Portfolio Website" />
-  <meta name="author" content="Edgar E.J." />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
-    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
-  />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    rel="stylesheet"
-    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
-  />
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  
-  
-  
-  <link
-    rel="stylesheet"
-    href="/main.min.b3ef9de3b47e2ca8877cba66c450cb915e7c6c6481b3911da5a84d97ab34a0ea.css"
-    integrity="sha256-s&#43;&#43;d47R&#43;LKiHfLpmxFDLkV58bGSBs5EdpahNl6s0oOo="
-    crossorigin="anonymous"
-  />
-   
+<title itemprop="name">Conceptart.org Where Art Thou | E.J.&#39;s Portfolio</title>
+<meta property="og:title" content="Conceptart.org Where Art Thou | E.J.&#39;s Portfolio" />
+<meta name="twitter:title" content="Conceptart.org Where Art Thou | E.J.&#39;s Portfolio" />
+<meta itemprop="name" content="Conceptart.org Where Art Thou | E.J.&#39;s Portfolio" />
+<meta name="application-name" content="Conceptart.org Where Art Thou | E.J.&#39;s Portfolio" />
+<meta property="og:site_name" content="E.J.&#39;s Portfolio" />
 
-  
-  <link href="css/lightbox.css" rel="stylesheet" />
+<meta name="description" content="Edgar E.J.&#39;s Portfolio Website">
+<meta itemprop="description" content="Edgar E.J.&#39;s Portfolio Website" />
+<meta property="og:description" content="Edgar E.J.&#39;s Portfolio Website" />
+<meta name="twitter:description" content="Edgar E.J.&#39;s Portfolio Website" />
 
-  <style>
-     
-    html {
-      touch-action: manipulation;
-      scroll-behavior: smooth;
-    }
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
 
-    .panel {
-      max-height: 0;
-      transition: 0.3s ease-out;
-    }
+  <link rel="alternate" hreflang="en" href="https://edgarej.github.io/blog/2019/2019-12-04-conceptartorg-where-art-thou/" title="" />
 
-    .profile-photo-container {
-      img {
-        max-width: 100%;
-      }
-    }
-     
-    .pagefind-ui__search-input {
-      color: black;
-      width: 100%;
-      padding: 0.5em;
-      border-radius: 0.25em;
-      border: 1px solid gray;
-    }
-    .pagefind-ui__search-clear {
-      display: none;
-    }
-    .dark .pagefind-ui__search-input {
-      color: white;
-      background-color: #322d2d;
-      width: 100%;
-      padding: 0.5em;
-      border-radius: 0.25em;
-      border: 1px solid gray;
-    }
-    .dark .pagefind-ui__search-input::placeholder {
-      color: #8f8f8f;
-    }
-    .chevron {
-      transition: 300ms linear rotate;
-    }
-    .active > .chevron {
-      transform: rotate(90deg);
-    }
-  </style>
 
-  <script>
-    const expandAccordion = (elem) => {
-      const allPanels = Array.from(document.querySelectorAll(".panel"));
-      const allAccordion = Array.from(document.querySelectorAll(".accordion"));
 
-      if (!elem.parentElement.classList.contains("active")) {
-        allAccordion.forEach((acc) => {
-          acc.classList.remove("active");
-        });
-        elem.parentElement.classList.add("active");
-        allPanels.forEach(function (elem) {
-          elem.style.maxHeight = null;
-        });
-        let activePanel = elem.parentElement.nextElementSibling;
-        if (
-          activePanel.id != "skill-panel" &&
-          document.querySelector("#skill-panel")
-        ) {
-          let skillBars = Array.from(
-            document.querySelectorAll("#skill-percent")
-          );
-          skillBars.forEach((elem) => {
-            elem.style.width = "0";
-          });
-        }
-        activePanel.style.maxHeight = activePanel.scrollHeight + "px";
-      }
-    };
-  </script>
 
-  <script>
-    let html = document.querySelector("html");
-    let theme = window.localStorage.getItem("theme");
 
-    const setTheme = (theme) => {
-      html.classList.remove("light");
-      if (theme === "dark") {
-        html.classList.add("dark");
-        window.localStorage.setItem("theme", "dark");
-      } else {
-        html.classList.remove("dark");
-        window.localStorage.setItem("theme", "light");
-      }
-      fixThemeToggleIcon(theme);
-    };
 
-    const fixThemeToggleIcon = (theme) => {
-      let themeToggle = document.querySelector(".theme-toggle");
-      if (themeToggle) {
-        if (theme === "dark") {
-          themeToggle.classList.remove("fa-moon");
-          themeToggle.classList.add("fa-sun");
-        } else {
-          themeToggle.classList.remove("fa-sun");
-          themeToggle.classList.add("fa-moon");
-        }
-      }
-    };
+<meta name="generator" content="Hugo 0.149.0">
 
-    if (theme == null) {
-      if (html.classList.contains("dark")) {
-        theme = "dark";
-      } else if (html.classList.contains("light")) {
-        theme = "light";
-      } else {
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-        if (prefersDark) {
-          theme = "dark";
-        } else {
-          theme = "light";
-        }
-      }
-    }
+    
+    <meta property="og:url" content="https://edgarej.github.io/blog/2019/2019-12-04-conceptartorg-where-art-thou/">
+  <meta property="og:site_name" content="E.J.&#39;s Portfolio">
+  <meta property="og:title" content="Conceptart.org Where Art Thou">
+  <meta property="og:description" content="Note: This article was originally published in an earlier version of my personal website. This article has been edited for republication in this website.
+Why is it that I love art prompts so much instead of pursuing my own ideas? Why do I love art challenges but HATE spec work?
+By the time I publish this article, Conceptart.org had been offline for close to six months. The forum went offline at the end of 2019’s summer. I miss the place. Conceptart.org was probably the website I was most active with compared to any other art social media place/forum. I am a member of other art forums/sites longer than I have ever been a member of Conceptart.org, but that website was the forum that defined my art practice today. Conceptart.org was the first site to entice me to join art challenges every day.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2019-12-04T21:50:43-05:00">
+    <meta property="article:modified_time" content="2019-12-04T21:50:43-05:00">
+    <meta property="article:tag" content="Article">
+    <meta property="article:tag" content="Artnotes">
+    <meta property="article:tag" content="Journal">
 
-    setTheme(theme);
 
-    const toggleTheme = () => {
-      html.classList.contains("dark") ? setTheme("light") : setTheme("dark");
-    };
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Conceptart.org Where Art Thou">
+  <meta name="twitter:description" content="Note: This article was originally published in an earlier version of my personal website. This article has been edited for republication in this website.
+Why is it that I love art prompts so much instead of pursuing my own ideas? Why do I love art challenges but HATE spec work?
+By the time I publish this article, Conceptart.org had been offline for close to six months. The forum went offline at the end of 2019’s summer. I miss the place. Conceptart.org was probably the website I was most active with compared to any other art social media place/forum. I am a member of other art forums/sites longer than I have ever been a member of Conceptart.org, but that website was the forum that defined my art practice today. Conceptart.org was the first site to entice me to join art challenges every day.">
 
-    window.onload = () => {
-      fixThemeToggleIcon(theme);
 
-      let defaultActivePanel = document.querySelector(".accordion.active");
-      if (defaultActivePanel) {
-        defaultActivePanel.nextElementSibling.style.maxHeight =
-          defaultActivePanel.nextElementSibling.scrollHeight + "px";
-      }
-    };
+    
 
-    window.onresize = () => {
-      let defaultActivePanel = document.querySelector(".accordion.active");
-      if (defaultActivePanel) {
-        defaultActivePanel.nextElementSibling.style.maxHeight =
-          defaultActivePanel.nextElementSibling.scrollHeight + "px";
-      }
-    };
-  </script>
+    <link rel="canonical" href="https://edgarej.github.io/blog/2019/2019-12-04-conceptartorg-where-art-thou/">
+    <link href="/style.min.7f14ffa85f7264afb13d126fffdc3651116d1d373a791cba8a5ac13fce9ed9ce.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://edgarej.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+    <meta name="color-scheme" content="light dark">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+    
+      
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    
 </head>
+<body data-theme = "dark" class="notransition">
 
-  <body class="h-screen p-2 m-auto max-w-4xl flex flex-col bg-[url(/images/background-white.png)] dark:bg-[url(/images/background-gray.png)] bg-repeat bg-fixed bg-center">
-    
-    <header
-  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-700 dark:border-gray-300 justify-between"
->
-  <div>
-    
-    <a class="nav-menu-item" href="https://edgarej.github.io/">Home</a>
-    <a class="nav-menu-item" href="/blog">Journal</a>
-  </div>
-  <div>
-    <a class="mr-4" href="/search">
-      <i class="fas fa-search"></i>
-    </a>
-    
-    <i
-      class="fas fa-sun theme-toggle text-orange-500 hover:text-orange-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
-      onclick="toggleTheme()"
-    ></i>
-  </div>
-</header>
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://edgarej.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/">
+                        Journal
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Conceptart.org Where Art Thou</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2019-12-04T21:50:43-05:00" itemprop="datePublished"> December 4, 2019 </time>
+                </div>
+                
+            </header>
+            
 
 
+            
+            
+                Journal Entry<br>
+            
+            
+                
+                    <a href="/tags/article" class="tag">article</a>
+                
+                    <a href="/tags/artnotes" class="tag">artnotes</a>
+                
+                    <a href="/tags/journal" class="tag">journal</a>
+                
+             
 
-
-
-    
-    <main class="grow">
-
-<div class="prose prose-stone dark:prose-invert max-w-none">
-  <div class="mb-3">
-    <h1 class="top-h1">Conceptart.org Where Art Thou</h1>
-    
-    <p class="mb-1">December 4, 2019<br>
-      
-        Journal Entry</p>
-      
-      
-        <a href="/tags/article">article</a>
-      
-        <a href="/tags/artnotes">artnotes</a>
-      
-        <a href="/tags/journal">journal</a>
-      
-    <br>
-  </div>
-  <div class="content">
-    <p><em><strong>Note:</strong></em> This article was originally published in an earlier version of my personal website. This article has been edited for republication in this website.</p>
+            <div class="page-content">
+                <p><em><strong>Note:</strong></em> This article was originally published in an earlier version of my personal website. This article has been edited for republication in this website.</p>
 <blockquote>
 <p>Why is it that I love art prompts so much instead of pursuing my own ideas?
 Why do I love art challenges but HATE spec work?</p></blockquote>
 <p>By the time I publish this article, Conceptart.org had been offline for close to six months. The forum went offline at the end of 2019’s summer. I miss the place. Conceptart.org was probably the website I was most active with compared to any other art social media place/forum. I am a member of other art forums/sites longer than I have ever been a member of Conceptart.org, but that website was the forum that defined my art practice today. Conceptart.org was the first site to entice me to join art challenges every day.</p>
 <p>Missing the place got me to thinking about the constant availability of art prompts in the site. I realize now that almost the totality of my current artwork is governed by art prompts and art challenges. It has been a long time since I had innovated with my own ideas.</p>
-
-
-
-<figure
-  id="figure-1"
-  class="mt-4 pt-2 text-center flex flex-col justify-center items-center"
->
-  <img
-    class="rounded-sm"
-    src="paparazzi.jpg"
-    alt="Painting of a robot and his human girlfriend"
-    style="max-width: 90%; max-height: 95vh; min-width: 250px; min-height: 250px !important;"
-  />
-  
-  <figcaption class="mt-2">
-    
-    <em>Painting of a robot and his human girlfriend</em>
-  </figcaption>
-  
+<figure><img src="/blog/2019/2019-12-04-conceptartorg-where-art-thou/paparazzi.jpg"
+    alt="Painting of a robot and his human girlfriend"><figcaption>
+      <p>Painting of a robot and his human girlfriend</p>
+    </figcaption>
 </figure>
 
 <p>The image above is part of a series of “robot paintings” I was working on back in the day. These paintings are about the last set of artwork I remember as being “original” in thought. I define “original” very loosely here, given that being “original” is really difficult in today’s art world. I defined the paintings “original” since I didn’t have a prompt to get me to paint robots. I just painted robots because I wanted to paint them… no art prompts needed.</p>
-<p>There is absolutely nothing wrong with art prompts/challenges though. In fact, I love them more now than pursuing some of my own ideas. I love the challenge of interpreting the prompt. Some prompts can get downright wacky I can’t think of a way to illustrate it. Those prompts end up feeling like a puzzle of sorts. Sometimes I misinterpret the prompt, which gives hilarious results at times.</p>
+<p>There is absolutely nothing wrong with art prompts/challenges though. In fact, I love them more now than pursuing some of my own ideas. I love the challenge of interpreting the prompt. Some prompts can get downright wacky I can’t think of a way to illustrate it. Those prompts end up feeling like a puzzle of sorts. Sometimes I misinterpret the prompt, which gives hilarious results at times like my mishap last week;</p>
+<figure><img src="/blog/2019/2019-12-04-conceptartorg-where-art-thou/oasis.jpg"
+    alt="Painting of a rock band"><figcaption>
+      <p>I was supposed to draw AN Oasis, not THE Oasis.</p>
+    </figcaption>
+</figure>
+
 <p>But more importantly, and above all, I love prompts because of the feeling of “community” that it gives. When I join an art prompt/art challenge, I become part of something that is more than me… I’m not just one artist creating artwork, I’m one of many… an army of creators. It’s family, yah know?</p>
 <p>So yeah… even though I still have my own ideas that I want to pursue (I still need to finish that children’s book and create more Pinoy paintings!), art prompts and art challenges have become part of my artistic journey… a very important part of my journey. I honestly can’t think of ever passing a day without working on an artwork that is a challenge from the online art community.</p>
 <p>With that being said, I am off to create!</p>
-<h3 id="a-note-about-spec-work-and-art-tests">A Note About Spec Work and Art Tests</h3>
+<h2 id="a-note-about-spec-work-and-art-tests">A Note About Spec Work and Art Tests</h2>
 <p><a href="https://graphicartistsguild.org/when-a-design-contest-is-not-a-contest/">The Graphic Artists Guild</a> and <a href="https://www.aiga.org/position-spec-work">The American Institute of Graphic Arts</a> and practically every Art and Design Organization are immensely against Spec Work. They are absolutely right in taking a strong stance against such practice. Spec work, at its very core, demeans and belittles the artist. Spec work basically asks for free artwork without having to pay the artist. This is obviously wrong. The problem with Spec Work though is that it typically looks like an art prompt/art challenge. For a beginner, it is sometimes difficult to decipher which is which.</p>
 <p>Many articles have been written about the subject, so I don’t need to write a great deal about it. The simplest advice I can give a beginner when doing art prompts/art challenges is to ask themselves “who will own the rights to the images after the prompt/contest/challenge is done?” If the image rights are owned by the “contest sponsor,” THEN AVOID THESE CONTESTS AT ALL COSTS!!! Those contests are SPEC WORK disguising themselves as something else.</p>
 <p>A good example of a legitimate challenge is the Character Design Challenge hosted by <a href="https://characterdesignreferences.com/">https://characterdesignreferences.com/</a>. It is stated in their challenge FAQ that the submitting artist will always be the rights holder of the submitted image, not the design sponsor. This is what a beginning artist should look for, an explicitly mentioned statement that validates the ownership of the image. There are other telltale signs that will indicate whether a contest is Spec work or not. I am not going to cover any of them. I’m just going to focus on the rights issue. I think this is the most important telltale sign if a contest is Spec work or not. If the “contest” states that the image ownership belongs to the artist, then the contest is legit. If the “contest” states that the image ownerships belongs to the “contest sponsors,” then this is Spec work. The latter scenario means that the contest sponsors can benefit from an artist’s work without paying the artist. The former scenario means that the contest sponsor can not benefit from an artist’s work without paying the artist.</p>
 <p>This rule-of-thumb can also be applied to art tests. Valid companies use “art tests” to see if the ones they are hiring really are artists. These kinds of “art tests” are fine. But be forewarned that there are impostors out there pretending to be legit companies asking potential employees for “art tests” so that they can get free artwork without having to pay the artist. If a beginning artist finds themselves in this situation, always clarify with the “employer” what their aim for the art test is and who gets to own the image rights afterward. If the “employer” says they will own the image rights, then avoid doing any work for them.</p>
 <p>This is pretty much all I can say on this matter. If anyone who happens to read this wants to know more information, then check the <a href="https://www.aiga.org/">AIGA</a> and the <a href="https://graphicartistsguild.org/">GAG</a> websites. They have tons of information regarding the subject matter.</p>
 
-  </div>
+            </div>
+        </article></main>
 </div>
-
-<br>
-<div class="flex flex-row justify-around my-2">
-  <h3 class="mb-1 mt-1 text-left mr-4">
-    
-    
-    <a
-      href="/blog/2020/2020-01-18-the-long-grind-vs-speed-painting/"
-      title="The Long Grind vs Speed Painting"
-    >
-      <i class="nav-menu fas fa-chevron-circle-left"></i>
-    </a>
-    
-    Newer Posts
-  </h3>
-  <h3 class="mb-1 mt-1 text-left ml-4">
-    Older Posts
-    
-    
-    <a
-      href="/blog/2019/2019-11-25-simplicity-rules/"
-      title="Simplicity Rules"
-    >
-      <i class="nav-menu fas fa-chevron-circle-right"></i>
-    </a>
-    
-  </h3>
-</div>
-
-
-    </main>
-    
-    <footer class="text-sm text-center border-t border-gray-500  py-6 ">
-  <p class="markdownify">Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
-  <p >
-    <i>
-      <a href="https://github.com/darshanbaral/aafu">
-        Aafu
-      </a>
-    </i>
-    by
-    <a href="https://www.darshanbaral.com/">
-      Darshan.
-    </a>
-  </p>
-  
-  <p>
-    Theme modified by edgarej. 
-  </p>
-
-  
-</footer>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
 
     
 
+    <small class="footer_copyright">
+        © 2025 Edgar E.J..
+        <br>
+        Template by <a href="https://github.com/hugo-sid/hugo-blog-awesome">Sidharth R.</a> Powered by <a href="https://gohugo.io/">Hugo.</a><br> 
+        Theme modified by ChatGPT and edgarej.
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
     
-    <script src="js/lightbox-plus-jquery.js"></script>
-  </body>
+
+
+
+
+
+
+    
+    <script src="https://edgarej.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
 </html>
